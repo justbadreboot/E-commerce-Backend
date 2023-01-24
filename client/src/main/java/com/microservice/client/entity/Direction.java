@@ -12,7 +12,7 @@ public class Direction {
     private Integer id;
 
     private String city;
-    private String state;
+    private Integer state;
     private String sector;
     private String postalCode;
     private String mainStreet;
