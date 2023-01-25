@@ -14,17 +14,19 @@ public class Landing {
 
     private String name;
 
+    @Lob
     private String description;
 
+    @Lob
     private String address;
 
+    @Lob
     private String mission;
 
+    @Lob
     private String vision;
 
     private String phone;
-
-
 
 
 }
