@@ -1,13 +1,13 @@
-package com.microservice.bill;
+package com.microservice.invoice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BillApplication {
+public class InvoiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BillApplication.class, args);
+		SpringApplication.run(InvoiceApplication.class, args);
 	}
 
 }
