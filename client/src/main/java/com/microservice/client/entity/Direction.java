@@ -10,7 +10,6 @@ public class Direction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String city;
     private Integer state;
     private String sector;

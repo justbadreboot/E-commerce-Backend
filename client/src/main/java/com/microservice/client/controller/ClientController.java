@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 public class ClientController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createPatient(@Valid @RequestBody Client client, BindingResult result) {
+    public ResponseEntity<?> createClient(@Valid @RequestBody Client client, BindingResult result) {
         if(result.hasErrors()) {
             return validate(result);
         }

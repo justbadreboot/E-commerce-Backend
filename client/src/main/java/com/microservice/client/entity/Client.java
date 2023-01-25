@@ -2,6 +2,8 @@ package com.microservice.client.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -18,5 +20,9 @@ public class Client {
     private String document;
 
     private String phone;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private List<Direction> directions = new ArrayList<>();
 
 }
