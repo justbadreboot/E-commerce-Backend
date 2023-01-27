@@ -14,10 +14,6 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @OneToMany(mappedBy = "invoice")
-    private List<InvoiceDetail> details = new ArrayList<>();
-
     private Integer number;
     private LocalDateTime date;
     private Double subtotal;
@@ -26,5 +22,7 @@ public class Invoice {
     private String clientLastName;
     private String clientPhone;
     private String clientDocument;
+    @OneToMany(mappedBy = "invoice")
+    private List<InvoiceDetail> details = new ArrayList<>();
 
 }

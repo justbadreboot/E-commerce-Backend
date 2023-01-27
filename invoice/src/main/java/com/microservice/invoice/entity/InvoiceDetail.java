@@ -1,5 +1,6 @@
 package com.microservice.invoice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.microservice.invoice.InvoiceApplication;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class InvoiceDetail {
     private Integer id;
 
     @ManyToOne
+    @JsonIgnore
     private Invoice invoice;
     private String productName;
     private String productDescription;
