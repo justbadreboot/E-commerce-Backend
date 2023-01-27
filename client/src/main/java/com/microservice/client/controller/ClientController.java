@@ -22,7 +22,7 @@ public class ClientController {
     private ClientService service;
 
     @GetMapping
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<?> findAllClients(){
         List<Client> clients = service.findAll();
         if(clients.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not clients yet");
@@ -31,7 +31,7 @@ public class ClientController {
     }
 
     @GetMapping("/{clientId}")
-    public ResponseEntity<?> findById(@PathVariable("clientId") @Min(1) int clientId){
+    public ResponseEntity<?> findClientById(@PathVariable("clientId") @Min(1) int clientId){
         Client clientFound = service.findById(clientId);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
@@ -48,7 +48,7 @@ public class ClientController {
     }
 
     @PutMapping("/{clientId}")
-    public ResponseEntity<?> edit(@Valid @RequestBody Client client, BindingResult result, @PathVariable int clientId){
+    public ResponseEntity<?> editClient(@Valid @RequestBody Client client, BindingResult result, @PathVariable int clientId){
         if(result.hasErrors()) {
             return validate(result);
         }

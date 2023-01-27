@@ -34,7 +34,7 @@ public class DirectionController {
     }
 
     @GetMapping("/direction/{id}")
-    public ResponseEntity<?> findById(@PathVariable("id") Integer id){
+    public ResponseEntity<?> findDirectionById(@PathVariable("id") Integer id){
         Direction directionFound =  directionService.findById(id);
         if(directionFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Direction not found");
@@ -65,7 +65,6 @@ public class DirectionController {
     @DeleteMapping("/direction/{id}")
     public ResponseEntity<?> deleteDirection(@PathVariable("id") Integer id) {
         directionService.remove(id);
-
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("");
     }
 
