@@ -1,5 +1,6 @@
 package com.microservice.invoice.entity;
 
+import com.microservice.invoice.InvoiceApplication;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,6 +12,9 @@ public class InvoiceDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @ManyToOne
+    private Invoice invoice;
     private String productName;
     private String productDescription;
     private Integer quantity;
