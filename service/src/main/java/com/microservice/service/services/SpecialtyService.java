@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SpecialtyService {
 
-    Specialty create(Specialty specialty);
+    Specialty save(Specialty specialty);
     List<Specialty> findAll();
     Specialty findById(Integer id);
     Specialty edit(Specialty specialty);

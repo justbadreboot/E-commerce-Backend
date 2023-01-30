@@ -36,7 +36,7 @@ public class ClientController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(service.findById(clientId));
+        return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
     @PostMapping

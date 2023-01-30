@@ -15,7 +15,7 @@ public class SpecialtyServiceImpl implements SpecialtyService{
     @Autowired
     private SpecialtyRepository specialtyRepository;
     @Override
-    public Specialty create(Specialty specialty) {
+    public Specialty save(Specialty specialty) {
         return specialtyRepository.save(specialty);
     }
 
