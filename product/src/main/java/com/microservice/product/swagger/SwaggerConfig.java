@@ -26,7 +26,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo(){
         return new ApiInfo(
-                "Endpoints E-commerce LandingPage",
+                "Endpoints E-commerce Microservice Product",
                 "Al momento de colocar el token para las APIs privadas recuerde colocar la palabra Bearer antes del token",
                 "1",
                 "Términos de servicio",
@@ -44,7 +44,7 @@ public class SwaggerConfig {
                 .securityContexts(Arrays.asList(securityContext()))
                 .securitySchemes(Arrays.asList(apiKey()))
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.microservice.landing.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.microservice.product.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
