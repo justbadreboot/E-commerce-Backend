@@ -42,6 +42,7 @@ public class Order {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "orderDetails_id", nullable = false)
-    private Set<OrderDetails> orderDetails;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Set<OrderDetails> orderDetails = new HashSet<>();
 
 }
