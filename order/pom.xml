@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.microservice</groupId>
-    <artifactId>product</artifactId>
+    <artifactId>order</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>product</name>
-    <description>product</description>
+    <name>order</name>
+    <description>order</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -41,6 +41,11 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
@@ -50,11 +55,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
