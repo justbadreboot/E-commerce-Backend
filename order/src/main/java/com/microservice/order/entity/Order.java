@@ -40,8 +40,8 @@ public class Order {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private PaymentState paymentState;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "orderDetails_id", nullable = false)
-    private Set<OrderDetails> orderDetails = new HashSet<>();
+    private Set<OrderDetails> orderDetails;
 
 }
