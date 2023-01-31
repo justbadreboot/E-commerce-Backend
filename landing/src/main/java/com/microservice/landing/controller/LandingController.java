@@ -25,8 +25,8 @@ public class LandingController {
     }
 
 
-    @PutMapping("{id}")
-    public ResponseEntity<?>editInfo(@RequestBody Landing landing, @RequestParam Integer id){
+    @PutMapping("/{id}")
+    public ResponseEntity<?>editInfo(@RequestBody Landing landing, @RequestParam(value = "id")Integer id){
         Optional<Landing> edit = landingService.editInfoById(id);
         if (edit.isPresent()){
             Landing landingDB = edit.get();

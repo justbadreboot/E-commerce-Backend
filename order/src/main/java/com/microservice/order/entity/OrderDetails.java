@@ -1,5 +1,6 @@
 package com.microservice.order.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,10 @@ public class OrderDetails {
     private Integer amount;
 
     private Double price;
+
+    @ManyToOne
+    @JsonIgnore
+    private Order order;
 
 
 }

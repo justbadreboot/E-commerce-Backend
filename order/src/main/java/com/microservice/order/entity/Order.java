@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "ordersKrug")
+@Table(name = "krugorders")
 @Data
 public class Order {
 
@@ -40,9 +40,7 @@ public class Order {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private PaymentState paymentState;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderDetails_id", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Set<OrderDetails> orderDetails = new HashSet<>();
+    @OneToMany(mappedBy = "order")
+    private List<OrderDetails> orderDetails = new ArrayList<>();
 
 }
