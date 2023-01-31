@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/landing")
+@CrossOrigin(value = "*")
 public class LandingController {
     @Autowired
     private LandingService landingService;

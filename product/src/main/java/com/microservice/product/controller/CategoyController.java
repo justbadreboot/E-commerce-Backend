@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/category")
+@CrossOrigin(value = "*")
 public class CategoyController {
 
     @Autowired

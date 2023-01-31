@@ -13,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/order")
+@CrossOrigin(value = "*")
 public class OrderController {
     @Autowired
     private OrderService orderService;
