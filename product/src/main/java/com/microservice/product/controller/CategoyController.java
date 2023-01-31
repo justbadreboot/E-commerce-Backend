@@ -44,6 +44,7 @@ public class CategoyController {
             Category categoryDB = categoryOptional.get();
             categoryDB.setName(category.getName());
             categoryDB.setDescription(category.getDescription());
+            categoryDB.setImage(category.getImage());
 
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(categoryService.saveCategory(categoryDB));
         }
