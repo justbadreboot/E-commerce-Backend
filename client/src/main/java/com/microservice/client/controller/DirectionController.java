@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(value = "*")
 @RequestMapping("/api")
 public class DirectionController {
 
