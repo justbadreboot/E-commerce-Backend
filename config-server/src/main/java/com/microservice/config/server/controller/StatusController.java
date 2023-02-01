@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/config")
+@RequestMapping("/api/ping")
 public class StatusController {
     @GetMapping
     public String state(){
-        return "Actually Works";
+        return "Config Server Actually Works Fine";
     }
 
 }
