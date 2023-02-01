@@ -35,12 +35,12 @@ public class ServiceController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createService(Service srv){
+    public ResponseEntity<?> createService(@RequestBody Service srv){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(srv));
     }
 
     @PutMapping
-    public ResponseEntity<?> editService(Service srv){
+    public ResponseEntity<?> editService(@RequestBody Service srv){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.update(srv));
     }
 

@@ -35,12 +35,12 @@ public class DoctorController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createDoctor(Doctor doctor){
+    public ResponseEntity<?> createDoctor(@RequestBody Doctor doctor){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctor));
     }
 
     @PutMapping
-    public ResponseEntity<?> editDoctor(Doctor doctor){
+    public ResponseEntity<?> editDoctor(@RequestBody Doctor doctor){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctor));
     }
 

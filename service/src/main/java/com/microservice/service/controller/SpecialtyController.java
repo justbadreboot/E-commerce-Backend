@@ -35,12 +35,12 @@ public class SpecialtyController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createSpecialty(Specialty specialty){
+    public ResponseEntity<?> createSpecialty(@RequestBody Specialty specialty){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(specialty));
     }
 
     @PutMapping
-    public ResponseEntity<?> editSpecialty(Specialty specialty){
+    public ResponseEntity<?> editSpecialty(@RequestBody Specialty specialty){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.edit(specialty));
     }
 
