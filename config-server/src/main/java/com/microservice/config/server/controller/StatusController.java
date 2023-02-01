@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/ping")
 public class StatusController {
     @GetMapping
-    public String state(){
+    public String sendResponse(){
         return "Config Server Actually Works Fine";
     }
 
