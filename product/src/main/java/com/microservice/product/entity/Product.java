@@ -1,5 +1,6 @@
 package com.microservice.product.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
@@ -23,8 +24,8 @@ public class Product {
     private Double size;
     private Integer porcentajeDescuento;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "promotion_id", nullable = true)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "promotion_id", nullable = true, insertable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Promotion promotion;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

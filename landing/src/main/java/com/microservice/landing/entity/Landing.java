@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Table
 @Entity
@@ -28,6 +29,9 @@ public class Landing {
     private String vision;
 
     private String phone;
+
+    @Email
+    private String email;
 
 
 }

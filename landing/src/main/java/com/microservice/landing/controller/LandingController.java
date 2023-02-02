@@ -37,6 +37,7 @@ public class LandingController {
             landingDB.setMission(landing.getMission());
             landingDB.setVision(landing.getVision());
             landingDB.setPhone(landing.getPhone());
+            landingDB.setEmail(landing.getEmail());
             return ResponseEntity.status(HttpStatus.CREATED).body(landingRepository.save(landingDB));
         }
         return ResponseEntity.notFound().build();
