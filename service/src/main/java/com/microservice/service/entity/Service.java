@@ -1,5 +1,6 @@
 package com.microservice.service.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,5 +15,9 @@ public class Service {
     private String name;
     private String description;
     private String price;
+    @OneToOne
+    @JoinColumn(name = "specialty_id")
+    @JsonIgnore
+    private Specialty specialty;
 
 }

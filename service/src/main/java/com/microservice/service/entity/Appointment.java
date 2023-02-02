@@ -1,7 +1,7 @@
 package com.microservice.service.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -13,11 +13,14 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer clientId;
-    private Integer serviceId;
     private LocalDateTime date;
     private Double price;
     private String duration;
     private String reason;
+    @ManyToOne
+    @JoinColumn(name = "service_id")
+    @JsonIgnore
+    private Service service;
 
 
 }
