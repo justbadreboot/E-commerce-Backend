@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table
@@ -23,6 +24,7 @@ public class Product {
     private Double weight;
     private Double size;
     private Integer porcentajeDescuento;
+    private Date expiration;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "promotion_id", nullable = true, insertable = false)

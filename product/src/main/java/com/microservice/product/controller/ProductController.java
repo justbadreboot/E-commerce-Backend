@@ -71,6 +71,7 @@ public class ProductController {
             productBD.setWeight(product.getWeight());
             productBD.setSize(product.getSize());
             productBD.setPorcentajeDescuento(product.getPorcentajeDescuento());
+            productBD.setExpiration((product.getExpiration()));
             productBD.setCategory(product.getCategory());
             productBD.setPromotion(product.getPromotion());
 
