@@ -3,9 +3,11 @@ package com.microservice.service.controller;
 import com.microservice.service.entity.Appointment;
 import com.microservice.service.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/appointment")
@@ -15,28 +17,39 @@ public class AppointmentController {
     private AppointmentService appointmentService;
 
     @GetMapping
-    public List<Appointment> findAllAppointment(){
-        return appointmentService.findAll();
+    public ResponseEntity<?> findAllAppointment(){
+        List<Appointment> appointments = appointmentService.findAll();
+        if(appointments.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No appointments yet");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(appointments);
     }
 
     @GetMapping("/{id}")
-    public Appointment findAppointmentById(@PathVariable("id") Integer id){
-        return appointmentService.findById(id).get();
+    public ResponseEntity<?> findAppointmentById(@PathVariable("id") Integer id){
+        Optional<Appointment> appointmentFound =  appointmentService.findById(id);
+        if(!appointmentFound.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentFound);
     }
 
     @PostMapping
-    public Appointment createAppointment(@RequestBody Appointment appointment){
-        return appointmentService.save(appointment);
+    public ResponseEntity<?> createAppointment(@RequestBody Appointment appointment){
+        Appointment appointmentAdded = appointmentService.save(appointment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 
     @PutMapping
-    public Appointment editAppointment(@RequestBody Appointment appointment){
-        return appointmentService.update(appointment);
+    public ResponseEntity<?> editAppointment(@RequestBody Appointment appointment){
+        Appointment appointmentEdited = appointmentService.update(appointment);
+        return ResponseEntity.status(HttpStatus.CREATED).body(appointmentEdited);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAppointment(@PathVariable("id") Integer id){
+    public ResponseEntity<?> deleteAppointment(@PathVariable("id") Integer id){
         appointmentService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
