@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Lob;
+import javax.validation.constraints.Email;
 
 @Data
 @AllArgsConstructor
@@ -30,4 +31,7 @@ public class LandingGetDTO {
     private String vision;
 
     private String phone;
+
+    @Email
+    private String email;
 }

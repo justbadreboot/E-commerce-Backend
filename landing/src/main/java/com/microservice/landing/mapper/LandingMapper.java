@@ -13,14 +13,24 @@ import java.util.Optional;
 @Mapper(componentModel = "spring")
 public interface LandingMapper {
 
-
+    LandingGetDTO toLandingDTO (Landing landing);
     //se convierte a un DTO una entidad
-    List<LandingGetDTO> toLandigDTO(List<Landing> landing);
+    //recibe una entidad y lo convierte en un DTO
+    List<LandingGetDTO> toLandigDTOUni(List<Landing> landing);
+
+    //Optional<LandingPostDTO> landingToDtoPost(Optional<Landing> landing);
 
 
 
     //Mapea campos para convertir a una entidad un DTO
-    @Mapping(target = "id", ignore = true)
-    Landing toLandingDto(LandingPostDTO landing);
+    //Recibe un DTO y lo convierte en una entidad
+    //@Mapping(target = "id", ignore = true)
+    //Optional<Landing> dtoToLanding(Optional<LandingPostDTO> landingPostDTO);
+
+
+    Landing dtoToLandingEntity(LandingPostDTO landingPostDTO);
+
+  //  LandingPostDTO landingToDtoPost(Landing landing);
+
 
 }
