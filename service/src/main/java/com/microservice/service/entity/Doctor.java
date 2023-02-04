@@ -17,8 +17,8 @@ public class Doctor {
     private String phone;
     private String email;
     private String address;
-    @ManyToOne
-    @JoinColumn(name = "specialty_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "specialty_id", nullable = false)
     @JsonIgnore
     private Specialty specialty;
 }

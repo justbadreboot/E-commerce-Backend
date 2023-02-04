@@ -1,7 +1,9 @@
 package com.microservice.service.controller;
 
 import com.microservice.service.entity.Doctor;
+import com.microservice.service.entity.Specialty;
 import com.microservice.service.services.DoctorService;
+import com.microservice.service.services.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,22 +13,25 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/doctor")
+@RequestMapping("/api")
 public class DoctorController {
     @Autowired
     private DoctorService service;
 
-    @GetMapping
-    public ResponseEntity<?> findAllDoctors(){
-        List<Doctor> doctors = service.finAll();
+    @Autowired
+    private SpecialtyService specialtyService;
+
+    @GetMapping("/doctor")
+    public ResponseEntity<?> getAllDoctors(){
+        List<Doctor> doctors = service.findAll();
         if(doctors.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not doctors yet");
         }
         return ResponseEntity.status(HttpStatus.OK).body(doctors);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> findDoctorById(@PathVariable("id") Integer id){
+    @GetMapping("/doctor/{id}")
+    public ResponseEntity<?> getDoctorById(@PathVariable("id") Integer id){
         Doctor doctorFound = service.findById(id);
         if(doctorFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor not found");
@@ -34,14 +39,39 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.OK).body(service);
     }
 
-    @PostMapping
-    public ResponseEntity<?> createDoctor(@RequestBody Doctor doctor){
+    @GetMapping("/specialty/{id}/doctor")
+    public ResponseEntity<?> getAllDoctorsByCategory(@PathVariable("id") Integer id){
+        List<Doctor> doctors = service.findBySpecialtyId(id);
+        if(doctors.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not doctors for this specialty");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(doctors);
+    }
+
+    @PostMapping("/specialty/{id}/doctor")
+    public ResponseEntity<?> createDoctor(@PathVariable("id") Integer id,  @RequestBody Doctor doctor){
+        Specialty specialty = specialtyService.findById(id);
+        doctor.setSpecialty(specialty);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctor));
     }
 
-    @PutMapping
-    public ResponseEntity<?> editDoctor(@RequestBody Doctor doctor){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctor));
+    @PutMapping("/specialty/{specialtyId}/doctor{doctorId}")
+    public ResponseEntity<?> editDoctor(@PathVariable("specialtyId") Integer specialtyId,
+                                        @PathVariable("doctorId") Integer doctorId,
+                                        @RequestBody Doctor doctor){
+        Specialty specialtyFound = specialtyService.findById(specialtyId);
+        if(specialtyFound == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");
+        }
+        Doctor doctorEdited = service.findById(doctorId);
+        if(doctorEdited == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor not found");
+        }
+        doctorEdited.setName(doctor.getName());
+        doctorEdited.setPhone(doctor.getPhone());
+        doctorEdited.setEmail(doctor.getEmail());
+        doctorEdited.setAddress(doctor.getAddress());
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctorEdited));
     }
 
     @DeleteMapping("/{id}")

@@ -7,9 +7,10 @@ import java.util.List;
 public interface DoctorService {
 
     Doctor save(Doctor doctor);
-    List<Doctor> finAll();
+    List<Doctor> findAll();
     Doctor findById(Integer id);
     Doctor edit(Doctor doctor);
     void remove(Integer id);
+    List<Doctor> findBySpecialtyId(Integer id);
 
 }

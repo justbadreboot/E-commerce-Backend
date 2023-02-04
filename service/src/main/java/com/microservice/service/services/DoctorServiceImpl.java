@@ -19,7 +19,7 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
-    public List<Doctor> finAll() {
+    public List<Doctor> findAll() {
         return doctorRepository.findAll();
     }
 
@@ -38,4 +38,10 @@ public class DoctorServiceImpl implements DoctorService{
     public void remove(Integer id) {
         doctorRepository.deleteById(id);
     }
+
+    @Override
+    public List<Doctor> findBySpecialtyId(Integer id) {
+        return doctorRepository.findBySpecialtyId(id);
+    }
+
 }
