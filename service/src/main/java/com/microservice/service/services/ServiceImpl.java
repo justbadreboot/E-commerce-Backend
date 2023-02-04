@@ -40,4 +40,9 @@ public class ServiceImpl implements IService {
     public void remove(Integer id) {
         serviceRepository.deleteById(id);
     }
+
+    @Override
+    public List<Service> findBySpecialtyId(Integer id) {
+        return serviceRepository.findBySpecialtyId(id);
+    }
 }

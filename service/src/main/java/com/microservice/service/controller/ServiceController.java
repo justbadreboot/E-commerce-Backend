@@ -1,7 +1,9 @@
 package com.microservice.service.controller;
 
 import com.microservice.service.entity.Service;
+import com.microservice.service.entity.Specialty;
 import com.microservice.service.services.IService;
+import com.microservice.service.services.SpecialtyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +13,16 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/service")
+@RequestMapping("/api")
 public class ServiceController {
 
     @Autowired
     private IService service;
 
-    @GetMapping
+    @Autowired
+    private SpecialtyService specialtyService;
+
+    @GetMapping("/service")
     public ResponseEntity<?> findAllServices(){
         List<Service> services = service.findAll();
         if(services.isEmpty()){
@@ -25,7 +30,7 @@ public class ServiceController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
-    @GetMapping("/{id}")
+    @GetMapping("service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
         Service serviceFound = service.findById(id);
         if(serviceFound == null){
@@ -34,17 +39,36 @@ public class ServiceController {
         return ResponseEntity.status(HttpStatus.OK).body(serviceFound);
     }
 
-    @PostMapping
-    public ResponseEntity<?> createService(@RequestBody Service srv){
+    @GetMapping("/specialty/{id}/service")
+    public ResponseEntity<?> findServiceBySpecialty(@PathVariable("id") Integer id){
+        List<Service> services = service.findBySpecialtyId(id);
+        if(services.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services with this specialty");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(services);
+    }
+
+    @PostMapping("/specialty/{id}/service")
+    public ResponseEntity<?> createService(@PathVariable("id") Integer id, @RequestBody Service srv){
+        Specialty specialtyFound = specialtyService.findById(id);
+        if(specialtyFound == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not exists");
+        }
+        srv.setSpecialty(specialtyFound);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(srv));
     }
 
-    @PutMapping
-    public ResponseEntity<?> editService(@RequestBody Service srv){
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.update(srv));
+    @PutMapping("/service/{serviceId}")
+    public ResponseEntity<?> editService(@PathVariable("serviceId") Integer serviceId,
+                                         @RequestBody Service srv){
+        Service serviceFound = service.findById(serviceId);
+        if(serviceFound == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not exists");
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.update(serviceFound));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("service/{id}")
     public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
         Service serviceFound = service.findById(id);
         if(serviceFound == null){

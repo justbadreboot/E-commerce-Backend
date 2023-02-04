@@ -10,4 +10,6 @@ public interface IService {
     Service findById(Integer id);
     Service update(Service service);
     void remove(Integer id);
+    List<Service> findBySpecialtyId(Integer id);
+
 }
