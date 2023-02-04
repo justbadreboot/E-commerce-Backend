@@ -68,6 +68,7 @@ public class DoctorController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor not found");
         }
         doctorEdited.setName(doctor.getName());
+        doctorEdited.setLastName(doctor.getLastName());
         doctorEdited.setPhone(doctor.getPhone());
         doctorEdited.setEmail(doctor.getEmail());
         doctorEdited.setAddress(doctor.getAddress());
