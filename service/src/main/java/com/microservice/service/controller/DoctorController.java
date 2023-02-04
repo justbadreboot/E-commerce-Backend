@@ -74,7 +74,7 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctorEdited));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/doctor/{id}")
     public ResponseEntity<?> deleteDoctor(@PathVariable("id") Integer id){
         Doctor doctorFound = service.findById(id);
         if(doctorFound == null){
