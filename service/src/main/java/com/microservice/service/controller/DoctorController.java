@@ -51,26 +51,11 @@ public class DoctorController {
     @PostMapping("/specialty/{id}/doctor")
     public ResponseEntity<?> createDoctor(@PathVariable("id") Integer id,  @RequestBody Doctor doctor){
         Specialty specialty = specialtyService.findById(id);
+        if(specialty == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");
+        }
         doctor.setSpecialty(specialty);
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctor));
-    }
-
-    //@PutMapping("/specialty/{specialtyId}/doctor/{doctorId}")
-    @PutMapping("/doctor/{doctorId}")
-    public ResponseEntity<?> editDoctor(
-                                        @PathVariable("doctorId") Integer doctorId,
-                                        @RequestBody Doctor doctor){
-        Doctor doctorEdited = service.findById(doctorId);
-        if(doctorEdited == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor not found");
-        }
-        doctorEdited.setName(doctor.getName());
-        doctorEdited.setLastName(doctor.getLastName());
-        doctorEdited.setDocument(doctor.getDocument());
-        doctorEdited.setPhone(doctor.getPhone());
-        doctorEdited.setEmail(doctor.getEmail());
-        doctorEdited.setAddress(doctor.getAddress());
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(doctorEdited));
     }
 
     @DeleteMapping("/doctor/{id}")
