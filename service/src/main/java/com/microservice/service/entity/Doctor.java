@@ -23,4 +23,5 @@ public class Doctor {
     @JoinColumn(name = "specialty_id", nullable = false)
     @JsonIgnore
     private Specialty specialty;
+
 }
