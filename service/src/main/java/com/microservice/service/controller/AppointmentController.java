@@ -35,15 +35,9 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createAppointment(@RequestBody Appointment appointment){
+    public ResponseEntity<?> createEditAppointment(@RequestBody Appointment appointment){
         Appointment appointmentAdded = appointmentService.save(appointment);
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
-    }
-
-    @PutMapping
-    public ResponseEntity<?> editAppointment(@RequestBody Appointment appointment){
-        Appointment appointmentEdited = appointmentService.update(appointment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(appointmentEdited);
     }
 
     @DeleteMapping("/{id}")

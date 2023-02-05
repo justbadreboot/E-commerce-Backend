@@ -58,16 +58,6 @@ public class ServiceController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(srv));
     }
 
-    @PutMapping("/service/{serviceId}")
-    public ResponseEntity<?> editService(@PathVariable("serviceId") Integer serviceId,
-                                         @RequestBody Service srv){
-        Service serviceFound = service.findById(serviceId);
-        if(serviceFound == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not exists");
-        }
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.update(serviceFound));
-    }
-
     @DeleteMapping("service/{id}")
     public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
         Service serviceFound = service.findById(id);
