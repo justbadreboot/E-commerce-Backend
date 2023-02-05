@@ -49,8 +49,8 @@ public class DirectionController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
+        direction.setClient(clientFound);
         Direction directionToAdd = directionService.save(direction);
-        directionToAdd.setClient(clientFound);
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 

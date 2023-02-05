@@ -2,10 +2,7 @@ package com.microservice.client.entity;
 
 import lombok.Data;
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table
@@ -20,5 +17,4 @@ public class Client {
     @Size(max = 13)
     private String document;
     private String phone;
-
 }
