@@ -1,7 +1,7 @@
-package com.microservice.client.controller;
+package com.microservice.client.controller.command;
 
-import com.microservice.client.entity.Client;
-import com.microservice.client.service.ClientService;
+import com.microservice.client.dto.ClientPostDTO;
+import com.microservice.client.service.command.ClientCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,35 +17,17 @@ import java.util.Map;
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api/client")
-public class ClientController {
+public class ClientCommandController {
 
     @Autowired
-    private ClientService service;
-
-    @GetMapping
-    public ResponseEntity<?> findAllClients(){
-        List<Client> clients = service.findAll();
-        if(clients.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not clients yet");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(clients);
-    }
-
-    @GetMapping("/{clientId}")
-    public ResponseEntity<?> findClientById(@PathVariable("clientId") @Min(1) int clientId){
-        Client clientFound = service.findById(clientId);
-        if(clientFound == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(clientFound);
-    }
+    private ClientCommandService service;
 
     @PostMapping
-    public ResponseEntity<?> createEditClient(@Valid @RequestBody Client client, BindingResult result) {
+    public ResponseEntity<?> createEditClient(@Valid @RequestBody ClientPostDTO clientPostDTO, BindingResult result) {
         if(result.hasErrors()) {
             return validate(result);
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(client));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(clientPostDTO));
     }
 
     @DeleteMapping("/{clientId}")

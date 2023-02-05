@@ -1,5 +1,6 @@
 package com.microservice.client.dto;
 
+import com.microservice.client.entity.Client;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class DirectionPostDTO {
     private String mainStreet;
     private String secondStreet;
     private String houseNumber;
+    private ClientGetDTO clientGetDTO;
 }
