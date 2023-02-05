@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class DirectionDTO {
-
+public class DirectionGetDTO {
     private Integer id;
     private String city;
     private String state;
@@ -19,5 +18,4 @@ public class DirectionDTO {
     private String mainStreet;
     private String secondStreet;
     private String houseNumber;
-
 }
