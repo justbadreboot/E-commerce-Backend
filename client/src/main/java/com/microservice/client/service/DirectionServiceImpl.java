@@ -29,7 +29,12 @@ public class DirectionServiceImpl implements DirectionService{
     }
 
     @Override
-    public void remove(Integer id) {
+    public void delete(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<Direction> findByClientId(Integer id){
+        return repository.findByClientId(id);
     }
 }

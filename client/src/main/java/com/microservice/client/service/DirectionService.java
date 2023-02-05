@@ -8,5 +8,6 @@ public interface DirectionService {
     List<Direction> findAll();
     Direction findById(Integer id);
     Direction save(Direction direction);
-    void remove(Integer id);
+    void delete(Integer id);
+    List<Direction> findByClientId(Integer id);
 }

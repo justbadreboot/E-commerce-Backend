@@ -30,7 +30,7 @@ public class DirectionController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        List<Direction> directions = clientFound.getDirections();
+        List<Direction> directions = directionService.findByClientId(id);
         return ResponseEntity.status(HttpStatus.OK).body(directions);
     }
 
@@ -44,28 +44,19 @@ public class DirectionController {
     }
 
     @PostMapping("/client/{id}/direction")
-    public ResponseEntity<?> createDirection(@Valid @PathVariable("id") Integer id, @RequestBody Direction direction) {
+    public ResponseEntity<?> createEditDirection(@Valid @PathVariable("id") Integer id, @RequestBody Direction direction) {
         Client clientFound = clientService.findById(id);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        clientFound.getDirections().add(direction);
-        Direction dir = directionService.save(direction);
-        return ResponseEntity.status(HttpStatus.CREATED).body(dir);
-    }
-
-    @PutMapping("/direction/{id}")
-    public ResponseEntity<?> editDirection(@PathVariable("id") Integer id, @RequestBody Direction direction){
-        Direction directionFound = directionService.findById(id);
-        if(directionFound == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Direction not found");
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(directionService.save(direction));
+        Direction directionToAdd = directionService.save(direction);
+        directionToAdd.setClient(clientFound);
+        return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
     @DeleteMapping("/direction/{id}")
     public ResponseEntity<?> deleteDirection(@PathVariable("id") Integer id) {
-        directionService.remove(id);
+        directionService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("");
     }
 

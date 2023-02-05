@@ -8,5 +8,5 @@ public interface ClientService {
     List<Client> findAll();
     Client findById(Integer id);
     Client save(Client client);
-    void remove(Integer id);
+    void delete(Integer id);
 }

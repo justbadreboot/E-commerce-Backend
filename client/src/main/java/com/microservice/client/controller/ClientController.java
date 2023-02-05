@@ -41,26 +41,17 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createClient(@Valid @RequestBody Client client, BindingResult result) {
+    public ResponseEntity<?> createEditClient(@Valid @RequestBody Client client, BindingResult result) {
         if(result.hasErrors()) {
             return validate(result);
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(client));
     }
 
-    @PutMapping("/{clientId}")
-    public ResponseEntity<?> editClient(@Valid @RequestBody Client client, BindingResult result, @PathVariable int clientId){
-        if(result.hasErrors()) {
-            return validate(result);
-        }
-        Client clientFound = service.findById(clientId);
-        if(clientFound != null) {
-            clientFound.setFirstName(client.getFirstName());
-            clientFound.setLastName(client.getLastName());
-            clientFound.setPhone(client.getPhone());
-            return ResponseEntity.status(HttpStatus.CREATED).body(service.save(clientFound));
-        }
-        return ResponseEntity.notFound().build();
+    @DeleteMapping("/{clientId}")
+    public ResponseEntity<?> deleteClient(@PathVariable("id") Integer id){
+        service.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Client deleted");
     }
 
     private ResponseEntity<?> validate(BindingResult result) {

@@ -1,5 +1,6 @@
 package com.microservice.client.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
 
@@ -22,5 +23,6 @@ public class Direction {
             optional = false
     )
     @JoinColumn(name = "id_client")
+    @JsonIgnore
     private Client client;
 }
