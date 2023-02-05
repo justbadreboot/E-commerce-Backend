@@ -15,6 +15,7 @@ public class Service {
     private String name;
     private String description;
     private String price;
+    private String image;
     @OneToOne
     @JoinColumn(name = "specialty_id")
     @JsonIgnore
