@@ -2,6 +2,8 @@ package com.microservice.client.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +16,9 @@ public class Client {
     private Integer id;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
+    @Size(max = 13)
     private String document;
     private String phone;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id")
-    private List<Direction> directions = new ArrayList<>();
 
 }

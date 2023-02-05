@@ -13,7 +13,7 @@ public class DirectionDTO {
 
     private Integer id;
     private String city;
-    private Integer state;
+    private String state;
     private String sector;
     private String postalCode;
     private String mainStreet;

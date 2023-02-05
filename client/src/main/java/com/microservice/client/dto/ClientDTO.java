@@ -21,6 +21,4 @@ public class ClientDTO {
     private String lastName;
     private String document;
     private String phone;
-    private List<Direction> directions = new ArrayList<>();
-
 }

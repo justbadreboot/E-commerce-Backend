@@ -11,10 +11,16 @@ public class Direction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String city;
-    private Integer state;
+    private String state;
     private String sector;
     private String postalCode;
     private String mainStreet;
     private String secondStreet;
     private String houseNumber;
+    @ManyToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(name = "id_client")
+    private Client client;
 }
