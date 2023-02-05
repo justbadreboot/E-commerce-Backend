@@ -49,7 +49,7 @@ public class DoctorController {
     }
 
     @PostMapping("/specialty/{id}/doctor")
-    public ResponseEntity<?> createDoctor(@PathVariable("id") Integer id,  @RequestBody Doctor doctor){
+    public ResponseEntity<?> createEditDoctor(@PathVariable("id") Integer id,  @RequestBody Doctor doctor){
         Specialty specialty = specialtyService.findById(id);
         if(specialty == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");

@@ -35,18 +35,8 @@ public class SpecialtyController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createSpecialty(@RequestBody Specialty specialty){
+    public ResponseEntity<?> createEditSpecialty(@RequestBody Specialty specialty){
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(specialty));
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> editSpecialty(@PathVariable("id") Integer id, @RequestBody Specialty specialty){
-        Specialty specialtyToEdit = service.findById(id);
-        if(specialtyToEdit == null ){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");
-        }
-        specialtyToEdit.setName(specialty.getName());
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.edit(specialtyToEdit));
     }
 
     @DeleteMapping("/{id}")
