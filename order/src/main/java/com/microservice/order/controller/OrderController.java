@@ -55,6 +55,7 @@ public class OrderController {
             orderBD.setDate(order.getDate());
             orderBD.setSubtotal(order.getSubtotal());
             orderBD.setTotal(order.getTotal());
+            orderBD.setIdClient(order.getIdClient());
             orderBD.setDeliveryState(order.getDeliveryState());
             orderBD.setPaymentState(order.getPaymentState());
             orderBD.setOrderState(order.getOrderState());

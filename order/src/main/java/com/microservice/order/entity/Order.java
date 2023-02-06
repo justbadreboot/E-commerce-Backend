@@ -23,6 +23,7 @@ public class Order {
 
     private Double subtotal;
 
+    private Integer idClient;
 
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

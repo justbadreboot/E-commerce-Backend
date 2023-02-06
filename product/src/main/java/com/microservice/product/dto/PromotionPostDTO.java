@@ -5,20 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ProductPostDTO {
+public class PromotionPostDTO {
 
     private String name;
     private String description;
-    private Integer stock;
-    private Double pvp;
-    private Double pvd;
-    private String image;
-    private String brand;
-    private Double weight;
-    private Double size;
-    private Integer porcentajeDescuento;
+    private Integer discount;
+    private Date startDate;
+    private Date endDate;
 }

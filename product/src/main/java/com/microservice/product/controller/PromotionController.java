@@ -24,7 +24,7 @@ public class PromotionController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> promotionIdInformation(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> promotionIdInformation(@PathVariable(value = "id") Integer id){
         Optional<Promotion> promotionOptional = promotionService.byId(id);
         if (promotionOptional.isPresent()){
             return ResponseEntity.ok(promotionOptional.get());
@@ -54,7 +54,7 @@ public class PromotionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletePromotion(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> deletePromotion(@PathVariable(value = "id") Integer id){
         Optional<Promotion> promotionOptional = promotionService.byId(id);
         if (promotionOptional.isPresent()){
             promotionService.deletePromotion(id);
