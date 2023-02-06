@@ -35,4 +35,14 @@ public class ClientQueryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
+
+    @GetMapping("filter/{document}")
+    public ResponseEntity<?> findClientByDocument(@PathVariable("document") String document){
+        ClientGetDTO clientFound = service.findbyDocument(document);
+        if(clientFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(clientFound);
+    }
+
 }

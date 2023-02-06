@@ -8,4 +8,5 @@ import java.util.List;
 public interface ClientQueryService {
     List<ClientGetDTO> findAll();
     ClientGetDTO findById(Integer id);
+    ClientGetDTO findbyDocument(String document);
 }
