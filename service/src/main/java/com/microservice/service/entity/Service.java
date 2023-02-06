@@ -1,6 +1,7 @@
 package com.microservice.service.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class Service {
     private String image;
     @OneToOne
     @JoinColumn(name = "specialty_id")
-    @JsonIgnore
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Specialty specialty;
 
 }
