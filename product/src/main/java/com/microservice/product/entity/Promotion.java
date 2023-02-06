@@ -1,5 +1,6 @@
 package com.microservice.product.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,7 +17,15 @@ public class Promotion {
     private String name;
 
     private String description;
+
+    @Column(insertable = false)
     private Integer discount;
     private Date startDate;
     private Date endDate;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "typePromotion_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private PromotionTypes promotionTypes;
+
 }

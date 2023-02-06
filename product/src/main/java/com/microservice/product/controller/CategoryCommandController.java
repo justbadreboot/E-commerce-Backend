@@ -31,7 +31,7 @@ public class CategoryCommandController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteCategory(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> deleteCategory(@PathVariable(value = "id") Integer id){
         Optional<Category> categoryOptional = categoryRepository.findById(id);
         if (categoryOptional.isPresent()){
             categoryCommandService.deleteCategory(id);
@@ -41,7 +41,7 @@ public class CategoryCommandController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editCategory(@RequestParam(value = "id") Integer id,@Valid @RequestBody CategoryPostDTO categoryPostDTO){
+    public ResponseEntity<?> editCategory(@PathVariable(value = "id") Integer id,@Valid @RequestBody CategoryPostDTO categoryPostDTO){
         Optional<Category> categoryOptional = categoryRepository.findById(id);
         if (categoryOptional.isPresent()){
             Category categoryBD = categoryOptional.get();

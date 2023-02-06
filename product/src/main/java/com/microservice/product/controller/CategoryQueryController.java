@@ -22,7 +22,7 @@ public class CategoryQueryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> categoryIdInformation(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> categoryIdInformation(@PathVariable(value = "id") Integer id){
         Optional<Category> categoryOptional = categoryQueryService.byId(id);
         if (categoryOptional.isPresent()){
             return ResponseEntity.ok(categoryOptional.get());

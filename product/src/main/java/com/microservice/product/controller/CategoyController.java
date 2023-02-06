@@ -1,4 +1,4 @@
-package com.microservice.product.controller;
+/*package com.microservice.product.controller;
 
 import com.microservice.product.entity.Category;
 import com.microservice.product.service.CategoryService;
@@ -62,3 +62,6 @@ public class CategoyController {
         return ResponseEntity.notFound().build();
     }
 }
+
+
+ */

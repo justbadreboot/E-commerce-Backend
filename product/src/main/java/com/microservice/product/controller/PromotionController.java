@@ -1,4 +1,4 @@
-package com.microservice.product.controller;
+/*package com.microservice.product.controller;
 
 import com.microservice.product.entity.Promotion;
 import com.microservice.product.service.PromotionService;
@@ -63,3 +63,6 @@ public class PromotionController {
         return ResponseEntity.notFound().build();
     }
 }
+
+
+ */

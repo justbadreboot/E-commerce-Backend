@@ -1,5 +1,6 @@
 package com.microservice.product.controller;
 
+import com.microservice.product.dto.PromotionNewDTO;
 import com.microservice.product.dto.PromotionPostDTO;
 import com.microservice.product.entity.Promotion;
 import com.microservice.product.repository.PromotionRepository;
@@ -23,17 +24,24 @@ public class PromotionCommandController {
     private PromotionRepository promotionRepository;
 
     @PostMapping
-    public ResponseEntity<?> addPromotion(@Valid @RequestBody PromotionPostDTO promotionPostDTO){
-        promotionCommandService.savePromotion(promotionPostDTO);
+    public ResponseEntity<?> addPromotion(@Valid @RequestBody Promotion promotionPostDTO){
+        promotionRepository.save(promotionPostDTO);
+        //promotionCommandService.savePromotion(promotionPostDTO);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editPromotion(@RequestBody PromotionPostDTO promotionPostDTO, @PathVariable(value = "id") Integer id){
+    public ResponseEntity<?> editPromotion(@RequestBody Promotion promotionPostDTO, @PathVariable(value = "id") Integer id){
         Optional<Promotion> optionalPromotion = promotionRepository.findById(id);
         if (optionalPromotion.isPresent()){
             Promotion promotionBD = optionalPromotion.get();
-            promotionCommandService.updatePromotion(promotionBD, promotionPostDTO);
+            promotionBD.setName(promotionPostDTO.getName());
+            promotionBD.setDescription(promotionPostDTO.getDescription());
+            promotionBD.setDiscount(promotionPostDTO.getDiscount());
+            promotionBD.setEndDate(promotionPostDTO.getEndDate());
+            promotionBD.setStartDate(promotionPostDTO.getStartDate());
+            promotionBD.setPromotionTypes(promotionPostDTO.getPromotionTypes());
+            //promotionCommandService.mapperPromotion(promotionBD, promotionPostDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(promotionRepository.save(promotionBD));
         }
         return ResponseEntity.notFound().build();
