@@ -1,5 +1,6 @@
 package com.microservice.client.service.command;
 
+import com.microservice.client.dto.ClientGetDTO;
 import com.microservice.client.dto.DirectionPostDTO;
 import com.microservice.client.entity.Client;
 import com.microservice.client.entity.Direction;
@@ -21,11 +22,11 @@ public class DirectionCommandServiceImpl implements DirectionCommandService {
     private ClientMapper clientMapper;
 
     @Override
-    public Direction save(DirectionPostDTO directionPostDTO) {
-        Client c = clientMapper.clientGetDTOToClient(directionPostDTO.getClient());
-        Direction d = mapper.directionPostDTOToDirection(directionPostDTO);
-        d.setClient(c);
-        return repository.save(d);
+    public Direction save(DirectionPostDTO directionPostDTO, ClientGetDTO clientGetDTO) {
+        Client client = clientMapper.clientGetDTOToClient(clientGetDTO);
+        Direction direction = mapper.directionPostDTOToDirection(directionPostDTO);
+        direction.setClient(client);
+        return repository.save(direction);
     }
     @Override
     public void delete(Integer id) {

@@ -19,5 +19,4 @@ public class DirectionPostDTO {
     private String mainStreet;
     private String secondStreet;
     private String houseNumber;
-    private ClientGetDTO client;
 }

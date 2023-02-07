@@ -31,8 +31,7 @@ public class DirectionCommandController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        directionPostDTO.setClient(clientFound);
-        Direction directionToAdd = directionService.save(directionPostDTO);
+        Direction directionToAdd = directionService.save(directionPostDTO, clientFound);
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
