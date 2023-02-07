@@ -3,10 +3,7 @@ package com.microservice.service.controller.command;
 import com.microservice.service.dto.DoctorGetDTO;
 import com.microservice.service.dto.DoctorPostDTO;
 import com.microservice.service.dto.SpecialtyGetDTO;
-import com.microservice.service.entity.Doctor;
-import com.microservice.service.entity.Specialty;
 import com.microservice.service.services.command.DoctorCommandService;
-import com.microservice.service.services.command.SpecialtyCommandService;
 import com.microservice.service.services.query.DoctorQueryService;
 import com.microservice.service.services.query.SpecialtyQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api")
-public class DoctorController {
+public class DoctorCommandController {
     @Autowired
     private DoctorCommandService doctorCommandService;
 

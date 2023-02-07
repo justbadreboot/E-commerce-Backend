@@ -12,4 +12,5 @@ public interface ServiceMapper {
     ServiceGetDto toServiceDTO(Service srv);
     List<ServiceGetDto> toServicesDTO(List<Service> srvs);
     Service toService(ServicePostDTO srvDTO);
+    Service serviceDtotoService(ServiceGetDto srvDTO);
 }
