@@ -12,4 +12,5 @@ public interface ClientMapper {
     ClientGetDTO clientToClientGetDTO(Client client);
     List<ClientGetDTO> clientsToClientsGetDto(List<Client> clients);
     Client clientPostDTOToClient(ClientPostDTO clientPotsDTO);
+    Client clientGetDTOToClient(ClientGetDTO clientGetDTO);
 }

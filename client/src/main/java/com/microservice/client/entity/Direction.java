@@ -22,7 +22,7 @@ public class Direction {
             fetch = FetchType.LAZY,
             optional = false
     )
-    @JoinColumn(name = "id_client")
+    @JoinColumn(name = "id_client", nullable = false)
     @JsonIgnore
     private Client client;
 }
