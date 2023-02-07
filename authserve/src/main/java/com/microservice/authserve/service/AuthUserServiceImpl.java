@@ -22,6 +22,7 @@ public class AuthUserServiceImpl implements AuthUserService{
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+
     @Autowired
     private JwtProvider jwtProvider;
 
