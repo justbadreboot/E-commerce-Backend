@@ -1,9 +1,12 @@
-package com.microservice.service.controller;
+package com.microservice.service.controller.query;
 
+import com.microservice.service.dto.ServiceGetDto;
 import com.microservice.service.entity.Service;
 import com.microservice.service.entity.Specialty;
-import com.microservice.service.services.IService;
-import com.microservice.service.services.SpecialtyService;
+import com.microservice.service.services.command.ServiceCommand;
+import com.microservice.service.services.command.SpecialtyCommandService;
+import com.microservice.service.services.query.ServiceQuery;
+import com.microservice.service.services.query.SpecialtyQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +17,14 @@ import java.util.List;
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api")
-public class ServiceController {
+public class ServiceQueryController {
 
     @Autowired
-    private IService service;
-
-    @Autowired
-    private SpecialtyService specialtyService;
+    private ServiceQuery service;
 
     @GetMapping("/service")
     public ResponseEntity<?> findAllServices(){
-        List<Service> services = service.findAll();
+        List<ServiceGetDto> services = service.findAll();
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services yet");
         }
@@ -32,7 +32,7 @@ public class ServiceController {
     }
     @GetMapping("service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
-        Service serviceFound = service.findById(id);
+        ServiceGetDto serviceFound = service.findById(id);
         if(serviceFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
         }
@@ -41,30 +41,11 @@ public class ServiceController {
 
     @GetMapping("/specialty/{id}/service")
     public ResponseEntity<?> findServiceBySpecialty(@PathVariable("id") Integer id){
-        List<Service> services = service.findBySpecialtyId(id);
+        List<ServiceGetDto> services = service.findBySpecialtyId(id);
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services with this specialty");
         }
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
 
-    @PostMapping("/specialty/{id}/service")
-    public ResponseEntity<?> createService(@PathVariable("id") Integer id, @RequestBody Service srv){
-        Specialty specialtyFound = specialtyService.findById(id);
-        if(specialtyFound == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not exists");
-        }
-        srv.setSpecialty(specialtyFound);
-        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(srv));
-    }
-
-    @DeleteMapping("service/{id}")
-    public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
-        Service serviceFound = service.findById(id);
-        if(serviceFound == null){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
-        }
-        service.remove(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Deleted");
-    }
 }

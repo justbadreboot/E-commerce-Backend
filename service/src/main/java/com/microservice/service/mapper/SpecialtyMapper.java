@@ -11,5 +11,6 @@ import java.util.List;
 public interface SpecialtyMapper {
     SpecialtyGetDTO toSpecialtyDTO(Specialty specialty);
     List<SpecialtyGetDTO> toSpecialtiesDTO(List<Specialty> specialties);
-    SpecialtyPostDTO toSpecialty(SpecialtyPostDTO specialtyDTO);
+    Specialty toSpecialty(SpecialtyPostDTO specialtyDTO);
+    Specialty specialtyGetToSpecialty(SpecialtyGetDTO specialtyDTO);
 }
