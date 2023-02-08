@@ -1,6 +1,7 @@
 package com.microservice.client.controller.command;
 
 import com.microservice.client.dto.ClientGetDTO;
+import com.microservice.client.dto.DirectionGetDTO;
 import com.microservice.client.dto.DirectionPostDTO;
 import com.microservice.client.entity.Client;
 import com.microservice.client.entity.Direction;
@@ -31,7 +32,7 @@ public class DirectionCommandController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        Direction directionToAdd = directionService.save(directionPostDTO, clientFound);
+        DirectionGetDTO directionToAdd = directionService.save(directionPostDTO, clientFound);
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
@@ -41,7 +42,7 @@ public class DirectionCommandController {
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
-        Direction directionToAdd = directionService.save(directionPostDTO, clientFound);
+        DirectionGetDTO directionToAdd = directionService.save(directionPostDTO, clientFound);
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
