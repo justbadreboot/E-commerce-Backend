@@ -30,6 +30,16 @@ public class ServiceQueryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
+
+    @GetMapping("/service/main")
+    public ResponseEntity<?> findMainServices(){
+        List<ServiceGetDto> services = service.findMainService();
+        if(services.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services yet");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(services);
+    }
+
     @GetMapping("service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
         ServiceGetDto serviceFound = service.findById(id);

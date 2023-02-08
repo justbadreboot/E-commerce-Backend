@@ -35,4 +35,9 @@ public class ServiceQueryImpl implements ServiceQuery {
     public List<ServiceGetDto> findBySpecialtyId(Integer id) {
         return serviceMapper.toServicesDTO(serviceRepository.findBySpecialtyId(id));
     }
+
+    @Override
+    public List<ServiceGetDto> findMainService() {
+        return serviceMapper.toServicesDTO(serviceRepository.findTop4ByOrderByPrice());
+    }
 }

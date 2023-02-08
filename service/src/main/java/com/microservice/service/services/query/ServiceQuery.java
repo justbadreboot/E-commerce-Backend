@@ -9,4 +9,5 @@ public interface ServiceQuery {
     List<ServiceGetDto> findAll();
     ServiceGetDto findById(Integer id);
     List<ServiceGetDto> findBySpecialtyId(Integer id);
+    List<ServiceGetDto> findMainService();
 }
