@@ -17,7 +17,7 @@ public class Service {
     private String description;
     private Double price;
     private String image;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "specialty_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Specialty specialty;
