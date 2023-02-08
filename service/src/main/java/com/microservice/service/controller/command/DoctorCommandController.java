@@ -25,7 +25,16 @@ public class DoctorCommandController {
     private SpecialtyQueryService specialtyQueryService;
 
     @PostMapping("/specialty/{id}/doctor")
-    public ResponseEntity<?> createEditDoctor(@PathVariable("id") Integer id,  @RequestBody DoctorPostDTO doctorDto){
+    public ResponseEntity<?> createDoctor(@PathVariable("id") Integer id,  @RequestBody DoctorPostDTO doctorDto){
+        SpecialtyGetDTO specialtyDto = specialtyQueryService.findById(id);
+        if(specialtyDto == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(doctorCommandService.save(doctorDto, specialtyDto));
+    }
+
+    @PutMapping("/specialty/{id}/doctor")
+    public ResponseEntity<?> editDoctor(@PathVariable("id") Integer id,  @RequestBody DoctorPostDTO doctorDto){
         SpecialtyGetDTO specialtyDto = specialtyQueryService.findById(id);
         if(specialtyDto == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not found");

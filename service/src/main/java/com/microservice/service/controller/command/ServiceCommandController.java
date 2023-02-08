@@ -34,6 +34,15 @@ public class ServiceCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(serviceCommand.create(srvDto, specialtyFound));
     }
 
+    @PutMapping("/specialty/{id}/service")
+    public ResponseEntity<?> editService(@PathVariable("id") Integer id, @RequestBody ServicePostDTO srvDto){
+        SpecialtyGetDTO specialtyFound = specialtyQueryService.findById(id);
+        if(specialtyFound == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not exists");
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(serviceCommand.create(srvDto, specialtyFound));
+    }
+
     @DeleteMapping("service/{id}")
     public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
         ServiceGetDto serviceFound = serviceQuery.findById(id);
