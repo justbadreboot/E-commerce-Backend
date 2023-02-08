@@ -20,7 +20,12 @@ public class SpecialtyCommandController {
     private SpecialtyQueryService queryService;
 
     @PostMapping
-    public ResponseEntity<?> createEditSpecialty(@RequestBody SpecialtyPostDTO specialtyDto){
+    public ResponseEntity<?> createSpecialty(@RequestBody SpecialtyPostDTO specialtyDto){
+        return ResponseEntity.status(HttpStatus.CREATED).body(commandService.save(specialtyDto));
+    }
+
+    @PutMapping
+    public ResponseEntity<?> editSpecialty(@RequestBody SpecialtyPostDTO specialtyDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(commandService.save(specialtyDto));
     }
 

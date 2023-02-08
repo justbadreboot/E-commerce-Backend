@@ -24,7 +24,17 @@ public class AppointmentCommandController {
     private ServiceQuery serviceQuery;
 
     @PostMapping("/service/{id}/appointment")
-    public ResponseEntity<?> createEditAppointment(@PathVariable("id") Integer id, @RequestBody AppointmentPostDTO appointmentDto){
+    public ResponseEntity<?> createAppointment(@PathVariable("id") Integer id, @RequestBody AppointmentPostDTO appointmentDto){
+        ServiceGetDto serviceDto = serviceQuery.findById(id);
+        if(serviceDto == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
+        }
+        Appointment appointmentAdded = appointmentService.save(appointmentDto, serviceDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
+    }
+
+    @PutMapping("/service/{id}/appointment")
+    public ResponseEntity<?> editAppointment(@PathVariable("id") Integer id, @RequestBody AppointmentPostDTO appointmentDto){
         ServiceGetDto serviceDto = serviceQuery.findById(id);
         if(serviceDto == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");

@@ -23,7 +23,15 @@ public class ClientCommandController {
     private ClientCommandService service;
 
     @PostMapping
-    public ResponseEntity<?> createEditClient(@Valid @RequestBody ClientPostDTO clientPostDTO, BindingResult result) {
+    public ResponseEntity<?> createClient(@Valid @RequestBody ClientPostDTO clientPostDTO, BindingResult result) {
+        if(result.hasErrors()) {
+            return validate(result);
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(clientPostDTO));
+    }
+
+    @PutMapping
+    public ResponseEntity<?> editClient(@Valid @RequestBody ClientPostDTO clientPostDTO, BindingResult result) {
         if(result.hasErrors()) {
             return validate(result);
         }
