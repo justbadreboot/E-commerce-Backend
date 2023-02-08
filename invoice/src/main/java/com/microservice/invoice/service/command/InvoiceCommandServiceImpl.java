@@ -1,9 +1,12 @@
-package com.microservice.invoice.service;
+package com.microservice.invoice.service.command;
 
+import com.microservice.invoice.dto.InvoicePostDTO;
 import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.entity.InvoiceDetail;
+import com.microservice.invoice.mapper.InvoiceMapper;
 import com.microservice.invoice.repository.InvoiceDetailRepository;
 import com.microservice.invoice.repository.InvoiceRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,30 +17,24 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class InvoiceServiceImpl implements  InvoiceService{
+@AllArgsConstructor
+public class InvoiceCommandServiceImpl implements InvoiceCommandService {
     @Autowired
     private InvoiceRepository invoiceRepository;
 
     @Autowired
     private InvoiceDetailRepository invoiceDetailRepository;
 
-    @Override
-    public List<Invoice> findAll() {
-        return invoiceRepository.findAll();
-    }
+    private InvoiceMapper invoiceMapper;
+
 
     @Override
-    public Optional<Invoice> findById(Integer id) {
-        return invoiceRepository.findById(id);
-    }
-
-    @Override
-    public Invoice save(Invoice invoice) {
-        List<InvoiceDetail> details = invoice.getDetails();
+    public Invoice save(InvoicePostDTO invoiceDto) {
+        List<InvoiceDetail> details = invoiceDto.getDetails();
         List<InvoiceDetail> detailsAdded = new ArrayList<>();
 
-        invoice.setDetails(null);
-        Invoice invoiceAdded =  invoiceRepository.save(invoice);
+        invoiceDto.setDetails(null);
+        Invoice invoiceAdded =  invoiceRepository.save(invoiceMapper.toInvoice(invoiceDto));
 
         for (InvoiceDetail detail: details) {
             detail.setInvoice(invoiceAdded);

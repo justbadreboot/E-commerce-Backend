@@ -23,5 +23,5 @@ public class InvoiceGetDTO {
     private String clientLastName;
     private String clientPhone;
     private String clientDocument;
-    private List<InvoiceDetail> details = new ArrayList<>();
+    private List<InvoiceDetailGetDTO> details;
 }
