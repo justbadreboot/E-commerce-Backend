@@ -11,11 +11,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class InvoiceDetailGetDTO {
-    private Invoice invoice;
     private String productName;
     private String productDescription;
     private Integer quantity;
     private Double price;
     private Double discount;
     private Double total;
+    private Integer invoiceId;
 }

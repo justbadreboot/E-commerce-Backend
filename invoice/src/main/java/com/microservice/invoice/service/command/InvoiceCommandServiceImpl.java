@@ -21,28 +21,9 @@ import java.util.Optional;
 public class InvoiceCommandServiceImpl implements InvoiceCommandService {
     @Autowired
     private InvoiceRepository invoiceRepository;
-
-    @Autowired
-    private InvoiceDetailRepository invoiceDetailRepository;
-
     private InvoiceMapper invoiceMapper;
-
-
     @Override
     public Invoice save(InvoicePostDTO invoiceDto) {
-        List<InvoiceDetail> details = invoiceDto.getDetails();
-        List<InvoiceDetail> detailsAdded = new ArrayList<>();
-
-        invoiceDto.setDetails(null);
-        Invoice invoiceAdded =  invoiceRepository.save(invoiceMapper.toInvoice(invoiceDto));
-
-        for (InvoiceDetail detail: details) {
-            detail.setInvoice(invoiceAdded);
-            detailsAdded.add(detail);
-        }
-        invoiceDetailRepository.saveAll(detailsAdded);
-        invoiceAdded.setDetails(detailsAdded);
-        invoiceRepository.save(invoiceAdded);
-        return invoiceAdded;
+        return invoiceRepository.save(invoiceMapper.toInvoice(invoiceDto));
     }
 }

@@ -1,7 +1,6 @@
 package com.microservice.invoice.entity;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class Invoice {
     private String clientLastName;
     private String clientPhone;
     private String clientDocument;
-    @OneToMany(mappedBy = "invoice")
+    @OneToMany(mappedBy = "invoiceId",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InvoiceDetail> details = new ArrayList<>();
 
 }
