@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class AuthUserServiceImpl implements AuthUserService{
+public class AuthUserServiceImpl{
 
     @Autowired
     private AuthUserRepository authUserRepository;
@@ -23,17 +23,12 @@ public class AuthUserServiceImpl implements AuthUserService{
     private PasswordEncoder passwordEncoder;
 
 
-    @Autowired
-    private JwtProvider jwtProvider;
+   // @Autowired
+   // private JwtProvider jwtProvider;
 
 
 
-    @Override
-    public AuthUserDTO login(AuthUserDTO authUserDTO) {
-        return null;
-    }
-
-    @Override
+  //  @Override
     public AuthUser crear(NewUserDto newUserDto) throws Exception {
         Optional<AuthUser> user = authUserRepository.findByEmail(newUserDto.getEmail());
         if (user.isPresent()){
@@ -46,24 +41,24 @@ public class AuthUserServiceImpl implements AuthUserService{
         return authUserRepository.save(authUser);
     }
 
-    @Override
+  //  @Override
     public TokenDTO userLogin(AuthUserDTO dto) {
         Optional<AuthUser> user = authUserRepository.findByEmail(dto.getEmail());
         if (!user.isPresent()){
             return null;
         }
         if (passwordEncoder.matches(dto.getPassword(), user.get().getPassword())){
-            return new TokenDTO(jwtProvider.createToken(user.get()));
+            return new TokenDTO(JwtProvider.createToken(user.get()));
         }
         return null;
     }
 
-    @Override
+  //  @Override
     public TokenDTO validate(String token, RequestDTO dto){
-        if (!jwtProvider.validate(token, dto)){
+        if (!JwtProvider.validate(token, dto)){
             return null;
         }
-        String email= jwtProvider.getEmailFromUser(token);
+        String email= JwtProvider.getEmailFromUser(token);
         if (!authUserRepository.findByEmail(email).isPresent()){
             return null;
         }

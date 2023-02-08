@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Data
 @Entity
@@ -21,6 +22,7 @@ public class AuthUser {
 
     private String username;
 
+    @Email
     private String email;
 
     private String password;

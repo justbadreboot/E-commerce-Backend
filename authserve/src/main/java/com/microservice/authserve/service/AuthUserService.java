@@ -8,7 +8,7 @@ import com.microservice.authserve.entity.AuthUser;
 
 public interface AuthUserService {
 
-    public AuthUserDTO login(AuthUserDTO authUserDTO);
+    //public AuthUserDTO login(AuthUserDTO authUserDTO);
 
     public AuthUser crear(NewUserDto newUserDto) throws Exception;
 

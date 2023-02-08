@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,4 +23,6 @@ public class ProductPostDTO {
     private Double weight;
     private Double size;
     private Integer porcentajeDescuento;
+    private Date expiration;
+    private Double rating;
 }

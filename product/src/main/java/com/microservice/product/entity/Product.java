@@ -25,6 +25,7 @@ public class Product {
     private Double size;
     private Integer porcentajeDescuento;
     private Date expiration;
+    private Double rating;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "promotion_id", nullable = true, insertable = false)

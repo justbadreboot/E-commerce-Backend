@@ -21,22 +21,14 @@ import java.util.Map;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.JwtParser;
 
-@Component
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+//@Component
 public class JwtProvider {
-
     @Value("${jwt-secret-word}")
     private static String secret;
-
     private static final Key LlAVE_SECRETA = new SecretKeySpec(secret.getBytes(), SignatureAlgorithm.HS256.getJcaName());
-
-
     @Autowired
-    private RouteValidator routeValidator;
-    public String createToken(AuthUser authUser){
+    private static RouteValidator routeValidator;
+    public static String createToken(AuthUser authUser){
         Map<String, Object> claims = new HashMap<>();
         claims = Jwts.claims().setSubject(authUser.getEmail());
         claims.put("id", authUser.getId());
@@ -51,7 +43,7 @@ public class JwtProvider {
                 .compact();
     }
 
-    public boolean validate(String token, RequestDTO dto) {
+    public static boolean validate(String token, RequestDTO dto) {
         try {
             Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build().parseClaimsJwt(token);
         }catch (Exception e) {
@@ -63,12 +55,12 @@ public class JwtProvider {
         return true;
     }
 
-    public String getEmailFromUser(String token){
+    public static String getEmailFromUser(String token){
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
         return parser.parseClaimsJwt(token).getBody().getSubject();
     }
 
-    private boolean isAdmin(String token){
+    private static boolean isAdmin(String token){
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
         return parser.parseClaimsJwt(token).getBody().get("role").equals("admin");
     }

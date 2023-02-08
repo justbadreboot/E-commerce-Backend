@@ -6,6 +6,7 @@ import com.microservice.authserve.dto.RequestDTO;
 import com.microservice.authserve.dto.TokenDTO;
 import com.microservice.authserve.entity.AuthUser;
 import com.microservice.authserve.service.AuthUserService;
+import com.microservice.authserve.service.AuthUserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class AuthUserController {
 
     @Autowired
-    private AuthUserService authUserService;
+    private AuthUserServiceImpl authUserService;
 
 
     @PostMapping("/login")
