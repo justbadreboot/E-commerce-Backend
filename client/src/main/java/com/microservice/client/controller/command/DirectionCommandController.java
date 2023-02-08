@@ -26,7 +26,17 @@ public class DirectionCommandController {
     private ClientQueryService clientService;
 
     @PostMapping("/client/{id}/direction")
-    public ResponseEntity<?> createEditDirection(@Valid @PathVariable("id") Integer id, @RequestBody DirectionPostDTO directionPostDTO) {
+    public ResponseEntity<?> createDirection(@Valid @PathVariable("id") Integer id, @RequestBody DirectionPostDTO directionPostDTO) {
+        ClientGetDTO clientFound = clientService.findById(id);
+        if(clientFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        Direction directionToAdd = directionService.save(directionPostDTO, clientFound);
+        return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
+    }
+
+    @PutMapping("/client/{id}/direction")
+    public ResponseEntity<?> editDirection(@Valid @PathVariable("id") Integer id, @RequestBody DirectionPostDTO directionPostDTO) {
         ClientGetDTO clientFound = clientService.findById(id);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
