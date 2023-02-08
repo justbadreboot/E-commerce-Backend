@@ -19,9 +19,10 @@ public class InvoicePostDTO {
     private LocalDateTime date;
     private Double subtotal;
     private Double total;
+    private Integer clientId;
     private String clientName;
     private String clientLastName;
     private String clientPhone;
     private String clientDocument;
-    private List<InvoiceDetail> details = new ArrayList<>();
+    private List<InvoiceDetailGetDTO> details = new ArrayList<>();
 }

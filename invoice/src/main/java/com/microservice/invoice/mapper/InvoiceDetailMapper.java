@@ -11,7 +11,8 @@ import java.util.List;
 public interface InvoiceDetailMapper {
 
     InvoiceDetailGetDTO toInvoiceDetailDto(InvoiceDetail invoiceDetail);
-    List<InvoiceDetailGetDTO> toInvoiceDetailsDto(List<InvoiceDetailGetDTO> invoiceDetails);
+    List<InvoiceDetailGetDTO> toInvoiceDetailsDto(List<InvoiceDetail> invoiceDetails);
+    List<InvoiceDetail> toInvoiceDetails(List<InvoiceDetailGetDTO> invoiceDetails);
     InvoiceDetail toInvoiceDetail(InvoiceDetailPostDTO invoiceDetailDto);
 
 }

@@ -25,6 +25,15 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(invoices);
     }
 
+    @GetMapping("/invoice/client/{clientId}")
+    public ResponseEntity<?> findAllInvoices(@PathVariable("clientId") Integer clientId){
+        List<InvoiceGetDTO> invoicesDto = invoiceService.findByClientId(clientId);
+        if(invoicesDto.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not invoices for this client");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(invoicesDto);
+    }
+
     @GetMapping("/invoice/{invoiceId}")
     public ResponseEntity<?> findInvoiceById(@RequestParam("invoiceId") Integer id){
         InvoiceGetDTO invoice = invoiceService.findById(id);

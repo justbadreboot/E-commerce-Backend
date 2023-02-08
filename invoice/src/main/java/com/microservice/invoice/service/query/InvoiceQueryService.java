@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface InvoiceQueryService {
     List<InvoiceGetDTO> findAll();
+    List<InvoiceGetDTO> findByClientId(Integer id);
     InvoiceGetDTO findById(Integer id);
 
 }

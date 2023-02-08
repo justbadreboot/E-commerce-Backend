@@ -30,11 +30,16 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     }
 
     @Override
+    public List<InvoiceGetDTO> findByClientId(Integer id) {
+        return invoiceMapper.toInvoicesDto(invoiceRepository.findByClientId(id));
+    }
+
+    @Override
     public InvoiceGetDTO findById(Integer id) {
         Optional<Invoice> invoice = invoiceRepository.findById(id);
         return invoice.map(value -> invoiceMapper.toInvoiceDto(value)).orElse(null);
-
     }
+
 
 
 }
