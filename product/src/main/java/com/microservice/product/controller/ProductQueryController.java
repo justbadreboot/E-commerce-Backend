@@ -35,8 +35,8 @@ public class ProductQueryController {
         //return ResponseEntity.ok(listEntityToDtoMain(products));
         return ResponseEntity.ok(mapper.listEntityToDtoMains(products));
     }
-    @GetMapping("/sameprod")
-    public ResponseEntity<?> sameProducts(@RequestBody Integer id){
+    @GetMapping("/same/category/{id}")
+    public ResponseEntity<?> sameProducts(@PathVariable(value = "id") Integer id){
         List<Product> products = productRepository.productsameCategory(id);
         if (products.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There aren't same products");
