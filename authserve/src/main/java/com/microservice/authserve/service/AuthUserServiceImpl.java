@@ -61,10 +61,13 @@ public class AuthUserServiceImpl{
   //  @Override
     public TokenDTO validate(String token, RequestDTO dto){
         if (!JwtProvider.validate(token, dto)){
+            log.info("entra al if de validacion token");
             return null;
         }
         String email= JwtProvider.getEmailFromUser(token);
+        log.info("obtengo el email del token: {}", email);
         if (!authUserRepository.findByEmail(email).isPresent()){
+            log.info("no existe el email");
             return null;
         }
         return new TokenDTO(token);

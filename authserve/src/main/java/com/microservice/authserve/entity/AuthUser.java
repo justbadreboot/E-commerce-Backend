@@ -28,4 +28,5 @@ public class AuthUser {
     private String password;
 
     private String role;
+
 }

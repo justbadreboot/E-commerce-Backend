@@ -2,6 +2,7 @@ package com.microservice.authserve.security;
 
 import com.microservice.authserve.dto.RequestDTO;
 import com.microservice.authserve.entity.AuthUser;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -51,24 +52,35 @@ public class JwtProvider {
 
     public static boolean validate(String token, RequestDTO dto) {
         try {
-            Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build().parseClaimsJwt(token);
+            //JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+            //parser.parseClaimsJwt(token);
+            //Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build().parseClaimsJwt(token);
+            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+            log.info("Entrando a la validacion, creacion de parseclaim exitosa");
         }catch (Exception e) {
+            log.info("entra a excepcion catch validate");
             return false;
         }
         if (!isAdmin(token) && routeValidator.isAdminPath(dto)){
+            log.info("entra a if, no es admin o no esta en las rutas, agrego una mas para que retorne null si no es repartidor ");
             return false;
         }
+        log.info("retorna un true de provider");
         return true;
     }
 
     public static String getEmailFromUser(String token){
+        log.info("entrando a la validacion del email");
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
-        return parser.parseClaimsJwt(token).getBody().getSubject();
+        log.info("obtener datos de Token {}", parser.parseClaimsJws(token).getBody().getSubject());
+        return parser.parseClaimsJws(token).getBody().getSubject();
     }
 
     private static boolean isAdmin(String token){
+        log.info("pretenddo entrar a la validacion de admin");
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
-        return parser.parseClaimsJwt(token).getBody().get("role").equals("ADMIN");
+        log.info("verificar si es admin: {}", parser.parseClaimsJws(token).getBody().get("role").equals("ADMIN"));
+        return parser.parseClaimsJws(token).getBody().get("role").equals("ADMIN");
     }
 
 }
