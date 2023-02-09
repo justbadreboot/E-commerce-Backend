@@ -35,7 +35,7 @@ public class InvoiceQueryController {
     }
 
     @GetMapping("/invoice/{invoiceId}")
-    public ResponseEntity<?> findInvoiceById(@RequestParam("invoiceId") Integer id){
+    public ResponseEntity<?> findInvoiceById(@PathVariable("invoiceId") Integer id){
         InvoiceGetDTO invoice = invoiceService.findById(id);
         if(invoice==null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Invoice Not found");
