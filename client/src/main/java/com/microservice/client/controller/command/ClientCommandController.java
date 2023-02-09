@@ -39,7 +39,7 @@ public class ClientCommandController {
     }
 
     @DeleteMapping("/{clientId}")
-    public ResponseEntity<?> deleteClient(@PathVariable("id") Integer id){
+    public ResponseEntity<?> deleteClient(@PathVariable("clientId") Integer id){
         service.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Client deleted");
     }
