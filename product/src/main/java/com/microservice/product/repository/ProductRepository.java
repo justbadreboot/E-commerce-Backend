@@ -19,4 +19,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query(value="select * from product a WHERE a.stock > 0 order by  RAND() LIMIT 0,8 ", nativeQuery=true)
     List<Product> mainProductLimit ();
 
+    @Query(value="select * from product a WHERE a.category_id = :value order by  RAND() LIMIT 0,4 ", nativeQuery=true)
+    List<Product> productsameCategory (Integer value);
+
 }

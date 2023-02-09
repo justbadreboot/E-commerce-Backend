@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-    Optional<Order> findByIdClient(Integer id);
+    List<Order> findByIdClient(Integer id);
 
-    Optional<Order> findByDeliveryStateId(Integer id);
+    List<Order> findByDeliveryStateId(Integer id);
 
-    Optional<Order> findByOrderStateId(Integer id);
+    List<Order> findByOrderStateId(Integer id);
 
 }
 

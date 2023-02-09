@@ -8,10 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +30,16 @@ public class ProductQueryController {
         List<Product> products = productRepository.mainProductLimit();
         if (products.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There aren't products");
+        }
+
+        //return ResponseEntity.ok(listEntityToDtoMain(products));
+        return ResponseEntity.ok(mapper.listEntityToDtoMains(products));
+    }
+    @GetMapping("/sameprod")
+    public ResponseEntity<?> sameProducts(@RequestBody Integer id){
+        List<Product> products = productRepository.productsameCategory(id);
+        if (products.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("There aren't same products");
         }
 
         //return ResponseEntity.ok(listEntityToDtoMain(products));

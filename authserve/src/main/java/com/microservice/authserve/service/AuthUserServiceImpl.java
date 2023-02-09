@@ -1,12 +1,10 @@
 package com.microservice.authserve.service;
 
-import com.microservice.authserve.dto.AuthUserDTO;
-import com.microservice.authserve.dto.NewUserDto;
-import com.microservice.authserve.dto.RequestDTO;
-import com.microservice.authserve.dto.TokenDTO;
+import com.microservice.authserve.dto.*;
 import com.microservice.authserve.entity.AuthUser;
 import com.microservice.authserve.repository.AuthUserRepository;
 import com.microservice.authserve.security.JwtProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class AuthUserServiceImpl{
 
     @Autowired
@@ -32,6 +31,7 @@ public class AuthUserServiceImpl{
     public AuthUser crear(NewUserDto newUserDto) throws Exception {
         Optional<AuthUser> user = authUserRepository.findByEmail(newUserDto.getEmail());
         if (user.isPresent()){
+            log.info("email no está presente");
             return null;
         }
         AuthUser authUser = new AuthUser();
@@ -42,13 +42,18 @@ public class AuthUserServiceImpl{
     }
 
   //  @Override
-    public TokenDTO userLogin(AuthUserDTO dto) {
+    public TokenDTO userLogin(LoginUserDTO dto) {
         Optional<AuthUser> user = authUserRepository.findByEmail(dto.getEmail());
         if (!user.isPresent()){
+            log.info("usuario no está presente");
             return null;
         }
         if (passwordEncoder.matches(dto.getPassword(), user.get().getPassword())){
-            return new TokenDTO(JwtProvider.createToken(user.get()));
+            log.info("creando token no está presente");
+            String token = JwtProvider.createToken(user.get());
+            log.info("creando token");
+            log.info(token);
+            return new TokenDTO(token); //new TokenDTO(JwtProvider.createToken(user.get()));
         }
         return null;
     }
@@ -70,6 +75,6 @@ public class AuthUserServiceImpl{
         authUser.setEmail(authUserDTO.getEmail());
         authUser.setUsername(authUserDTO.getUsername());
         authUser.setPassword(authUserDTO.getPassword());
-        authUser.setRole(authUserDTO.getRole());//aqui puedo setear el rol directamente de cliente al registrarse.
+        authUser.setRole("CLIENTE");//aqui puedo setear el rol directamente de cliente al registrarse.
     }
 }

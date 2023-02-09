@@ -20,9 +20,7 @@ public class OrderDetails {
 
     private Double price;
 
-    @ManyToOne
-    @JsonIgnore
-    private Order order;
+    private Integer orderId;
 
 
 }

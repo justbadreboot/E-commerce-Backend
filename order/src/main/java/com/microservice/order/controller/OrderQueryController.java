@@ -19,28 +19,28 @@ public class OrderQueryController {
 
     @GetMapping("/state/{id}")
     public ResponseEntity<?> getOrderByOrderState(@PathVariable(value = "id") Integer id){
-        Optional<Order> orderOptional = orderRepository.findByOrderStateId(id);
-        if (orderOptional.isPresent()){
-            return ResponseEntity.ok(orderOptional.get());
-        }
-        return ResponseEntity.notFound().build();
+        List<Order> orderOptional = orderRepository.findByOrderStateId(id);
+       // if (orderOptional.isPresent()){
+            return ResponseEntity.ok(orderOptional);
+       // }
+       // return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/delivery/{id}")
     public ResponseEntity<?> getDeliveryByStateId(@PathVariable(value = "id") Integer id){
-        Optional<Order> orderOptional= orderRepository.findByDeliveryStateId(id);
-        if (orderOptional.isPresent()){
-            return ResponseEntity.ok(orderOptional.get());
-        }
-        return ResponseEntity.notFound().build();
+        List<Order> orderOptional= orderRepository.findByDeliveryStateId(id);
+        //if (orderOptional.isPresent()){
+            return ResponseEntity.ok(orderOptional);
+       // }
+     //   return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/client/{id}")
     public ResponseEntity<?> getOrderByClient(@PathVariable(value = "id") Integer id){
-        Optional<Order> orderOptional = orderRepository.findByIdClient(id);
-        if (orderOptional.isPresent()){
-            return ResponseEntity.ok(orderOptional.get());
-        }
-        return ResponseEntity.notFound().build();
+        List<Order> orderOptional = orderRepository.findByIdClient(id);
+      //  if (orderOptional.isPresent()){
+            return ResponseEntity.ok(orderOptional);
+       // }
+        //return ResponseEntity.notFound().build();
     }
 }

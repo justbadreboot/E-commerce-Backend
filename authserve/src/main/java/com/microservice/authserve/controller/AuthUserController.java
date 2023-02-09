@@ -1,9 +1,6 @@
 package com.microservice.authserve.controller;
 
-import com.microservice.authserve.dto.AuthUserDTO;
-import com.microservice.authserve.dto.NewUserDto;
-import com.microservice.authserve.dto.RequestDTO;
-import com.microservice.authserve.dto.TokenDTO;
+import com.microservice.authserve.dto.*;
 import com.microservice.authserve.entity.AuthUser;
 import com.microservice.authserve.service.AuthUserService;
 import com.microservice.authserve.service.AuthUserServiceImpl;
@@ -20,7 +17,7 @@ public class AuthUserController {
 
 
     @PostMapping("/login")
-    private ResponseEntity<TokenDTO> login (@RequestBody AuthUserDTO authUserDTO){
+    private ResponseEntity<TokenDTO> login (@RequestBody LoginUserDTO authUserDTO){
         TokenDTO tokenDTO = authUserService.userLogin(authUserDTO);
         if (tokenDTO == null){
             return ResponseEntity.badRequest().build();

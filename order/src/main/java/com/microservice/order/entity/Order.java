@@ -25,12 +25,15 @@ public class Order {
 
     private Integer idClient;
 
+    private Integer idAddress;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "deliveryState_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private DeliveryState deliveryState;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "orderState_id", nullable = false)
     //@JsonIgnore
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -41,7 +44,7 @@ public class Order {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private PaymentState paymentState;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderId", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderDetails> orderDetails = new ArrayList<>();
 
 }

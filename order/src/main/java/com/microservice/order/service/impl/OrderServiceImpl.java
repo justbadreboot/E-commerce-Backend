@@ -1,6 +1,8 @@
 package com.microservice.order.service.impl;
 
 import com.microservice.order.entity.Order;
+import com.microservice.order.entity.OrderDetails;
+import com.microservice.order.repository.OrderDetailsRepository;
 import com.microservice.order.repository.OrderRepository;
 import com.microservice.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private OrderDetailsRepository orderDetailsRepository;
+
     @Override
     public List<Order> findallOrders() {
         return orderRepository.findAll();
@@ -30,6 +35,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order saveOrders(Order order) {
-        return orderRepository.save(order);
+        List<OrderDetails> orderDetails = order.getOrderDetails();
+        Order neworder= order;
+        neworder.setOrderDetails(null);
+        orderRepository.save(neworder);
+        for (OrderDetails detail : orderDetails){
+            detail.setOrderId(neworder.getId());
+        }
+        neworder.setOrderDetails(orderDetailsRepository.saveAll(orderDetails));
+        return neworder;
     }
 }
