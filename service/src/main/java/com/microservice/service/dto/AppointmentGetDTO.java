@@ -15,8 +15,6 @@ public class AppointmentGetDTO {
     private Integer id;
     private Integer clientId;
     private LocalDateTime date;
-    private Double price;
     private String duration;
-    private String reason;
     private ServiceGetDto service;
 }

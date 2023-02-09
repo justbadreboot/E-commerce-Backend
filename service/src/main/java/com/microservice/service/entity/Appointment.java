@@ -16,9 +16,7 @@ public class Appointment {
     private Integer id;
     private Integer clientId;
     private Date date;
-    private Double price;
     private String duration;
-    private String reason;
     @ManyToOne
     @JoinColumn(name = "service_id")
     @JsonIgnore
