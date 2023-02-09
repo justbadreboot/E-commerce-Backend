@@ -39,4 +39,10 @@ public class ClientQueryServiceImpl implements ClientQueryService {
         return mapper.clientToClientGetDTO(repository.findByDocument(document));
     }
 
+    @Override
+    public Long countTotalClient() {
+        return repository.count();
+    }
+
+
 }

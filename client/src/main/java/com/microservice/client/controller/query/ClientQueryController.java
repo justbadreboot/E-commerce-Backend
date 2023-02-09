@@ -2,6 +2,7 @@ package com.microservice.client.controller.query;
 
 import com.microservice.client.dto.ClientGetDTO;
 import com.microservice.client.service.query.ClientQueryService;
+import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,5 +45,11 @@ public class ClientQueryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
+
+    @GetMapping("client/count")
+    public ResponseEntity<?> getCountClient(){
+        return ResponseEntity.status(HttpStatus.OK).body(service.countTotalClient());
+    }
+
 
 }

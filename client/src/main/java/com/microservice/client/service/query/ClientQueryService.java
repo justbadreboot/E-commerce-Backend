@@ -9,4 +9,5 @@ public interface ClientQueryService {
     List<ClientGetDTO> findAll();
     ClientGetDTO findById(Integer id);
     ClientGetDTO findbyDocument(String document);
+    Long countTotalClient();
 }
