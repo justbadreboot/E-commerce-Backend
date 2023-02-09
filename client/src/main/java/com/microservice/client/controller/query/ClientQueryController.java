@@ -46,7 +46,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
-    @GetMapping("client/count")
+    @GetMapping("/count")
     public ResponseEntity<?> getCountClient(){
         return ResponseEntity.status(HttpStatus.OK).body(service.countTotalClient());
     }
