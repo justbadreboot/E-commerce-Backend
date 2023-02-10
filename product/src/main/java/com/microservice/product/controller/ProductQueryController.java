@@ -43,7 +43,7 @@ public class ProductQueryController {
         }
 
         //return ResponseEntity.ok(listEntityToDtoMain(products));
-        return ResponseEntity.ok(mapper.listEntityToDtoMains(products));
+        return ResponseEntity.ok(mapper.listEntityToDtoSame(products));
     }
 
     public ProductMainDTO mapeador(Product product){

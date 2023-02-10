@@ -2,6 +2,7 @@ package com.microservice.product.mapper;
 
 import com.microservice.product.dto.ProductMainDTO;
 import com.microservice.product.dto.ProductPostDTO;
+import com.microservice.product.dto.ProductSameCategoryDTO;
 import com.microservice.product.entity.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,5 +23,9 @@ public interface ProductMapper {
     List<Product> dtoListToMainListProducts(List<ProductMainDTO> dto);
 
     List<ProductMainDTO> listEntityToDtoMains(List<Product> product);
+
+    ProductSameCategoryDTO entityToDtoSame(Product product);
+
+    List<ProductSameCategoryDTO> listEntityToDtoSame(List<Product> product);
 
 }
