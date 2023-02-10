@@ -1,5 +1,6 @@
 package com.microservice.service.services.command;
 
+import com.microservice.service.dto.ServiceGetDto;
 import com.microservice.service.dto.ServicePostDTO;
 import com.microservice.service.dto.SpecialtyGetDTO;
 import com.microservice.service.entity.Service;
@@ -27,11 +28,12 @@ public class ServiceCommandImpl implements ServiceCommand {
     private SpecialtyMapper specialtyMapper;
 
     @Override
-    public Service create(ServicePostDTO serviceDto, SpecialtyGetDTO specialtyDto) {
+    public ServiceGetDto create(ServicePostDTO serviceDto, SpecialtyGetDTO specialtyDto) {
         Service srv = serviceMapper.toService(serviceDto);
         Specialty specialty =  specialtyMapper.specialtyGetToSpecialty(specialtyDto);
         srv.setSpecialty(specialty);
-        return serviceRepository.save(srv);
+        serviceRepository.save(srv);
+        return serviceMapper.toServiceDTO(srv);
     }
 
     @Override

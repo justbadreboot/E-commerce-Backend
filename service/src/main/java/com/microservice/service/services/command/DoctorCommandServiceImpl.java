@@ -1,5 +1,6 @@
 package com.microservice.service.services.command;
 
+import com.microservice.service.dto.DoctorGetDTO;
 import com.microservice.service.dto.DoctorPostDTO;
 import com.microservice.service.dto.SpecialtyGetDTO;
 import com.microservice.service.entity.Doctor;
@@ -24,11 +25,12 @@ public class DoctorCommandServiceImpl implements DoctorCommandService {
     private SpecialtyMapper specialtyMapper;
 
     @Override
-    public Doctor save(DoctorPostDTO doctorDto, SpecialtyGetDTO specialtyDto) {
+    public DoctorGetDTO save(DoctorPostDTO doctorDto, SpecialtyGetDTO specialtyDto) {
         Doctor doctor = doctorMapper.toDoctor(doctorDto);
         Specialty specialty = specialtyMapper.specialtyGetToSpecialty(specialtyDto);
         doctor.setSpecialty(specialty);
-        return doctorRepository.save(doctor);
+        doctorRepository.save(doctor);
+        return doctorMapper.toDoctorDTO(doctor);
     }
 
     @Override

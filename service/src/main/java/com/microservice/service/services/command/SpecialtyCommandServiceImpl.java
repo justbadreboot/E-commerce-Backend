@@ -1,5 +1,6 @@
 package com.microservice.service.services.command;
 
+import com.microservice.service.dto.SpecialtyGetDTO;
 import com.microservice.service.dto.SpecialtyPostDTO;
 import com.microservice.service.entity.Specialty;
 import com.microservice.service.mapper.SpecialtyMapper;
@@ -22,8 +23,10 @@ public class SpecialtyCommandServiceImpl implements SpecialtyCommandService {
     private SpecialtyMapper specialtyMapper;
 
     @Override
-    public Specialty save(SpecialtyPostDTO specialtyDto) {
-        return specialtyRepository.save(specialtyMapper.toSpecialty(specialtyDto));
+    public SpecialtyGetDTO save(SpecialtyPostDTO specialtyDto) {
+        Specialty specialty = specialtyMapper.toSpecialty(specialtyDto);
+        specialtyRepository.save(specialty);
+        return specialtyMapper.toSpecialtyDTO(specialty);
     }
 
     @Override

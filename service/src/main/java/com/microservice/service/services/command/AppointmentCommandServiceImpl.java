@@ -25,10 +25,11 @@ public class AppointmentCommandServiceImpl implements AppointmentCommandService 
     private ServiceMapper serviceMapper;
 
     @Override
-    public Appointment save(AppointmentPostDTO appointmentDto, ServiceGetDto serviceDto) {
+    public AppointmentGetDTO save(AppointmentPostDTO appointmentDto, ServiceGetDto serviceDto) {
         Appointment appointment = appointmentMapper.toAppointment(appointmentDto);
         appointment.setService(serviceMapper.serviceDtotoService(serviceDto));
-        return appointmentRepository.save(appointment);
+        appointmentRepository.save(appointment);
+        return appointmentMapper.toAppoinmentDTO(appointment);
     }
 
     @Override

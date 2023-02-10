@@ -37,4 +37,13 @@ public class AppointmentQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(appointmentFound);
     }
 
+    @GetMapping("/client/{clientId}")
+    public ResponseEntity<?> findAppointmentByClientId(@PathVariable("clientId") Integer id){
+        List<AppointmentGetDTO> appointmentsFound =  appointmentService.findByClientId(id);
+        if(appointmentsFound== null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(appointmentsFound);
+    }
+
 }

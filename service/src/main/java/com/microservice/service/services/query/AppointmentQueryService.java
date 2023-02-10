@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface AppointmentQueryService {
     AppointmentGetDTO findById(Integer id);
     List<AppointmentGetDTO> findAll();
+    List<AppointmentGetDTO> findByClientId(Integer id);
 }

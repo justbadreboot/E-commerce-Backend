@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AppointmentCommandService {
-    Appointment save(AppointmentPostDTO appointmentDto, ServiceGetDto srvDto);
+    AppointmentGetDTO save(AppointmentPostDTO appointmentDto, ServiceGetDto srvDto);
     void delete(Integer id);
 }

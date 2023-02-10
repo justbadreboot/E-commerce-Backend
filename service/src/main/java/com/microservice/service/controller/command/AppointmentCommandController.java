@@ -29,7 +29,7 @@ public class AppointmentCommandController {
         if(serviceDto == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
         }
-        Appointment appointmentAdded = appointmentService.save(appointmentDto, serviceDto);
+        AppointmentGetDTO appointmentAdded = appointmentService.save(appointmentDto, serviceDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 
@@ -39,7 +39,7 @@ public class AppointmentCommandController {
         if(serviceDto == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
         }
-        Appointment appointmentAdded = appointmentService.save(appointmentDto, serviceDto);
+        AppointmentGetDTO appointmentAdded = appointmentService.save(appointmentDto, serviceDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 

@@ -34,4 +34,9 @@ public class AppointmentQueryServiceImpl implements AppointmentQueryService {
         return appointmentMapper.toAppointmentsDTO(appointmentRepository.findAll());
     }
 
+    @Override
+    public List<AppointmentGetDTO> findByClientId(Integer id) {
+        return appointmentMapper.toAppointmentsDTO(appointmentRepository.findByClientId(id));
+    }
+
 }

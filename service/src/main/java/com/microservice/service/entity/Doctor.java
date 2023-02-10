@@ -6,11 +6,12 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.io.Serializable;
 
 @Entity
 @Data
 @Table
-public class Doctor {
+public class Doctor extends Auditable<String> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
