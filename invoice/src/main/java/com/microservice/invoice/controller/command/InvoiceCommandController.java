@@ -5,7 +5,11 @@ import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.service.command.InvoiceCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @RestController
 @CrossOrigin(value = "*")
@@ -16,7 +20,7 @@ public class InvoiceCommandController {
 
     @PostMapping("/invoice")
     public Invoice createInvoice(@RequestBody InvoicePostDTO invoiceDto){
-        invoiceDto.setDate(LocalDateTime.now());
+        invoiceDto.setDate(LocalDate.now());
         return invoiceCommandService.save(invoiceDto);
     }
 }

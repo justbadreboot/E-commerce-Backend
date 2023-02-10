@@ -2,6 +2,7 @@ package com.microservice.invoice.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer number;
-    private LocalDateTime date;
+    private LocalDate date;
     private Double subtotal;
     private Double total;
     private Integer clientId;

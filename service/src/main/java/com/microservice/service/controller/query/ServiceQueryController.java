@@ -40,7 +40,7 @@ public class ServiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
 
-    @GetMapping("service/{id}")
+    @GetMapping("/service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
         ServiceGetDto serviceFound = service.findById(id);
         if(serviceFound == null){

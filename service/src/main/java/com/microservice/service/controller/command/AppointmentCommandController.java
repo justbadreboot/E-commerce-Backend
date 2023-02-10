@@ -43,7 +43,7 @@ public class AppointmentCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 
-    @DeleteMapping("appointment/{id}")
+    @DeleteMapping("/appointment/{id}")
     public ResponseEntity<?> deleteAppointment(@PathVariable("id") Integer id){
         AppointmentGetDTO appFound = appointmentQueryService.findById(id);
         if(appFound == null){

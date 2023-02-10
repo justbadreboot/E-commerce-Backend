@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(value = "*")
@@ -42,5 +44,14 @@ public class InvoiceQueryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(invoice);
     }
+
+    @GetMapping("/invoice/sales/today")
+    public ResponseEntity<?> findTodayTotalSales(){
+        Map<String, Double> totalSales = new HashMap<>();
+        totalSales.put("today", invoiceService.findByDate());
+        totalSales.put("month", invoiceService.findTotalSalesByMonth());
+        return ResponseEntity.status(HttpStatus.OK).body(totalSales);
+    }
+
 
 }
