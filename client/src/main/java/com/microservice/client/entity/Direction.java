@@ -3,11 +3,12 @@ package com.microservice.client.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Data
 @Table
-public class Direction {
+public class Direction extends Auditable<String> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
