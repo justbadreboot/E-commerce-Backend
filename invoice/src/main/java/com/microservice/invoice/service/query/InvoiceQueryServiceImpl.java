@@ -2,19 +2,14 @@ package com.microservice.invoice.service.query;
 
 import com.microservice.invoice.dto.InvoiceGetDTO;
 import com.microservice.invoice.entity.Invoice;
-import com.microservice.invoice.entity.InvoiceDetail;
 import com.microservice.invoice.mapper.InvoiceMapper;
-import com.microservice.invoice.repository.InvoiceDetailRepository;
 import com.microservice.invoice.repository.InvoiceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +46,11 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     @Override
     public Double findTotalSalesByMonth() {
         return invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
+    }
+
+    @Override
+    public List<?> findSalesLastWeek() {
+        return invoiceRepository.findSalesLastWeek();
     }
 
 

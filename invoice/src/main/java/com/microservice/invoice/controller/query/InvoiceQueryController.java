@@ -53,5 +53,10 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(totalSales);
     }
 
+    @GetMapping("/invoice/sales/week")
+    public ResponseEntity<?> findTotalWeekSales(){
+        return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findSalesLastWeek());
+    }
+
 
 }
