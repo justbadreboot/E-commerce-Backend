@@ -1,5 +1,6 @@
 package com.microservice.client.service.query;
 
+import com.microservice.client.dto.DirectionCustomGetDTO;
 import com.microservice.client.dto.DirectionGetDTO;
 import com.microservice.client.entity.Direction;
 import com.microservice.client.mapper.DirectionMapper;
@@ -8,10 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -41,13 +39,16 @@ public class DirectionQueryServiceImpl implements DirectionQueryService {
     }
 
     @Override
-    public Map<Integer, String> findByClientIdCustom(Integer id) {
+    public List<DirectionCustomGetDTO> findByClientIdCustom(Integer id) {
         List<Direction> directions = repository.findByClientId(id);
-        Map<Integer, String> directionList = new HashMap<>();
+        List<DirectionCustomGetDTO> customDirections = new ArrayList<>();
         for (Direction dir: directions) {
+            DirectionCustomGetDTO directionCustomDto = new DirectionCustomGetDTO();
             String customDirection = dir.getCity()+", "+dir.getSector()+", "+dir.getMainStreet();
-            directionList.put(dir.getId(), customDirection);
+            directionCustomDto.setId(dir.getId());
+            directionCustomDto.setAddress(customDirection);
+            customDirections.add(directionCustomDto);
         }
-        return directionList;
+        return customDirections;
     }
 }
