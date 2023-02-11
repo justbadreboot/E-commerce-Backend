@@ -13,9 +13,7 @@ import lombok.NoArgsConstructor;
 public class InvoiceDetailPostDTO {
     private Invoice invoice;
     private String productName;
-    private String productDescription;
     private Integer quantity;
     private Double price;
-    private Double discount;
     private Double total;
 }

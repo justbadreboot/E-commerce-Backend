@@ -17,7 +17,6 @@ import java.util.List;
 @Builder
 public class InvoicePostDTO {
     private Integer id;
-    private Integer number;
     private LocalDate date;
     private Double subtotal;
     private Double total;

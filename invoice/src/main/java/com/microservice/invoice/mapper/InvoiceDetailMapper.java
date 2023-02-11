@@ -9,10 +9,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface InvoiceDetailMapper {
-
     InvoiceDetailGetDTO toInvoiceDetailDto(InvoiceDetail invoiceDetail);
     List<InvoiceDetailGetDTO> toInvoiceDetailsDto(List<InvoiceDetail> invoiceDetails);
     List<InvoiceDetail> toInvoiceDetails(List<InvoiceDetailGetDTO> invoiceDetails);
     InvoiceDetail toInvoiceDetail(InvoiceDetailPostDTO invoiceDetailDto);
-
 }

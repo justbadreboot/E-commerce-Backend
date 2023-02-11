@@ -4,10 +4,12 @@ import com.microservice.invoice.dto.InvoiceGetDTO;
 import com.microservice.invoice.dto.InvoicePostDTO;
 import com.microservice.invoice.dto.order.OrderDetailPostDTO;
 import com.microservice.invoice.dto.order.OrderPostDTO;
+import com.microservice.invoice.entity.Correlative;
 import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.entity.InvoiceDetail;
 import com.microservice.invoice.mapper.InvoiceDetailMapper;
 import com.microservice.invoice.mapper.InvoiceMapper;
+import com.microservice.invoice.repository.CorrelativeRepository;
 import com.microservice.invoice.repository.InvoiceDetailRepository;
 import com.microservice.invoice.repository.InvoiceRepository;
 import lombok.AllArgsConstructor;
@@ -28,12 +30,13 @@ public class InvoiceCommandServiceImpl implements InvoiceCommandService {
     private InvoiceRepository invoiceRepository;
     @Autowired
     private InvoiceDetailRepository invoiceDetailRepository;
+    @Autowired
+    private CorrelativeRepository correlativeRepository;
     private InvoiceMapper invoiceMapper;
     private InvoiceDetailMapper invoiceDetailMapper;
 
     private Invoice orderDtoToInvoice(OrderPostDTO orderDto){
         Invoice invoice = new Invoice();
-        invoice.setNumber(123);
         invoice.setDate(orderDto.getDate());
         invoice.setSubtotal(orderDto.getSubtotal());
         invoice.setTotal(orderDto.getTotal());
@@ -64,12 +67,18 @@ public class InvoiceCommandServiceImpl implements InvoiceCommandService {
     public Invoice save(InvoicePostDTO invoiceDto) {
         List<InvoiceDetail> details = invoiceDetailMapper.toInvoiceDetails(invoiceDto.getDetails());
         Invoice invoice = invoiceMapper.toInvoice(invoiceDto);
+        Correlative correlative = correlativeRepository.findById(1).get();
+        String sequence = correlative.getSequence().toString();
+        String number = "0".repeat(15-sequence.length());
+        invoice.setNumber(number.concat(sequence));
         invoice.setDetails(null);
         invoiceRepository.save(invoice);
         for (InvoiceDetail detail: details) {
             detail.setInvoiceId(invoice.getId());
         }
         invoice.setDetails(invoiceDetailRepository.saveAll(details));
+        correlative.setSequence(correlative.getSequence()+1);
+        correlativeRepository.save(correlative);
         return invoice;
     }
 
@@ -77,12 +86,18 @@ public class InvoiceCommandServiceImpl implements InvoiceCommandService {
     public InvoiceGetDTO createInvoice(OrderPostDTO orderDto) {
         Invoice invoice = orderDtoToInvoice(orderDto);
         List<InvoiceDetail> details = invoice.getDetails();
+        Correlative correlative = correlativeRepository.findById(1).get();
+        String sequence = correlative.getSequence().toString();
+        String number = "0".repeat(15-sequence.length());
+        invoice.setNumber(number.concat(sequence));
         invoice.setDetails(null);
         invoiceRepository.save(invoice);
         for (InvoiceDetail detail: details) {
             detail.setInvoiceId(invoice.getId());
         }
         invoice.setDetails(invoiceDetailRepository.saveAll(details));
+        correlative.setSequence(correlative.getSequence()+1);
+        correlativeRepository.save(correlative);
         return invoiceMapper.toInvoiceDto(invoice);
     }
 }

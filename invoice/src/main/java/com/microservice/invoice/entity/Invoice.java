@@ -2,6 +2,7 @@ package com.microservice.invoice.entity;
 
 import lombok.Data;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Invoice extends Auditable<String> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer number;
+    private String number;
     private LocalDate date;
     private Double subtotal;
     private Double total;

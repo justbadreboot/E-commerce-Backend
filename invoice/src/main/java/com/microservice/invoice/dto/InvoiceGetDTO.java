@@ -17,14 +17,17 @@ import java.util.List;
 @Builder
 public class InvoiceGetDTO {
     private Integer id;
-    private Integer number;
+    private String number;
     private LocalDate date;
     private Double subtotal;
     private Double total;
     private Integer clientId;
-    private String clientName;
-    private String clientLastName;
-    private String clientPhone;
-    private String clientDocument;
+    private String customerName;
+    private String customerLastName;
+    private String customerPhone;
+    private String customerDocument;
+    private String orderState;
+    private String paymentState;
+    private String deliveryState;
     private List<InvoiceDetailGetDTO> details;
 }

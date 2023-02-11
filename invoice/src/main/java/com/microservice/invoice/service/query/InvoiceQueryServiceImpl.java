@@ -19,7 +19,6 @@ import java.util.Optional;
 public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     @Autowired
     private InvoiceRepository invoiceRepository;
-
     private InvoiceMapper invoiceMapper;
 
     @Override

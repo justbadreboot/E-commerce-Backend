@@ -20,12 +20,6 @@ public class InvoiceCommandController {
     @Autowired
     private InvoiceCommandService invoiceCommandService;
 
-    @PostMapping("/invoice")
-    public Invoice createInvoice(@RequestBody InvoicePostDTO invoiceDto){
-        invoiceDto.setDate(LocalDate.now());
-        return invoiceCommandService.save(invoiceDto);
-    }
-
     @PostMapping("/invoice/order")
     public InvoiceGetDTO createInvoiceByOrder(@RequestBody OrderPostDTO orderDto){
         return invoiceCommandService.createInvoice(orderDto);
