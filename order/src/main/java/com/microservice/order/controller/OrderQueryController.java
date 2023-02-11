@@ -2,6 +2,7 @@ package com.microservice.order.controller;
 
 import com.microservice.order.entity.Order;
 import com.microservice.order.repository.OrderRepository;
+import com.microservice.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,27 @@ public class OrderQueryController {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Autowired
+    private OrderService orderService;
+
+
+
+    @GetMapping("/all")
+    public List<Order> allOrders(){
+        return orderService.findallOrders();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findOrderById(@RequestParam(value = "id") Integer id){
+        Optional<Order> orderOptional = orderService.byId(id);
+        if (orderOptional.isPresent()){
+            return ResponseEntity.ok(orderOptional.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
 
     @GetMapping("/state/{id}")
     public ResponseEntity<?> getOrderByOrderState(@PathVariable(value = "id") Integer id){
