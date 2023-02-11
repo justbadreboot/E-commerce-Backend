@@ -19,7 +19,7 @@ public class Promotion {
     private String description;
 
     @Column(insertable = false)
-    private Integer discount;
+    private String image;
     private Date startDate;
     private Date endDate;
 

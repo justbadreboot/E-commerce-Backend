@@ -37,7 +37,7 @@ public class PromotionCommandController {
             Promotion promotionBD = optionalPromotion.get();
             promotionBD.setName(promotionPostDTO.getName());
             promotionBD.setDescription(promotionPostDTO.getDescription());
-            promotionBD.setDiscount(promotionPostDTO.getDiscount());
+            promotionBD.setImage(promotionPostDTO.getImage());
             promotionBD.setEndDate(promotionPostDTO.getEndDate());
             promotionBD.setStartDate(promotionPostDTO.getStartDate());
             promotionBD.setPromotionTypes(promotionPostDTO.getPromotionTypes());

@@ -15,7 +15,7 @@ public class PromotionPostDTO {
 
     private String name;
     private String description;
-    private Integer discount;
+    private String image;
     private Date startDate;
     private Date endDate;
 }
