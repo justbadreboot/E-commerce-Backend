@@ -1,6 +1,8 @@
 package com.microservice.invoice.controller.command;
 
+import com.microservice.invoice.dto.InvoiceGetDTO;
 import com.microservice.invoice.dto.InvoicePostDTO;
+import com.microservice.invoice.dto.order.OrderPostDTO;
 import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.service.command.InvoiceCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,10 @@ public class InvoiceCommandController {
     public Invoice createInvoice(@RequestBody InvoicePostDTO invoiceDto){
         invoiceDto.setDate(LocalDate.now());
         return invoiceCommandService.save(invoiceDto);
+    }
+
+    @PostMapping("/invoice/order")
+    public InvoiceGetDTO createInvoice(@RequestBody OrderPostDTO orderDto){
+        return invoiceCommandService.createInvoice(orderDto);
     }
 }

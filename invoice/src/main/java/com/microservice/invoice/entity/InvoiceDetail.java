@@ -15,10 +15,8 @@ public class InvoiceDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String productName;
-    private String productDescription;
     private Integer quantity;
     private Double price;
-    private Double discount;
     private Double total;
     private Integer invoiceId;
 

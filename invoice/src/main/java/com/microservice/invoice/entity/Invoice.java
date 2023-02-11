@@ -20,10 +20,15 @@ public class Invoice extends Auditable<String> implements Serializable {
     private Double subtotal;
     private Double total;
     private Integer clientId;
-    private String clientName;
-    private String clientLastName;
-    private String clientPhone;
-    private String clientDocument;
+    private Integer customerAddress;
+    private String customerName;
+    private String customerLastName;
+    private String customerPhone;
+    private String customerDocument;
+    private String orderState;
+    private String paymentState;
+    private String deliveryState;
+
     @OneToMany(mappedBy = "invoiceId",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<InvoiceDetail> details = new ArrayList<>();
 
