@@ -27,7 +27,7 @@ public class InvoiceCommandController {
     }
 
     @PostMapping("/invoice/order")
-    public InvoiceGetDTO createInvoice(@RequestBody OrderPostDTO orderDto){
+    public InvoiceGetDTO createInvoiceByOrder(@RequestBody OrderPostDTO orderDto){
         return invoiceCommandService.createInvoice(orderDto);
     }
 }
