@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface DirectionRepository extends JpaRepository<Direction, Integer> {
     List<Direction> findByClientId(Integer id);
+    Direction findFirstByClientId(Integer id);
 }

@@ -8,7 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -27,8 +29,25 @@ public class DirectionQueryServiceImpl implements DirectionQueryService {
         }
         return null;
     }
+
+    @Override
+    public DirectionGetDTO findFirstByClientId(Integer id) {
+        return mapper.directionToDirectionGetDTO(repository.findFirstByClientId(id));
+    }
+
     @Override
     public List<DirectionGetDTO> findByClientId(Integer id){
         return mapper.directionsToDirectionsDto(repository.findByClientId(id));
+    }
+
+    @Override
+    public Map<Integer, String> findByClientIdCustom(Integer id) {
+        List<Direction> directions = repository.findByClientId(id);
+        Map<Integer, String> directionList = new HashMap<>();
+        for (Direction dir: directions) {
+            String customDirection = dir.getCity()+", "+dir.getSector()+", "+dir.getMainStreet();
+            directionList.put(dir.getId(), customDirection);
+        }
+        return directionList;
     }
 }

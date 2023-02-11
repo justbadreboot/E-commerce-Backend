@@ -34,6 +34,22 @@ public class DirectionQueryController {
         List<DirectionGetDTO> directionsDto = directionService.findByClientId(id);
         return ResponseEntity.status(HttpStatus.OK).body(directionsDto);
     }
+    @GetMapping("/client/{id}/direction/first")
+    public ResponseEntity<?> findFirstDirectionByClient(@PathVariable("id") Integer id){
+        ClientGetDTO clientFound = clientService.findById(id);
+        if(clientFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(directionService.findFirstByClientId(id));
+    }
+
+    @GetMapping("/client/{id}/direction/custom")
+    public ResponseEntity<?> findAllDirectionsByClientCustom(@PathVariable("id") Integer id){
+        if(clientService.findById(id) == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(directionService.findByClientIdCustom(id));
+    }
 
     @GetMapping("/direction/{id}")
     public ResponseEntity<?> findDirectionById(@PathVariable("id") Integer id){
@@ -43,4 +59,5 @@ public class DirectionQueryController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(directionFound);
     }
+
 }
