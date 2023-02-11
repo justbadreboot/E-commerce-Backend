@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class ClientPostDTO {
     private Integer id;
-    private Integer clientId;
+    private Integer userId;
     @NotBlank
     private String firstName;
     @NotBlank

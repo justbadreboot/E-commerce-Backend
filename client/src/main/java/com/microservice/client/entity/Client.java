@@ -12,7 +12,7 @@ public class Client extends Auditable<String> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer clientId;
+    private Integer userId;
     private String firstName;
     private String lastName;
     @Column(unique = true)
