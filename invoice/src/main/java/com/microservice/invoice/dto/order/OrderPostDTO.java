@@ -20,6 +20,10 @@ public class OrderPostDTO {
     private Integer idClient;
     private Integer idAddress;
     private String address;
+    private String clientDocument;
+    private String clientLastName;
+    private String clientName;
+    private String clientPhone;
     private StatePostDTO orderState;
     private StatePostDTO paymentState;
     private StatePostDTO deliveryState;
