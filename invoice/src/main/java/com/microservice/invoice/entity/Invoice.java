@@ -4,7 +4,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class Invoice extends Auditable<String> implements Serializable {
     private Double subtotal;
     private Double total;
     private Integer clientId;
-    private Integer customerAddress;
+    private String customerAddress;
     private String customerName;
     private String customerLastName;
     private String customerPhone;

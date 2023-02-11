@@ -19,6 +19,7 @@ public class OrderPostDTO {
     private Double subtotal;
     private Integer idClient;
     private Integer idAddress;
+    private String address;
     private StatePostDTO orderState;
     private StatePostDTO paymentState;
     private StatePostDTO deliveryState;

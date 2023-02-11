@@ -38,7 +38,7 @@ public class InvoiceCommandServiceImpl implements InvoiceCommandService {
         invoice.setSubtotal(orderDto.getSubtotal());
         invoice.setTotal(orderDto.getTotal());
         invoice.setClientId(orderDto.getIdClient());
-        invoice.setCustomerAddress(orderDto.getIdAddress());
+        invoice.setCustomerAddress(orderDto.getAddress());
         invoice.setDeliveryState(orderDto.getDeliveryState().getState());
         invoice.setOrderState(orderDto.getOrderState().getState());
         invoice.setPaymentState(orderDto.getPaymentState().getState());
