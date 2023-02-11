@@ -42,10 +42,6 @@ public class InvoiceCommandServiceImpl implements InvoiceCommandService {
         invoice.setDeliveryState(orderDto.getDeliveryState().getState());
         invoice.setOrderState(orderDto.getOrderState().getState());
         invoice.setPaymentState(orderDto.getPaymentState().getState());
-        invoice.setCustomerDocument(orderDto.getClientDocument());
-        invoice.setCustomerName(orderDto.getClientName());
-        invoice.setCustomerLastName(orderDto.getClientLastName());
-        invoice.setCustomerPhone(orderDto.getClientPhone());
 
         List<InvoiceDetail> details = new ArrayList<>();
         for (OrderDetailPostDTO orderDetail : orderDto.getOrderDetails()) {
