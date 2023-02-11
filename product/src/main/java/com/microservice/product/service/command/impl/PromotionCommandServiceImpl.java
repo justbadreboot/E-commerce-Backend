@@ -39,7 +39,7 @@ public class PromotionCommandServiceImpl implements PromotionCommandService {
         promotion.setName(promotionPostDTO.getName());
         promotion.setDescription(promotionPostDTO.getDescription());
         promotion.setEndDate(promotionPostDTO.getEndDate());
-        promotion.setDiscount(promotionPostDTO.getDiscount());
+        promotion.setImage(promotionPostDTO.getImage());
         promotion.setStartDate(promotionPostDTO.getStartDate());
         //promotion.setPromotionTypes(promotionPostDTO.getPromotionTypeDTO());
     }
@@ -50,7 +50,7 @@ public class PromotionCommandServiceImpl implements PromotionCommandService {
         promotion.setDescription(promotionNewDTO.getDescription());
         promotion.setEndDate(promotionNewDTO.getEndDate());
         promotion.setStartDate(promotionNewDTO.getStartDate());
-        promotion.setDiscount(promotionNewDTO.getDiscount());
+        promotion.setImage(promotionNewDTO.getImage());
         promotion.setPromotionTypes(promotionMapper.dtoPromotionToPromotionType(promotionNewDTO.getPromotionTypeDTO()));
     }
 
