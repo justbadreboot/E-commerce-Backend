@@ -29,7 +29,7 @@ public class OrderQueryController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findOrderById(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> findOrderById(@PathVariable(value = "id") Integer id){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){
             return ResponseEntity.ok(orderOptional.get());
