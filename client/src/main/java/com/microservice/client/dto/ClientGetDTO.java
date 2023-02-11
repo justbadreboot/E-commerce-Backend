@@ -11,6 +11,7 @@ import lombok.Builder;
 @Builder
 public class ClientGetDTO {
     private Integer id;
+    private Integer clientId;
     private String firstName;
     private String lastName;
     private String document;

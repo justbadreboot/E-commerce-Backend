@@ -35,8 +35,13 @@ public class ClientQueryServiceImpl implements ClientQueryService {
     }
 
     @Override
-    public ClientGetDTO findbyDocument(String document) {
+    public ClientGetDTO findByDocument(String document) {
         return mapper.clientToClientGetDTO(repository.findByDocument(document));
+    }
+
+    @Override
+    public ClientGetDTO findByUserId(Integer id) {
+        return mapper.clientToClientGetDTO(repository.findByUserId(id));
     }
 
     @Override

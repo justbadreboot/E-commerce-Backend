@@ -39,7 +39,15 @@ public class ClientQueryController {
 
     @GetMapping("filter/{document}")
     public ResponseEntity<?> findClientByDocument(@PathVariable("document") String document){
-        ClientGetDTO clientFound = service.findbyDocument(document);
+        ClientGetDTO clientFound = service.findByDocument(document);
+        if(clientFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(clientFound);
+    }
+    @GetMapping("user/{userId}")
+    public ResponseEntity<?> findClientByUserId(@PathVariable("userId") Integer userId){
+        ClientGetDTO clientFound = service.findByUserId(userId);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
         }
