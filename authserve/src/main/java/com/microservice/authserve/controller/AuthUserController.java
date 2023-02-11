@@ -6,6 +6,7 @@ import com.microservice.authserve.service.AuthUserService;
 import com.microservice.authserve.service.AuthUserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,10 +44,10 @@ public class AuthUserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AuthUser> create(@RequestBody NewUserDto dto) throws Exception {
+    public ResponseEntity<?> create(@RequestBody NewUserDto dto) throws Exception {
         AuthUser authUser = authUserService.crear(dto);
         if (authUser == null){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo ya se encuentra registrado");
         }
         return ResponseEntity.ok(authUser);
     }

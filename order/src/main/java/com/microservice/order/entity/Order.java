@@ -27,6 +27,12 @@ public class Order {
 
     private Integer idAddress;
 
+    private String clientDocument;
+    private String clientName;
+    private String clientLastName;
+    private String clientPhone;
+
+
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "deliveryState_id", nullable = false)

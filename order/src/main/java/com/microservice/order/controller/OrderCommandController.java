@@ -23,7 +23,7 @@ public class OrderCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteOrders(@RequestParam(value = "id") Integer id){
+    public ResponseEntity<?> deleteOrders(@PathVariable(value = "id") Integer id){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){
             orderService.deleteOrder(id);
@@ -33,7 +33,7 @@ public class OrderCommandController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?>editStatesForOrders(@RequestParam(value = "id") Integer id, @RequestBody Order order){
+    public ResponseEntity<?>editStatesForOrders(@PathVariable(value = "id") Integer id, @RequestBody Order order){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){
             Order orderBD = orderOptional.get();
@@ -41,6 +41,11 @@ public class OrderCommandController {
             orderBD.setSubtotal(order.getSubtotal());
             orderBD.setTotal(order.getTotal());
             orderBD.setIdClient(order.getIdClient());
+            orderBD.setIdAddress(order.getIdAddress());
+            orderBD.setClientDocument(order.getClientDocument());
+            orderBD.setClientName(order.getClientName());
+            orderBD.setClientLastName(order.getClientLastName());
+            orderBD.setClientPhone(order.getClientPhone());
             orderBD.setDeliveryState(order.getDeliveryState());
             orderBD.setPaymentState(order.getPaymentState());
             orderBD.setOrderState(order.getOrderState());
