@@ -1,6 +1,7 @@
 package com.microservice.invoice.controller.query;
 
 import com.microservice.invoice.dto.InvoiceGetDTO;
+import com.microservice.invoice.dto.TotalSalesGetDTO;
 import com.microservice.invoice.service.query.InvoiceQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,7 +48,9 @@ public class InvoiceQueryController {
 
     @GetMapping("/invoice/sales/today")
     public ResponseEntity<?> findTodayTotalSales(){
-        return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findTotalSales());
+        TotalSalesGetDTO totals = invoiceService.findTotalSales();
+        System.out.println(totals.toString());
+        return ResponseEntity.status(HttpStatus.OK).body(totals);
     }
 
     @GetMapping("/invoice/sales/week")
