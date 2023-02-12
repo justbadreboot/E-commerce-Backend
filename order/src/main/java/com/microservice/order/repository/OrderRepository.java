@@ -2,6 +2,7 @@ package com.microservice.order.repository;
 
 import com.microservice.order.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,11 +14,16 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     List<Order> findByOrderStateId(Integer id);
 
+    @Query(value = "SELECT SUM(order_details.amount) FROM krugorders, order_details WHERE (krugorders.id = order_details.order_id) AND krugorders.date > DATE_SUB(CURDATE(),INTERVAL 1 DAY)", nativeQuery=true)
+    Integer productsSoldOnDay();
+
 }
 
 
 
 /*
+//SELECT SUM(order_details.amount) FROM krugorders, order_details WHERE (krugorders.id = order_details.order_id) AND krugorders.date LIKE '2023-02-11%';
+    //@Query(value="select * from productos a where a.nombre_generico LIKE :name% or a.nombre_comercial LIKE :name%", nativeQuery=true)
 @Query(value="select * from productos a where a.nombre_generico LIKE :name% or a.nombre_comercial LIKE :name%", nativeQuery=true)
 List<Productos> getProductosFilterName(String name);
 @Query(value="select * from ventas a where a.fecha_venta between :value1 AND :value2", nativeQuery=true)

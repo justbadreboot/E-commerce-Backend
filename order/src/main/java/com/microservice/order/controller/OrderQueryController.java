@@ -1,5 +1,6 @@
 package com.microservice.order.controller;
 
+import com.microservice.order.dto.SalesDTO;
 import com.microservice.order.entity.Order;
 import com.microservice.order.repository.OrderRepository;
 import com.microservice.order.service.OrderService;
@@ -64,5 +65,17 @@ public class OrderQueryController {
             return ResponseEntity.ok(orderOptional);
        // }
         //return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/sales/allday")
+    public ResponseEntity<SalesDTO> getSalesOnDay(){
+        SalesDTO salesDTO = new SalesDTO();
+        Integer sales = orderRepository.productsSoldOnDay();
+        salesDTO.setProductsSold(sales);
+        if (sales==null){
+            salesDTO.setProductsSold(0);
+            return ResponseEntity.ok(salesDTO);
+        }
+        return ResponseEntity.ok(salesDTO);
     }
 }
