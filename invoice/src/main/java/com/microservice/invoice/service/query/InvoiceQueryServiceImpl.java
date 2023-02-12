@@ -43,8 +43,7 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
 
     @Override
     public TotalSalesGetDTO findTotalSales() {
-        System.out.println(LocalDate.now());
-        Double today = invoiceRepository.findTodaySales(LocalDate.now());
+        Double today = invoiceRepository.findTodaySales();
         Double month = invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
         return new TotalSalesGetDTO(today, month);
     }

@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
-    @Query(value = "SELECT SUM(total) FROM invoice WHERE date = :today", nativeQuery=true)
-    Double findTodaySales(LocalDate today);
+    @Query(value = "SELECT SUM(total) FROM invoice WHERE date = (CURRENT_DATE - INTERVAL '1 day')", nativeQuery=true)
+    Double findTodaySales();
 
     @Query(value = "SELECT SUM(total) FROM invoice WHERE EXTRACT(MONTH FROM date) = :month", nativeQuery=true)
     Double findMonthSales(Integer month);
