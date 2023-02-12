@@ -17,8 +17,7 @@ public class Promotion {
     private String name;
 
     private String description;
-
-    @Column(insertable = false)
+    @Column(nullable = true)
     private String image;
     private Date startDate;
     private Date endDate;

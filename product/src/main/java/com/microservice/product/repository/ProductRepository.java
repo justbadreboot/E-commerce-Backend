@@ -26,7 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     //@Query(value = )
     //OrderDetailDTO findByName
 
-    //@Query(value = "UPDATE ")
-    //void updateStock(String name);
+    @Query(value = "UPDATE product SET stock = :stock WHERE name = :name", nativeQuery = true)
+    void updateStock(String name, Integer stock);
 
 }

@@ -27,7 +27,7 @@ public class PromotionCommandController {
     public ResponseEntity<?> addPromotion(@Valid @RequestBody Promotion promotionPostDTO){
         promotionRepository.save(promotionPostDTO);
         //promotionCommandService.savePromotion(promotionPostDTO);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Create ok");
     }
 
     @PutMapping("/{id}")
