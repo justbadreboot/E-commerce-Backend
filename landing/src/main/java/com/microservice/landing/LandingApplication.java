@@ -4,6 +4,7 @@ import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -20,6 +21,7 @@ public class LandingApplication {
 	@Bean
 	public OpenAPI springDocument(){
 		return new OpenAPI()
+				.addServersItem(new Server().url("/"))
 				.info(new Info().title("Microservice Landing")
 						.description("Microservicio desarrollado por: JustBADReboot")
 						.version("v0.01")
