@@ -1,21 +1,19 @@
 package com.microservice.landing.swagger;
-
+/*
+import io.swagger.v3.oas.models.ExternalDocumentation;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.*;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 @Configuration
-@EnableSwagger2
+@EnableWebMvc
 public class SwaggerConfig {
     public static final String AUTHORIZATION_HEADER = "Authorization";
 
@@ -23,17 +21,16 @@ public class SwaggerConfig {
         return new ApiKey("JWT", AUTHORIZATION_HEADER, "header");
     }
 
-    private ApiInfo apiInfo(){
-        return new ApiInfo(
-                "Endpoints E-commerce LandingPage",
-                "Al momento de colocar el token para las APIs privadas recuerde colocar la palabra Bearer antes del token",
-                "1",
-                "Términos de servicio",
-                new Contact("Bryan Quisaguano", "www.linkedin.com/in/bryan-quisaguano", "bryan.quisaguano@epn.edu.ec"),
-                "License of API",
-                "API license URL",
-                Collections.emptyList()
-        );
+    @Bean
+    public OpenAPI springShowOpenApi(){
+        return new OpenAPI()
+                .info(new Info().title("Microservicio Landing")
+                        .description("Aplicacion Krugermed para mostrar datos de la tienda")
+                        .version("v0.0.1")
+                        .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+                .externalDocs(new ExternalDocumentation()
+                        .description("SpringShop Wiki Documentation")
+                        .url("https://springshop.wiki.github.org/docs"));
     }
 
     @Bean
@@ -59,3 +56,5 @@ public class SwaggerConfig {
         return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
     }
 }
+
+ */

@@ -1,0 +1,435 @@
+2023-02-12 13:08:42.564  INFO 1316 --- [main] c.m.landing.LandingApplication           : Starting LandingApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 1316 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing)
+2023-02-12 13:08:42.569  INFO 1316 --- [main] c.m.landing.LandingApplication           : The following 1 profile is active: "dev"
+2023-02-12 13:08:42.636  INFO 1316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-12 13:08:42.636  INFO 1316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-landing, profiles=[dev], label=null, version=e3181fa5f5f1e6a9f82ae1edbd18c301252e4a74, state=null
+2023-02-12 13:08:44.568  INFO 1316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-12 13:08:44.694  INFO 1316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107 ms. Found 1 JPA repository interfaces.
+2023-02-12 13:08:45.101  INFO 1316 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a8c17aa4-71b9-3a00-a5fb-715f4e5b21f6
+2023-02-12 13:08:45.880  INFO 1316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-02-12 13:08:45.896  INFO 1316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-12 13:08:45.896  INFO 1316 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-12 13:08:46.253  INFO 1316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-12 13:08:46.261  INFO 1316 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3621 ms
+2023-02-12 13:08:46.722  INFO 1316 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-12 13:08:46.819  INFO 1316 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-12 13:08:47.103  INFO 1316 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-12 13:08:47.275  INFO 1316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-12 13:08:49.909 ERROR 1316 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLSyntaxErrorException: User krugermed_devs already has more than 'max_user_connections' active connections
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.microservice.landing.LandingApplication.main(LandingApplication.java:12) ~[classes/:na]
+
+2023-02-12 13:08:49.913  WARN 1316 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+
+java.sql.SQLSyntaxErrorException: User krugermed_devs already has more than 'max_user_connections' active connections
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.microservice.landing.LandingApplication.main(LandingApplication.java:12) ~[classes/:na]
+
+2023-02-12 13:08:49.933  INFO 1316 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-12 13:08:50.913  INFO 1316 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-12 13:08:53.436 ERROR 1316 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLSyntaxErrorException: User krugermed_devs already has more than 'max_user_connections' active connections
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:565) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.microservice.landing.LandingApplication.main(LandingApplication.java:12) ~[classes/:na]
+
+2023-02-12 13:08:53.436  WARN 1316 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1203, SQLState: 42000
+2023-02-12 13:08:53.436 ERROR 1316 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : User krugermed_devs already has more than 'max_user_connections' active connections
+2023-02-12 13:08:53.449 ERROR 1316 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+2023-02-12 13:08:53.449  WARN 1316 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+2023-02-12 13:08:53.457  INFO 1316 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-12 13:08:53.498  INFO 1316 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-02-12 13:08:53.541 ERROR 1316 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.25.jar:5.3.25]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.8.jar:2.7.8]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.8.jar:2.7.8]
+	at com.microservice.landing.LandingApplication.main(LandingApplication.java:12) ~[classes/:na]
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.25.jar:5.3.25]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.25.jar:5.3.25]
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.SQLGrammarException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:565) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.25.jar:5.3.25]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.25.jar:5.3.25]
+	... 20 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: User krugermed_devs already has more than 'max_user_connections' active connections
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:824) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:444) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:237) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198) ~[mysql-connector-j-8.0.32.jar:8.0.32]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44) ~[hibernate-core-5.6.14.Final.jar:5.6.14.Final]
+	... 36 common frames omitted
+
+2023-02-12 13:11:10.137  INFO 12208 --- [main] c.m.landing.LandingApplication           : Starting LandingApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 12208 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing)
+2023-02-12 13:11:10.142  INFO 12208 --- [main] c.m.landing.LandingApplication           : The following 1 profile is active: "dev"
+2023-02-12 13:11:10.210  INFO 12208 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-12 13:11:10.211  INFO 12208 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-landing, profiles=[dev], label=null, version=770130a55cd0e3ab1115307707778c45eda62091, state=null
+2023-02-12 13:11:12.103  INFO 12208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-12 13:11:12.219  INFO 12208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 1 JPA repository interfaces.
+2023-02-12 13:11:12.623  INFO 12208 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a8c17aa4-71b9-3a00-a5fb-715f4e5b21f6
+2023-02-12 13:11:13.317  INFO 12208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-02-12 13:11:13.333  INFO 12208 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-12 13:11:13.333  INFO 12208 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-12 13:11:13.651  INFO 12208 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-12 13:11:13.652  INFO 12208 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3438 ms
+2023-02-12 13:11:14.088  INFO 12208 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-12 13:11:14.153  INFO 12208 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-12 13:11:14.426  INFO 12208 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-12 13:11:14.575  INFO 12208 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-12 13:11:17.338  INFO 12208 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-12 13:11:17.356  INFO 12208 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-12 13:11:19.543  INFO 12208 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-12 13:11:19.558  INFO 12208 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-12 13:11:20.931  INFO 12208 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-02-12 13:11:21.002  WARN 12208 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-12 13:11:22.630  INFO 12208 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-12 13:11:22.767  WARN 12208 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-12 13:11:22.892  INFO 12208 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-12 13:11:22.959  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-12 13:11:22.968  INFO 12208 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-12 13:11:23.004  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-12 13:11:23.004  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-12 13:11:23.005  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-12 13:11:23.005  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-12 13:11:23.005  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-12 13:11:23.005  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-12 13:11:23.006  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-12 13:11:23.847  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-12 13:11:23.854  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-12 13:11:23.859  INFO 12208 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-12 13:11:23.870  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676225483868 with initial instances count: 8
+2023-02-12 13:11:23.875  INFO 12208 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-LANDING with eureka with status UP
+2023-02-12 13:11:23.875  INFO 12208 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676225483875, current=UP, previous=STARTING]
+2023-02-12 13:11:23.879  INFO 12208 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:6dd5c3c944dc6791a3b7afa55fddb72c: registering service...
+2023-02-12 13:11:23.921  INFO 12208 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2023-02-12 13:11:23.923  INFO 12208 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2023-02-12 13:11:24.314  INFO 12208 --- [main] c.m.landing.LandingApplication           : Started LandingApplication in 17.544 seconds (JVM running for 19.133)
+2023-02-12 13:11:24.443  INFO 12208 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:6dd5c3c944dc6791a3b7afa55fddb72c - registration status: 204
+2023-02-12 13:11:24.950  INFO 12208 --- [RMI TCP Connection(5)-192.168.1.6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-12 13:11:24.952  INFO 12208 --- [RMI TCP Connection(5)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-12 13:11:24.956  INFO 12208 --- [RMI TCP Connection(5)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-02-12 13:11:38.045  INFO 12208 --- [http-nio-8082-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 376 ms
+2023-02-12 13:11:39.204  WARN 12208 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-12 13:11:48.341  INFO 12208 --- [http-nio-8082-exec-6] c.m.l.controller.LandingQueryController  : entrando al endpoint
+2023-02-12 13:11:48.341  INFO 12208 --- [http-nio-8082-exec-6] c.m.l.s.query.LandingQueryServceImpl     : entrando al mapeo eaaaaaaaaaaa
+2023-02-12 13:13:56.133  WARN 12208 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-12 13:14:43.082  INFO 12208 --- [http-nio-8082-exec-10] c.m.l.controller.LandingQueryController  : entrando al endpoint
+2023-02-12 13:14:43.082  INFO 12208 --- [http-nio-8082-exec-10] c.m.l.s.query.LandingQueryServceImpl     : entrando al mapeo eaaaaaaaaaaa
+2023-02-12 13:14:55.012  WARN 12208 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-12 13:15:08.012  INFO 12208 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-LANDING with eureka with status DOWN
+2023-02-12 13:15:08.012  INFO 12208 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676225708012, current=DOWN, previous=UP]
+2023-02-12 13:15:08.013  INFO 12208 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:6dd5c3c944dc6791a3b7afa55fddb72c: registering service...
+2023-02-12 13:15:08.156  INFO 12208 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:6dd5c3c944dc6791a3b7afa55fddb72c - registration status: 204
+2023-02-12 13:15:08.278  INFO 12208 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-12 13:15:08.290  INFO 12208 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-12 13:15:10.233  INFO 12208 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-12 13:15:10.236  INFO 12208 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-12 13:15:13.245  INFO 12208 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-12 13:15:13.392  INFO 12208 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:6dd5c3c944dc6791a3b7afa55fddb72c - deregister  status: 200
+2023-02-12 13:15:13.402  INFO 12208 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-02-12 13:53:09.441  INFO 13628 --- [main] c.m.landing.LandingApplication           : Starting LandingApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 13628 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing)
+2023-02-12 13:53:09.446  INFO 13628 --- [main] c.m.landing.LandingApplication           : The following 1 profile is active: "dev"
+2023-02-12 13:53:09.521  INFO 13628 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-12 13:53:09.526  INFO 13628 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-landing, profiles=[dev], label=null, version=770130a55cd0e3ab1115307707778c45eda62091, state=null
+2023-02-12 13:53:11.566  INFO 13628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-12 13:53:11.697  INFO 13628 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 114 ms. Found 1 JPA repository interfaces.
+2023-02-12 13:53:12.109  INFO 13628 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a8c17aa4-71b9-3a00-a5fb-715f4e5b21f6
+2023-02-12 13:53:12.855  INFO 13628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-02-12 13:53:12.874  INFO 13628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-12 13:53:12.876  INFO 13628 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-12 13:53:13.241  INFO 13628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-12 13:53:13.241  INFO 13628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3712 ms
+2023-02-12 13:53:13.755  INFO 13628 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-12 13:53:13.848  INFO 13628 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-12 13:53:14.097  INFO 13628 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-12 13:53:14.385  INFO 13628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-12 13:53:17.898  INFO 13628 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-12 13:53:17.926  INFO 13628 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-12 13:53:20.046  INFO 13628 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-12 13:53:20.062  INFO 13628 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-12 13:53:21.851  INFO 13628 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-02-12 13:53:21.928  WARN 13628 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-12 13:53:23.676  INFO 13628 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-12 13:53:23.816  WARN 13628 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-12 13:53:23.939  INFO 13628 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-12 13:53:23.997  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-12 13:53:24.007  INFO 13628 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-12 13:53:24.063  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-12 13:53:25.068  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-12 13:53:25.079  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-12 13:53:25.088  INFO 13628 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-12 13:53:25.105  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676228005102 with initial instances count: 8
+2023-02-12 13:53:25.111  INFO 13628 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-LANDING with eureka with status UP
+2023-02-12 13:53:25.114  INFO 13628 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676228005114, current=UP, previous=STARTING]
+2023-02-12 13:53:25.120  INFO 13628 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:4189f2314bb5ea437a41657d14cde5e7: registering service...
+2023-02-12 13:53:25.195  INFO 13628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2023-02-12 13:53:25.197  INFO 13628 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2023-02-12 13:53:25.622  INFO 13628 --- [main] c.m.landing.LandingApplication           : Started LandingApplication in 19.987 seconds (JVM running for 22.092)
+2023-02-12 13:53:25.686  INFO 13628 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:4189f2314bb5ea437a41657d14cde5e7 - registration status: 204
+2023-02-12 13:53:26.274  INFO 13628 --- [RMI TCP Connection(6)-192.168.1.6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-12 13:53:26.274  INFO 13628 --- [RMI TCP Connection(6)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-12 13:53:26.277  INFO 13628 --- [RMI TCP Connection(6)-192.168.1.6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-02-12 13:53:59.382  INFO 13628 --- [http-nio-8082-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 409 ms
+2023-02-12 13:54:22.479  WARN 13628 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-12 13:55:33.482  INFO 13628 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-LANDING with eureka with status DOWN
+2023-02-12 13:55:33.483  INFO 13628 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676228133483, current=DOWN, previous=UP]
+2023-02-12 13:55:33.484  INFO 13628 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:4189f2314bb5ea437a41657d14cde5e7: registering service...
+2023-02-12 13:55:33.669  INFO 13628 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:4189f2314bb5ea437a41657d14cde5e7 - registration status: 204
+2023-02-12 13:55:33.779  INFO 13628 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-12 13:55:33.788  INFO 13628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-12 13:55:36.128  INFO 13628 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-12 13:55:36.131  INFO 13628 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-12 13:55:39.139  INFO 13628 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-12 13:55:39.384  INFO 13628 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:4189f2314bb5ea437a41657d14cde5e7 - deregister  status: 200
+2023-02-12 13:55:39.394  INFO 13628 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
