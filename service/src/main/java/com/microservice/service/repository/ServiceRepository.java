@@ -8,4 +8,5 @@ import java.util.List;
 public interface ServiceRepository extends JpaRepository<Service,Integer> {
     List<Service> findBySpecialtyId(Integer id);
     List<Service> findTop4ByOrderByPrice();
+    List<Service> findByNameContainingIgnoreCase(String prefix);
 }

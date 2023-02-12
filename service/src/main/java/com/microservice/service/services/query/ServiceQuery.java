@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ServiceQuery {
     List<ServiceGetDto> findAll();
+    List<ServiceGetDto> findByName(String name);
     ServiceGetDto findById(Integer id);
     List<ServiceGetDto> findBySpecialtyId(Integer id);
     List<ServiceGetDto> findMainService();

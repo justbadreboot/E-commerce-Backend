@@ -26,6 +26,11 @@ public class ServiceQueryImpl implements ServiceQuery {
     }
 
     @Override
+    public List<ServiceGetDto> findByName(String name) {
+        return serviceMapper.toServicesDTO(serviceRepository.findByNameContainingIgnoreCase(name));
+    }
+
+    @Override
     public ServiceGetDto findById(Integer id) {
         Optional<Service> service = serviceRepository.findById(id);
         return service.map(value -> serviceMapper.toServiceDTO(value)).orElse(null);
