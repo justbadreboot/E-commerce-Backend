@@ -27,8 +27,18 @@ public class AuthUserController {
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(tokenDTO);
-
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody NewUserDto dto) throws Exception {
+        AuthUser authUser = authUserService.crear(dto);
+        if (authUser == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo ya se encuentra registrado");
+        }
+        return ResponseEntity.ok(authUser);
+    }
+
+
 
     @PostMapping("/validate")
     public ResponseEntity<TokenDTO> validate (@RequestParam String token, @RequestBody RequestDTO dto){
@@ -42,13 +52,23 @@ public class AuthUserController {
         log.info("validacion exitosa");
         return ResponseEntity.ok(tokenDTO);
     }
-
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody NewUserDto dto) throws Exception {
-        AuthUser authUser = authUserService.crear(dto);
-        if (authUser == null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo ya se encuentra registrado");
+    @PostMapping("validate/client")
+    public ResponseEntity<?> validateClient(@RequestParam String token, @RequestBody RequestDTO dto){
+        TokenDTO tokenDTO = authUserService.validateRolClient(token, dto);
+        if (tokenDTO==null){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Rol no autorizado");
         }
-        return ResponseEntity.ok(authUser);
+        return ResponseEntity.status(HttpStatus.OK).body(tokenDTO);
     }
+
+    @PostMapping("validate/repartidor")
+    public ResponseEntity<?> validateRepartidor(@RequestParam String token, @RequestBody RequestDTO dto){
+        TokenDTO tokenDTO = authUserService.validateRolRepartidor(token, dto);
+        if (tokenDTO == null){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Rol no autorizado");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(tokenDTO);
+    }
+
+
 }

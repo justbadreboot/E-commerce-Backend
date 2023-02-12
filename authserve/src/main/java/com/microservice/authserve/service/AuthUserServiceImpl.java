@@ -73,6 +73,29 @@ public class AuthUserServiceImpl{
         return new TokenDTO(token);
     }
 
+    public TokenDTO validateRolClient(String token, RequestDTO dto){
+        if(!JwtProvider.validateClient(token, dto)){
+            return null;
+        }
+        String email = JwtProvider.getEmailFromUser(token);
+        if (!authUserRepository.findByEmail(email).isPresent()){
+            return null;
+        }
+        return new TokenDTO(token);
+    }
+
+    public TokenDTO validateRolRepartidor(String token, RequestDTO dto){
+        if (!JwtProvider.validateRepartidor(token, dto)){
+            return null;
+        }
+        String email = JwtProvider.getEmailFromUser(token);
+        if (!authUserRepository.findByEmail(email).isPresent()){
+            return null;
+        }
+        return new TokenDTO(token);
+    }
+
+
 
     public void mapeoDTOtoEntity(NewUserDto authUserDTO, AuthUser authUser){
         authUser.setEmail(authUserDTO.getEmail());

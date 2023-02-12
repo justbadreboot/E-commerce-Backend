@@ -33,6 +33,13 @@ public class JwtProvider {
     private static final long TIEMPO_EXPIRACION = 3600_000;
     @Autowired
     private static RouteValidator routeValidator;
+
+    @Autowired
+    private static RouteValidatorClient routeValidatorClient;
+
+    @Autowired
+    private static RouteValidatorRepartidor routeValidatorRepartidor;
+
     public static String createToken(AuthUser authUser){
         Map<String, Object> claims = new HashMap<>();
         log.info("entrando a funcion de crear token");
@@ -69,6 +76,31 @@ public class JwtProvider {
         return true;
     }
 
+    public static boolean validateClient(String token, RequestDTO dto){
+        try{
+            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+        }catch (Exception e){
+            return false;
+        }
+        if (!isClient(token) && routeValidatorClient.isClientPath(dto)){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean validateRepartidor(String token, RequestDTO dto){
+        try {
+            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+        }catch (Exception e){
+            return false;
+        }
+        if (!isRepartidor(token) && routeValidatorRepartidor.inRepartidorPath(dto)){
+            return false;
+        }
+        return true;
+    }
+
+
     public static String getEmailFromUser(String token){
         log.info("entrando a la validacion del email");
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
@@ -81,6 +113,16 @@ public class JwtProvider {
         JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
         log.info("verificar si es admin: {}", parser.parseClaimsJws(token).getBody().get("role").equals("ADMIN"));
         return parser.parseClaimsJws(token).getBody().get("role").equals("ADMIN");
+    }
+
+    private static boolean isRepartidor(String token){
+        JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+        return parser.parseClaimsJws(token).getBody().get("role").equals("REPARTIDOR");
+    }
+
+    private static boolean isClient(String token){
+        JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+        return parser.parseClaimsJws(token).getBody().get("role").equals("CLIENTE");
     }
 
 }
