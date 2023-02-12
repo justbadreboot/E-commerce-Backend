@@ -57,5 +57,10 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findSalesLastWeek());
     }
 
+    @GetMapping("/invoice/sales/month")
+    public ResponseEntity<?> findTotalSalesByAllMonth(){
+        return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findAllMonthSales());
+    }
+
 
 }

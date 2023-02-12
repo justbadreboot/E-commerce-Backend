@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TotalSalesGetDTO {
-    private Double today;
-    private Double month;
+public class TotalMonthSalesGetDTO {
+    private Integer month;
+    private Double total;
 }
