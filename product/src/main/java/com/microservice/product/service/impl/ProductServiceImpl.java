@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Product> findProductsByCategory(Integer id) {
+    public List<Product> findProductsByCategory(Integer id) {
         return productRepository.findByCategoryId(id);
     }
 

@@ -1,6 +1,7 @@
 package com.microservice.product.controller;
 
 import com.microservice.product.entity.Product;
+import com.microservice.product.repository.CategoryRepository;
 import com.microservice.product.repository.ProductRepository;
 import com.microservice.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class ProductController {
     private ProductService productService;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @GetMapping("/all")
     public List<Product> allProducts(){
@@ -37,18 +40,25 @@ public class ProductController {
     }
     
     @GetMapping("/filter/{name}")
-    public ResponseEntity<Product> listProductsByName(@PathVariable(value = "name") String name){
-        Optional<Product> productOptional = productRepository.findByNameContains(name);
-        return productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<?> listProductsByName(@PathVariable(value = "name") String name){
+        List<Product> productOptional = productRepository.findByNameContains(name);
+        if (productOptional.isEmpty()){
+            return ResponseEntity.ok("No existen coincidencias");
+        }
+        return ResponseEntity.ok(productOptional);
+        //productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/category/{id}")
     public ResponseEntity<?> productsByCategory(@PathVariable(value = "id") Integer id){
-        Optional<Product> productOptional = productRepository.findByCategoryId(id);
-        if (productOptional.isPresent()){
-            return ResponseEntity.ok(productOptional.get());
+        List<Product> productOptional = productRepository.findByCategoryId(id);
+        if (!categoryRepository.findById(id).isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe la categoría");
         }
-        return ResponseEntity.notFound().build();
+        if (productOptional.isEmpty()){
+            return ResponseEntity.ok("No existen productos asiciados a esa categoria");
+        }
+        return ResponseEntity.ok(productOptional);
     }
 
     @PostMapping

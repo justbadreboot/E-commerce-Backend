@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface ProductQueryService {
 
-    Optional<Product> findProductsByCategory(Integer id);
+    List<Product> findProductsByCategory(Integer id);
 
     List<Product> findAllProducts();
 }
