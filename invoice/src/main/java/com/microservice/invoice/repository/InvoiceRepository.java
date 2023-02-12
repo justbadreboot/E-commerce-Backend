@@ -11,6 +11,9 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     @Query(value = "SELECT SUM(total) FROM invoice WHERE date = (CURRENT_DATE - INTERVAL '1 day')", nativeQuery=true)
     Double findTodaySales();
 
+    @Query(value = "SELECT count(*) from public.invoice where date = (CURRENT_DATE - INTERVAL '1 day')", nativeQuery = true)
+    Integer findCountTodayInvoice();
+
     @Query(value = "SELECT SUM(total) FROM invoice WHERE EXTRACT(MONTH FROM date) = :month", nativeQuery=true)
     Double findMonthSales(Integer month);
 
@@ -28,7 +31,7 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
             "WHERE date >= NOW() - INTERVAL '15 days'\n" +
             "GROUP BY fecha\n" +
             "ORDER BY fecha DESC", nativeQuery = true)
-    List<?> findSalesLastWeek();
+    Object[][] findSalesLastWeek();
 
     List<Invoice> findByClientId(Integer id);
 

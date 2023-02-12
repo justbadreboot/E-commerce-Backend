@@ -5,12 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TotalSalesGetDTO {
-    private Double today;
-    private Double month;
-    private Integer countTodayInvoice;
+public class TotalWeekSalesGetDTO {
+    private String date;
+    private Double total;
 }

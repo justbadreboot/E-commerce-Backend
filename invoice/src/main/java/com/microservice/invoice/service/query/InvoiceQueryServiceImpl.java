@@ -3,6 +3,7 @@ package com.microservice.invoice.service.query;
 import com.microservice.invoice.dto.InvoiceGetDTO;
 import com.microservice.invoice.dto.TotalMonthSalesGetDTO;
 import com.microservice.invoice.dto.TotalSalesGetDTO;
+import com.microservice.invoice.dto.TotalWeekSalesGetDTO;
 import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.mapper.InvoiceMapper;
 import com.microservice.invoice.repository.InvoiceRepository;
@@ -33,6 +34,11 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
         return (int)Double.parseDouble(stringToConvert);
     }
 
+    private static Integer convertToDate(Object o) {
+        String stringToConvert = String.valueOf(o);
+        return (int)Double.parseDouble(stringToConvert);
+    }
+
     @Override
     public List<InvoiceGetDTO> findAll() {
         return invoiceMapper.toInvoicesDto(invoiceRepository.findAll());
@@ -53,12 +59,22 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     public TotalSalesGetDTO findTotalSales() {
         Double today = invoiceRepository.findTodaySales();
         Double month = invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
-        return new TotalSalesGetDTO(today == null ? 0 : today, month == null ? 0: month);
+        Integer countInvoice = invoiceRepository.findCountTodayInvoice();
+        return new TotalSalesGetDTO(
+                today == null ? 0 : today,
+                month == null ? 0: month,
+                countInvoice == null ? 0 : countInvoice);
     }
 
     @Override
-    public List<?> findSalesLastWeek() {
-        return invoiceRepository.findSalesLastWeek();
+    public List<TotalWeekSalesGetDTO> findSalesLastWeek() {
+        Object[][] dataRepository =  invoiceRepository.findSalesLastWeek();
+        List<TotalWeekSalesGetDTO> salesByWeekBase = new ArrayList<>();
+        Arrays.stream(dataRepository).forEach(row->{
+            salesByWeekBase.add(new TotalWeekSalesGetDTO(String.valueOf(row[0]),convertToDouble(row[1])));
+        });
+
+        return salesByWeekBase;
     }
 
     @Override
@@ -88,6 +104,4 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
         }
         return salesByMonthBase;
     }
-
-
 }
