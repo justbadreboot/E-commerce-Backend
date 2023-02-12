@@ -35,9 +35,13 @@ public class OrderPostDTO {
     private String clientName;
     @NotBlank
     private String clientPhone;
+    @NotNull
     private StatePostDTO orderState;
+    @NotNull
     private StatePostDTO paymentState;
+    @NotNull
     private StatePostDTO deliveryState;
+    @NotNull
     private List<OrderDetailPostDTO> orderDetails;
 
 }
