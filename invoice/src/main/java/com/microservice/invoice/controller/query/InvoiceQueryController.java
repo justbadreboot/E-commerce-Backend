@@ -47,10 +47,7 @@ public class InvoiceQueryController {
 
     @GetMapping("/invoice/sales/today")
     public ResponseEntity<?> findTodayTotalSales(){
-        Map<String, Double> totalSales = new HashMap<>();
-        totalSales.put("today", invoiceService.findByDate());
-        totalSales.put("month", invoiceService.findTotalSalesByMonth());
-        return ResponseEntity.status(HttpStatus.OK).body(totalSales);
+        return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findTotalSales());
     }
 
     @GetMapping("/invoice/sales/week")

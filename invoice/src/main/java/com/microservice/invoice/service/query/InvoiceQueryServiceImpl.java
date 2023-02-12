@@ -1,6 +1,8 @@
 package com.microservice.invoice.service.query;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.microservice.invoice.dto.InvoiceGetDTO;
+import com.microservice.invoice.dto.TotalSalesGetDTO;
 import com.microservice.invoice.entity.Invoice;
 import com.microservice.invoice.mapper.InvoiceMapper;
 import com.microservice.invoice.repository.InvoiceRepository;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,13 +41,10 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     }
 
     @Override
-    public Double findByDate() {
-        return invoiceRepository.findTodaySales(LocalDate.now());
-    }
-
-    @Override
-    public Double findTotalSalesByMonth() {
-        return invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
+    public TotalSalesGetDTO findTotalSales() {
+        Double today = invoiceRepository.findTodaySales(LocalDate.now());
+        Double month = invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
+        return new TotalSalesGetDTO(today, month);
     }
 
     @Override
