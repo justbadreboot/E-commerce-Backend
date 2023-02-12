@@ -1,5 +1,6 @@
 package com.microservice.product.controller;
 
+import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
 import com.microservice.product.repository.CategoryRepository;
 import com.microservice.product.repository.ProductRepository;
@@ -100,6 +101,13 @@ public class ProductController {
         return ResponseEntity.notFound().build();
 
     }
+
+    @PostMapping("/reduce/stock")
+    public ResponseEntity<?> reduceStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
+
+        return ResponseEntity.ok().body("oa");
+    }
+
 /* en caso que optemos por usar excepciones personalizadas
 
     @DeleteMapping("/private/sucursal/{sucursalId}")

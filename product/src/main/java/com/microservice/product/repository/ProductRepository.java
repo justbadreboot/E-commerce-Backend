@@ -26,4 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     //@Query(value = )
     //OrderDetailDTO findByName
 
+    //@Query(value = "UPDATE ")
+    //void updateStock(String name);
+
 }

@@ -1,5 +1,6 @@
 package com.microservice.product.service.impl;
 
+import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
 import com.microservice.product.repository.ProductRepository;
 import com.microservice.product.service.ProductService;
@@ -40,5 +41,12 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     public void deletePoduct(Integer id) {
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateStock(List<OrderDetailDTO> orderDetailDTO) {
+        for (int i =0; i< orderDetailDTO.size(); i++){
+
+        }
     }
 }

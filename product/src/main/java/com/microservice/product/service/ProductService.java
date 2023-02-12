@@ -1,5 +1,6 @@
 package com.microservice.product.service;
 
+import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
 
 import java.util.List;
@@ -17,6 +18,8 @@ public interface ProductService {
 
 
     void deletePoduct(Integer id);
+
+    void updateStock(List<OrderDetailDTO> orderDetailDTO);
 
 
 
