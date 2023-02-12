@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +43,7 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
 
     @Override
     public TotalSalesGetDTO findTotalSales() {
+        System.out.println(LocalDate.now());
         Double today = invoiceRepository.findTodaySales(LocalDate.now());
         Double month = invoiceRepository.findMonthSales(LocalDate.now().getMonthValue());
         return new TotalSalesGetDTO(today, month);

@@ -49,7 +49,6 @@ public class InvoiceQueryController {
     @GetMapping("/invoice/sales/today")
     public ResponseEntity<?> findTodayTotalSales(){
         TotalSalesGetDTO totals = invoiceService.findTotalSales();
-        System.out.println(totals.toString());
         return ResponseEntity.status(HttpStatus.OK).body(totals);
     }
 
