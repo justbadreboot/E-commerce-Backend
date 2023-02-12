@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class InvoiceQueryController {
     }
 
     @GetMapping("/invoice/sales/week")
-    public ResponseEntity<?> findTotalWeekSales(){
+    public ResponseEntity<?> findTotalWeekSales() throws ParseException {
         return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findSalesLastWeek());
     }
 

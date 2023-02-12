@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -67,14 +69,23 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     }
 
     @Override
-    public List<TotalWeekSalesGetDTO> findSalesLastWeek() {
+    public List<TotalWeekSalesGetDTO> findSalesLastWeek() throws ParseException {
         Object[][] dataRepository =  invoiceRepository.findSalesLastWeek();
-        List<TotalWeekSalesGetDTO> salesByWeekBase = new ArrayList<>();
-        Arrays.stream(dataRepository).forEach(row->{
-            salesByWeekBase.add(new TotalWeekSalesGetDTO(String.valueOf(row[0]),convertToDouble(row[1])));
-        });
+        Calendar calendar = Calendar.getInstance();
 
-        return salesByWeekBase;
+        List<TotalWeekSalesGetDTO> salesByWeekBase = new ArrayList<>();
+        List<TotalWeekSalesGetDTO> salesByWeek = new ArrayList<>();
+        Arrays.stream(dataRepository).forEach(row->{
+            salesByWeekBase.add(new TotalWeekSalesGetDTO(String.valueOf(row[0]),convertToDouble(row[1]), 0));
+        });
+        SimpleDateFormat dateform = new SimpleDateFormat("yyyy-MM-dd");
+        for (TotalWeekSalesGetDTO day: salesByWeekBase) {
+            Date date = dateform.parse(day.getDate().substring(0,10));
+            calendar.setTime(date);
+            day.setWeekNumber(calendar.get(Calendar.WEEK_OF_YEAR));
+            salesByWeek.add(day);
+        }
+        return salesByWeek;
     }
 
     @Override

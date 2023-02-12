@@ -5,6 +5,7 @@ import com.microservice.invoice.dto.TotalMonthSalesGetDTO;
 import com.microservice.invoice.dto.TotalSalesGetDTO;
 import com.microservice.invoice.dto.TotalWeekSalesGetDTO;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public interface InvoiceQueryService {
     List<InvoiceGetDTO> findByClientId(Integer id);
     InvoiceGetDTO findById(Integer id);
     TotalSalesGetDTO findTotalSales();
-    List<TotalWeekSalesGetDTO> findSalesLastWeek();
+    List<TotalWeekSalesGetDTO> findSalesLastWeek() throws ParseException;
     List<TotalMonthSalesGetDTO> findAllMonthSales();
 
 

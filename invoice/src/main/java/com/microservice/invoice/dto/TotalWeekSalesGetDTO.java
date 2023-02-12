@@ -14,4 +14,5 @@ import java.time.LocalDate;
 public class TotalWeekSalesGetDTO {
     private String date;
     private Double total;
+    private Integer weekNumber;
 }
