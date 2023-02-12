@@ -11,4 +11,5 @@ public class ProductSameCategoryDTO {
     private String brand;
     private Double rating;
     private Integer stock;
+    private Integer porcentajeDescuento;
 }

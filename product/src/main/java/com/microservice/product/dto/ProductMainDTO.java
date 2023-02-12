@@ -12,5 +12,6 @@ public class ProductMainDTO {
     private String image;
     private Double rating;
     private Integer stock;
+    private Integer porcentajeDescuento;
 
 }
