@@ -104,8 +104,14 @@ public class ProductController {
 
     @PostMapping("/reduce/stock")
     public ResponseEntity<?> reduceStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
+        productService.updateStock(orderDetailDTO);
+        return ResponseEntity.ok().body("Update Stock");
+    }
 
-        return ResponseEntity.ok().body("oa");
+    @PostMapping("/plus/stock")
+    public ResponseEntity<?> plusStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
+        productService.updateStockPlus(orderDetailDTO);
+        return ResponseEntity.ok().body("Update Stock");
     }
 
 /* en caso que optemos por usar excepciones personalizadas

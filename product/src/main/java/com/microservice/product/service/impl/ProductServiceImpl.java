@@ -45,8 +45,15 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateStock(List<OrderDetailDTO> orderDetailDTO) {
-        for (int i =0; i< orderDetailDTO.size(); i++){
+        for (OrderDetailDTO detailDTO : orderDetailDTO) {
+            productRepository.updateStock(detailDTO.getName(), detailDTO.getAmount());
+        }
+    }
 
+    @Override
+    public void updateStockPlus(List<OrderDetailDTO> orderDetailDTOS) {
+        for (OrderDetailDTO detailDTO : orderDetailDTOS) {
+            productRepository.updateStockPlus(detailDTO.getName(), detailDTO.getAmount());
         }
     }
 }

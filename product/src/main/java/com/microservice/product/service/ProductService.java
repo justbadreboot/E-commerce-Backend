@@ -21,6 +21,8 @@ public interface ProductService {
 
     void updateStock(List<OrderDetailDTO> orderDetailDTO);
 
+    void updateStockPlus(List<OrderDetailDTO> orderDetailDTOS);
+
 
 
 
