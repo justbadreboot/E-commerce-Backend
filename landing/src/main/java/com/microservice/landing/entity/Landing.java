@@ -1,15 +1,15 @@
 package com.microservice.landing.entity;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.io.Serializable;
 
 @Table
 @Entity
 @Data
-public class Landing {
+public class Landing extends Auditable<String> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

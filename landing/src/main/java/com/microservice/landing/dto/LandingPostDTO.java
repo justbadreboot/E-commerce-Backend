@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Lob;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
@@ -14,20 +15,26 @@ import javax.validation.constraints.Email;
 @Builder
 public class LandingPostDTO {
 
+    @NotBlank
     private String name;
 
     @Lob
+    @NotBlank
     private String description;
 
     @Lob
+    @NotBlank
     private String address;
 
     @Lob
+    @NotBlank
     private String mission;
 
     @Lob
+    @NotBlank
     private String vision;
 
+    @NotBlank
     private String phone;
 
     @Email
