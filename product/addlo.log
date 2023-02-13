@@ -686,3 +686,51 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or upda
 2023-02-13 02:31:49.188  INFO 17788 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
 2023-02-13 02:31:49.618  INFO 17788 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:8c5cec3f42afea9062c819e4a8c6474d - deregister  status: 200
 2023-02-13 02:31:49.623  INFO 17788 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-02-13 15:44:19.424  INFO 10036 --- [main] c.m.product.ProductApplicationTests      : Starting ProductApplicationTests using Java 11.0.9 on LAPTOP-VCJUUTEJ with PID 10036 (started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\product)
+2023-02-13 15:44:19.427  INFO 10036 --- [main] c.m.product.ProductApplicationTests      : The following 1 profile is active: "dev"
+2023-02-13 15:44:19.483  INFO 10036 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-13 15:44:19.483  INFO 10036 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-product, profiles=[dev], label=null, version=7c547bcef47de51cb2b19348669a8b3e67c54901, state=null
+2023-02-13 15:44:20.818  INFO 10036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-13 15:44:21.097  INFO 10036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 267 ms. Found 3 JPA repository interfaces.
+2023-02-13 15:44:21.479  INFO 10036 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=98f28696-e995-38d3-9c31-929cdb1849ac
+2023-02-13 15:44:22.014  INFO 10036 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-13 15:44:22.102  INFO 10036 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-13 15:44:22.326  INFO 10036 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-13 15:44:22.484  INFO 10036 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-13 15:44:24.867  INFO 10036 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-13 15:44:24.893  INFO 10036 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-13 15:44:28.722  INFO 10036 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-13 15:44:28.734  INFO 10036 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-13 15:44:29.918  WARN 10036 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-13 15:44:31.221  INFO 10036 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-13 15:44:31.542  WARN 10036 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-13 15:44:31.643  INFO 10036 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-13 15:44:31.788  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-13 15:44:31.795  INFO 10036 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-13 15:44:31.834  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-13 15:44:31.835  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-13 15:44:32.988  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-13 15:44:32.993  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-13 15:44:32.998  INFO 10036 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-13 15:44:33.005  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676321073003 with initial instances count: 9
+2023-02-13 15:44:33.011  INFO 10036 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-PRODUCT with eureka with status UP
+2023-02-13 15:44:33.012  INFO 10036 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676321073012, current=UP, previous=STARTING]
+2023-02-13 15:44:33.014  INFO 10036 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:ce5e27dbf86bd3ce34757c5bcbbf7f6c: registering service...
+2023-02-13 15:44:33.315  INFO 10036 --- [main] c.m.product.ProductApplicationTests      : Started ProductApplicationTests in 16.963 seconds (JVM running for 18.332)
+2023-02-13 15:44:33.519  INFO 10036 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-PRODUCT with eureka with status DOWN
+2023-02-13 15:44:33.520  INFO 10036 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676321073520, current=DOWN, previous=UP]
+2023-02-13 15:44:33.528  INFO 10036 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-13 15:44:33.531  INFO 10036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-13 15:44:33.567  INFO 10036 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:ce5e27dbf86bd3ce34757c5bcbbf7f6c - registration status: 204
+2023-02-13 15:44:33.567  INFO 10036 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:ce5e27dbf86bd3ce34757c5bcbbf7f6c: registering service...
+2023-02-13 15:44:33.803  INFO 10036 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:ce5e27dbf86bd3ce34757c5bcbbf7f6c - registration status: 204
+2023-02-13 15:44:34.791  INFO 10036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-13 15:44:34.793  INFO 10036 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-13 15:44:37.804  INFO 10036 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-13 15:44:37.951  INFO 10036 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-PRODUCT/mcsv-product:ce5e27dbf86bd3ce34757c5bcbbf7f6c - deregister  status: 200
+2023-02-13 15:44:37.956  INFO 10036 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

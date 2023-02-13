@@ -9,13 +9,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Service
 public class CategoryCommandServiceImpl implements CategoryCommandService {
 
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
     private CategoryMapper categoryMapper;
 
     @Override
