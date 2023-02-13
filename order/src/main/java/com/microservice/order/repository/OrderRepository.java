@@ -17,6 +17,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Query(value = "SELECT SUM(order_details.amount) FROM krugorders, order_details WHERE (krugorders.id = order_details.order_id) AND krugorders.date > DATE_SUB(CURDATE(),INTERVAL 1 DAY)", nativeQuery=true)
     Integer productsSoldOnDay();
 
+
 }
 
 

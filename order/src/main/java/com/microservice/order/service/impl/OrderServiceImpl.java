@@ -6,6 +6,7 @@ import com.microservice.order.repository.OrderDetailsRepository;
 import com.microservice.order.repository.OrderRepository;
 import com.microservice.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> findallOrders() {
-        return orderRepository.findAll();
+        return orderRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override
