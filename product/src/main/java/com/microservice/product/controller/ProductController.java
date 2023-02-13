@@ -15,52 +15,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin/product")
 @CrossOrigin(value = "*")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private CategoryRepository categoryRepository;
 
-    @GetMapping("/all")
-    public List<Product> allProducts(){
-        return productService.findAllProducts();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<?> productIdInformation(@PathVariable(value = "id") Integer id){
-        Optional<Product> productOptional = productService.byId(id);
-        if (productOptional.isPresent()){
-            return ResponseEntity.ok(productOptional.get());
-        }
-        return ResponseEntity.notFound().build();
-    }
-    
-    @GetMapping("/filter/{name}")
-    public ResponseEntity<?> listProductsByName(@PathVariable(value = "name") String name){
-        List<Product> productOptional = productRepository.findByNameContains(name);
-        if (productOptional.isEmpty()){
-            return ResponseEntity.ok("No existen coincidencias");
-        }
-        return ResponseEntity.ok(productOptional);
-        //productOptional.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @GetMapping("/category/{id}")
-    public ResponseEntity<?> productsByCategory(@PathVariable(value = "id") Integer id){
-        List<Product> productOptional = productRepository.findByCategoryId(id);
-        if (!categoryRepository.findById(id).isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No existe la categoría");
-        }
-        if (productOptional.isEmpty()){
-            return ResponseEntity.ok("No existen productos asiciados a esa categoria");
-        }
-        return ResponseEntity.ok(productOptional);
-    }
 
     @PostMapping
     public ResponseEntity<?> addProducts(@Valid @RequestBody Product product){

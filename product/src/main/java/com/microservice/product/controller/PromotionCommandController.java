@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/promotion")
+@RequestMapping("/api/admin/promotion")
 @CrossOrigin(value = "*")
 public class PromotionCommandController {
 

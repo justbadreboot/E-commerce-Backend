@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/promotion")
+@RequestMapping("/api/public/promotion")
 @CrossOrigin(value = "*")
 public class PromotionQueryController {
 
