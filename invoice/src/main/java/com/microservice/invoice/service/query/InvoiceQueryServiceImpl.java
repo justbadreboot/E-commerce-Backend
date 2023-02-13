@@ -9,6 +9,7 @@ import com.microservice.invoice.mapper.InvoiceMapper;
 import com.microservice.invoice.repository.InvoiceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -43,7 +44,7 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
 
     @Override
     public List<InvoiceGetDTO> findAll() {
-        return invoiceMapper.toInvoicesDto(invoiceRepository.findAll());
+        return invoiceMapper.toInvoicesDto(invoiceRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
     }
 
     @Override
