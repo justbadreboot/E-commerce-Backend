@@ -41,6 +41,7 @@ public class PromotionCommandController {
             promotionBD.setEndDate(promotionPostDTO.getEndDate());
             promotionBD.setStartDate(promotionPostDTO.getStartDate());
             promotionBD.setPromotionTypes(promotionPostDTO.getPromotionTypes());
+            promotionBD.setProduct(promotionPostDTO.getProduct());
             //promotionCommandService.mapperPromotion(promotionBD, promotionPostDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(promotionRepository.save(promotionBD));
         }

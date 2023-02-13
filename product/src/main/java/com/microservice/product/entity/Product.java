@@ -27,10 +27,10 @@ public class Product {
     private Date expiration;
     private Double rating;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "promotion_id", nullable = true, insertable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Promotion promotion;
+    //@ManyToOne(fetch = FetchType.LAZY, optional = true)
+    //@JoinColumn(name = "promotion_id", nullable = true, insertable = false)
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //private Promotion promotion;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = true)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
