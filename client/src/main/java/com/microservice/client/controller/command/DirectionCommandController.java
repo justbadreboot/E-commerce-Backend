@@ -23,7 +23,7 @@ public class DirectionCommandController {
     @Autowired
     private ClientQueryService clientService;
 
-    @PostMapping("/client/{id}/direction")
+    @PostMapping("/cliente/client/{id}/direction")
     public ResponseEntity<?> createDirection(@PathVariable("id") @Min(1) Integer id, @RequestBody @Valid DirectionPostDTO directionPostDTO) {
         ClientGetDTO clientFound = clientService.findById(id);
         if(clientFound == null) {
@@ -33,7 +33,7 @@ public class DirectionCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
-    @PutMapping("/client/{id}/direction")
+    @PutMapping("cliente/client/{id}/direction")
     public ResponseEntity<?> editDirection(@Valid @PathVariable("id") Integer id, @RequestBody @Valid DirectionPostDTO directionPostDTO) {
         ClientGetDTO clientFound = clientService.findById(id);
         if(clientFound == null) {
@@ -43,7 +43,7 @@ public class DirectionCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(directionToAdd);
     }
 
-    @DeleteMapping("/direction/{id}")
+    @DeleteMapping("/cliente/direction/{id}")
     public ResponseEntity<?> deleteDirection(@PathVariable("id") @Min(1) Integer id) {
         directionService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("");

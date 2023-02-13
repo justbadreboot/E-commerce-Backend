@@ -24,7 +24,7 @@ public class ServiceQueryController {
     @Autowired
     private ServiceQuery service;
 
-    @GetMapping("/service")
+    @GetMapping("/public/service")
     public ResponseEntity<?> findAllServices(){
         log.info("Inside method to get all services");
         List<ServiceGetDto> services = service.findAll();
@@ -34,7 +34,7 @@ public class ServiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
 
-    @GetMapping("/service/main")
+    @GetMapping("/public/service/main")
     public ResponseEntity<?> findMainServices(){
         log.info("Inside method to get four main services");
         List<ServiceGetDto> services = service.findMainService();
@@ -44,7 +44,7 @@ public class ServiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
 
-    @GetMapping("/service/search/{name}")
+    @GetMapping("/public/service/search/{name}")
     public ResponseEntity<?> findServicesByName(@PathVariable("name") String name){
         log.info("Inside method to get services by name");
         List<ServiceGetDto> services = service.findByName(name);
@@ -54,7 +54,7 @@ public class ServiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(services);
     }
 
-    @GetMapping("/service/{id}")
+    @GetMapping("/public/service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
         log.info("Inside method to get one service by id");
         ServiceGetDto serviceFound = service.findById(id);
@@ -64,7 +64,7 @@ public class ServiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(serviceFound);
     }
 
-    @GetMapping("/specialty/{id}/service")
+    @GetMapping("/public/specialty/{id}/service")
     public ResponseEntity<?> findServiceBySpecialty(@PathVariable("id") Integer id){
         log.info("Inside method to get all services by specialty");
         List<ServiceGetDto> services = service.findBySpecialtyId(id);

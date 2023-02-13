@@ -26,7 +26,7 @@ public class DoctorCommandController {
     @Autowired
     private SpecialtyQueryService specialtyQueryService;
 
-    @PostMapping("/specialty/{id}/doctor")
+    @PostMapping("/admin/specialty/{id}/doctor")
     public ResponseEntity<?> createDoctor(@PathVariable("id") Integer id,
                                           @RequestBody DoctorPostDTO doctorDto){
         log.info("Inside method to create a doctor");
@@ -37,7 +37,7 @@ public class DoctorCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(doctorCommandService.save(doctorDto, specialtyDto));
     }
 
-    @PutMapping("/specialty/{id}/doctor")
+    @PutMapping("/admin/specialty/{id}/doctor")
     public ResponseEntity<?> editDoctor(@PathVariable("id") Integer id,
                                         @RequestBody DoctorPostDTO doctorDto){
         log.info("Inside method to edit a doctor");
@@ -48,7 +48,7 @@ public class DoctorCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(doctorCommandService.save(doctorDto, specialtyDto));
     }
 
-    @DeleteMapping("/doctor/{id}")
+    @DeleteMapping("/admin/doctor/{id}")
     public ResponseEntity<?> deleteDoctor(@PathVariable("id") Integer id){
         log.info("Inside method to delete a doctor");
         DoctorGetDTO doctorFound = doctorQueryService.findById(id);

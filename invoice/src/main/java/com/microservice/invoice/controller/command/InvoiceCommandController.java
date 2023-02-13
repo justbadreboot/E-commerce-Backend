@@ -16,7 +16,7 @@ public class InvoiceCommandController {
     @Autowired
     private InvoiceCommandService invoiceCommandService;
 
-    @PostMapping("/invoice/order")
+    @PostMapping("/repartidor/invoice/order")
     public InvoiceGetDTO createInvoiceByOrder(@RequestBody @Valid OrderPostDTO orderDto){
         log.info("Inside method to create one invoice");
         return invoiceCommandService.createInvoice(orderDto);

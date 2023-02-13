@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/specialty")
+@RequestMapping("/api")
 @Slf4j
 public class SpecialtyCommandController {
     @Autowired
@@ -21,19 +21,19 @@ public class SpecialtyCommandController {
     @Autowired
     private SpecialtyQueryService queryService;
 
-    @PostMapping
+    @PostMapping("/admin/specialty")
     public ResponseEntity<?> createSpecialty(@RequestBody SpecialtyPostDTO specialtyDto){
         log.info("Inside method to create a specialty");
         return ResponseEntity.status(HttpStatus.CREATED).body(commandService.save(specialtyDto));
     }
 
-    @PutMapping
+    @PutMapping("/admin/specialty")
     public ResponseEntity<?> editSpecialty(@RequestBody SpecialtyPostDTO specialtyDto){
         log.info("Inside method to edit a specialty");
         return ResponseEntity.status(HttpStatus.CREATED).body(commandService.save(specialtyDto));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/specialty/{id}")
     public ResponseEntity<?> deleteSpecialty(@PathVariable("id") Integer id){
         log.info("Inside method to delete a specialty");
         SpecialtyGetDTO specialtyFound = queryService.findById(id);

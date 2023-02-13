@@ -27,7 +27,7 @@ public class ServiceCommandController {
     @Autowired
     private SpecialtyQueryService specialtyQueryService;
 
-    @PostMapping("/specialty/{id}/service")
+    @PostMapping("/admin/specialty/{id}/service")
     public ResponseEntity<?> createService(@PathVariable("id") Integer id,
                                            @RequestBody ServicePostDTO srvDto){
         log.info("Inside method to create a service");
@@ -38,7 +38,7 @@ public class ServiceCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(serviceCommand.create(srvDto, specialtyFound));
     }
 
-    @PutMapping("/specialty/{id}/service")
+    @PutMapping("/admin/specialty/{id}/service")
     public ResponseEntity<?> editService(@PathVariable("id") Integer id,
                                          @RequestBody ServicePostDTO srvDto){
         log.info("Inside method to edit a service");
@@ -49,7 +49,7 @@ public class ServiceCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(serviceCommand.create(srvDto, specialtyFound));
     }
 
-    @DeleteMapping("service/{id}")
+    @DeleteMapping("/admin/service/{id}")
     public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
         log.info("Inside method to delete a service");
         ServiceGetDto serviceFound = serviceQuery.findById(id);

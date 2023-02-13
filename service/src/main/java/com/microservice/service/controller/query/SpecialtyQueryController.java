@@ -12,13 +12,13 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/specialty")
+@RequestMapping("/api")
 @Slf4j
 public class SpecialtyQueryController {
     @Autowired
     private SpecialtyQueryService service;
 
-    @GetMapping
+    @GetMapping("/public/specialty")
     public ResponseEntity<?> findAllSpecialties(){
         log.info("Inside method to get all specialties");
         List<SpecialtyGetDTO> specialties = service.findAll();
@@ -28,7 +28,7 @@ public class SpecialtyQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(specialties);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/public/specialty/{id}")
     public ResponseEntity<?> findSpecialtyById(@PathVariable("id") Integer id){
         log.info("Inside method to get one specialty by id");
         SpecialtyGetDTO specialtyFound = service.findById(id);

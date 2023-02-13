@@ -23,7 +23,7 @@ public class DoctorQueryController {
     @Autowired
     private DoctorQueryService doctorservice;
 
-    @GetMapping("/doctor")
+    @GetMapping("/public/doctor")
     public ResponseEntity<?> getAllDoctors(){
         log.info("Inside method to get all doctors");
         List<DoctorGetDTO> doctors = doctorservice.findAll();
@@ -33,7 +33,7 @@ public class DoctorQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(doctors);
     }
 
-    @GetMapping("/doctor/{id}")
+    @GetMapping("/public/doctor/{id}")
     public ResponseEntity<?> getDoctorById(@PathVariable("id") Integer id){
         log.info("Inside method to get one doctor by id");
         DoctorGetDTO doctorFound = doctorservice.findById(id);
@@ -43,7 +43,7 @@ public class DoctorQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(doctorFound);
     }
 
-    @GetMapping("/specialty/{id}/doctor")
+    @GetMapping("/public/specialty/{id}/doctor")
     public ResponseEntity<?> getAllDoctorsByCategory(@PathVariable("id") Integer id){
         log.info("Inside method to get all doctors by specialty");
         List<DoctorGetDTO> doctors = doctorservice.findBySpecialtyId(id);

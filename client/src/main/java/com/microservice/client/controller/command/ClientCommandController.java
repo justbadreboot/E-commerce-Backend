@@ -12,29 +12,29 @@ import javax.validation.constraints.Min;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/client")
+@RequestMapping("/api")
 @Slf4j
 public class ClientCommandController {
 
     @Autowired
     private ClientCommandService service;
 
-    @PostMapping
+    @PostMapping("/public/client")
     public ResponseEntity<?> createClient(@RequestBody @Valid ClientPostDTO clientPostDTO) {
         log.info("Inside method to create a client");
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(clientPostDTO));
     }
 
-    @PutMapping
+    @PutMapping("/cliente/client")
     public ResponseEntity<?> editClient(@RequestBody @Valid ClientPostDTO clientPostDTO) {
         log.info("Inside method to edit a client");
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(clientPostDTO));
     }
 
-    @DeleteMapping("/{clientId}")
-    public ResponseEntity<?> deleteClient(@PathVariable("clientId") @Min(1) Integer id){
-        log.info("Inside method to delete a client");
-        service.delete(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Client deleted");
-    }
+//    @DeleteMapping("/client/{clientId}")
+//    public ResponseEntity<?> deleteClient(@PathVariable("clientId") @Min(1) Integer id){
+//        log.info("Inside method to delete a client");
+//        service.delete(id);
+//        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Client deleted");
+//    }
 }

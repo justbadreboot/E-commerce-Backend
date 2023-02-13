@@ -25,7 +25,7 @@ public class AppointmentCommandController {
     @Autowired
     private ServiceQuery serviceQuery;
 
-    @PostMapping("/service/{id}/appointment")
+    @PostMapping("/cliente/service/{id}/appointment")
     public ResponseEntity<?> createAppointment(@PathVariable("id") Integer id,
                                                @RequestBody AppointmentPostDTO appointmentDto){
         log.info("Inside method to create an appointment");
@@ -37,7 +37,7 @@ public class AppointmentCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 
-    @PutMapping("/service/{id}/appointment")
+    @PutMapping("/cliente/service/{id}/appointment")
     public ResponseEntity<?> editAppointment(@PathVariable("id") Integer id,
                                              @RequestBody AppointmentPostDTO appointmentDto){
         log.info("Inside method to edit an appointment");
@@ -49,7 +49,7 @@ public class AppointmentCommandController {
         return ResponseEntity.status(HttpStatus.CREATED).body(appointmentAdded);
     }
 
-    @DeleteMapping("/appointment/{id}")
+    @DeleteMapping("/cliente/appointment/{id}")
     public ResponseEntity<?> deleteAppointment(@PathVariable("id") Integer id){
         log.info("Inside method to delete an appointment");
         AppointmentGetDTO appFound = appointmentQueryService.findById(id);

@@ -19,7 +19,7 @@ public class InvoiceQueryController {
     @Autowired
     private InvoiceQueryService invoiceService;
 
-    @GetMapping("/invoice")
+    @GetMapping("/admin/invoice")
     public ResponseEntity<?> findAllInvoices(){
         log.info("Inside method to find all invoices");
         List<InvoiceGetDTO> invoices = invoiceService.findAll();
@@ -29,7 +29,7 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(invoices);
     }
 
-    @GetMapping("/invoice/client/{clientId}")
+    @GetMapping("/admin/invoice/client/{clientId}")
     public ResponseEntity<?> findAllInvoices(@PathVariable("clientId") Integer clientId){
         log.info("Inside method to find all invoices by client");
         List<InvoiceGetDTO> invoicesDto = invoiceService.findByClientId(clientId);
@@ -39,7 +39,7 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(invoicesDto);
     }
 
-    @GetMapping("/invoice/{invoiceId}")
+    @GetMapping("/admin/invoice/{invoiceId}")
     public ResponseEntity<?> findInvoiceById(@PathVariable("invoiceId") Integer id){
         log.info("Inside method to find one invoice by id");
         InvoiceGetDTO invoice = invoiceService.findById(id);
@@ -49,20 +49,20 @@ public class InvoiceQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(invoice);
     }
 
-    @GetMapping("/invoice/sales/today")
+    @GetMapping("/admin/invoice/sales/today")
     public ResponseEntity<?> findTodayTotalSales(){
         log.info("Inside method to get total sales by actual day");
         TotalSalesGetDTO totals = invoiceService.findTotalSales();
         return ResponseEntity.status(HttpStatus.OK).body(totals);
     }
 
-    @GetMapping("/invoice/sales/week")
+    @GetMapping("/admin/invoice/sales/week")
     public ResponseEntity<?> findTotalWeekSales() throws ParseException {
         log.info("Inside method to get total sales by week");
         return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findSalesLastWeek());
     }
 
-    @GetMapping("/invoice/sales/month")
+    @GetMapping("/admin/invoice/sales/month")
     public ResponseEntity<?> findTotalSalesByAllMonth(){
         log.info("Inside method to get total sales by month");
         return ResponseEntity.status(HttpStatus.OK).body(invoiceService.findAllMonthSales());

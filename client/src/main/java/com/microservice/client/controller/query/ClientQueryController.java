@@ -12,14 +12,14 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(value = "*")
-@RequestMapping("/api/client")
+@RequestMapping("/api")
 @Slf4j
 public class ClientQueryController {
 
     @Autowired
     private ClientQueryService service;
 
-    @GetMapping
+    @GetMapping("/admin/client")
     public ResponseEntity<?> findAllClients(){
         log.info("Inside method to get all clients");
         List<ClientGetDTO> clientsDto = service.findAll();
@@ -29,7 +29,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientsDto);
     }
 
-    @GetMapping("/{clientId}")
+    @GetMapping("/private/client/{clientId}")
     public ResponseEntity<?> findClientById(@PathVariable("clientId") @Min(1) int clientId){
         log.info("Inside method to get one client by id");
         ClientGetDTO clientFound = service.findById(clientId);
@@ -39,7 +39,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
-    @GetMapping("filter/{document}")
+    @GetMapping("/cliente/client/filter/{document}")
     public ResponseEntity<?> findClientByDocument(@PathVariable("document") String document){
         log.info("Inside method to get one client by document number");
         ClientGetDTO clientFound = service.findByDocument(document);
@@ -49,7 +49,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
-    @GetMapping("user/{userId}")
+    @GetMapping("/cliente/client/user/{userId}")
     public ResponseEntity<?> findClientByUserId(@PathVariable("userId") Integer userId){
         log.info("Inside method to get one clients by user id");
         ClientGetDTO clientFound = service.findByUserId(userId);
@@ -59,7 +59,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
-    @GetMapping("/count")
+    @GetMapping("/admin/client/count")
     public ResponseEntity<?> getCountClient(){
         log.info("Inside method to delete a client by id");
         return ResponseEntity.status(HttpStatus.OK).body(service.countTotalClient());
