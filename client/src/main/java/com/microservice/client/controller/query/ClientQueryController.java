@@ -2,7 +2,6 @@ package com.microservice.client.controller.query;
 
 import com.microservice.client.dto.ClientGetDTO;
 import com.microservice.client.service.query.ClientQueryService;
-import io.swagger.models.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
