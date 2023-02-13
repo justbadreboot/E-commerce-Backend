@@ -13,8 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     List<Product> findByCategoryId(Integer id);
 
-    Optional<Product> findByPromotionId(Integer id);
-
     List<Product> findByNameContains(String name);
 
 

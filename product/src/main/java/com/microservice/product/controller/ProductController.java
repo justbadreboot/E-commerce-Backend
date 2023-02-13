@@ -45,7 +45,6 @@ public class ProductController {
             productBD.setPorcentajeDescuento(product.getPorcentajeDescuento());
             productBD.setExpiration((product.getExpiration()));
             productBD.setCategory(product.getCategory());
-            productBD.setPromotion(product.getPromotion());
 
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(productService.saveProduct(productBD));
         }
