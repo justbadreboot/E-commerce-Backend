@@ -7,6 +7,7 @@ import com.microservice.service.services.command.DoctorCommandService;
 import com.microservice.service.services.command.SpecialtyCommandService;
 import com.microservice.service.services.query.DoctorQueryService;
 import com.microservice.service.services.query.SpecialtyQueryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +18,14 @@ import java.util.List;
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api")
+@Slf4j
 public class DoctorQueryController {
     @Autowired
     private DoctorQueryService doctorservice;
 
     @GetMapping("/doctor")
     public ResponseEntity<?> getAllDoctors(){
+        log.info("Inside method to get all doctors");
         List<DoctorGetDTO> doctors = doctorservice.findAll();
         if(doctors.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not doctors yet");
@@ -32,6 +35,7 @@ public class DoctorQueryController {
 
     @GetMapping("/doctor/{id}")
     public ResponseEntity<?> getDoctorById(@PathVariable("id") Integer id){
+        log.info("Inside method to get one doctor by id");
         DoctorGetDTO doctorFound = doctorservice.findById(id);
         if(doctorFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor not found");
@@ -41,6 +45,7 @@ public class DoctorQueryController {
 
     @GetMapping("/specialty/{id}/doctor")
     public ResponseEntity<?> getAllDoctorsByCategory(@PathVariable("id") Integer id){
+        log.info("Inside method to get all doctors by specialty");
         List<DoctorGetDTO> doctors = doctorservice.findBySpecialtyId(id);
         if(doctors.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not doctors for this specialty");

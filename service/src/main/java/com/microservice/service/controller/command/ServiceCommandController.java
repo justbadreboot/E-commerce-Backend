@@ -6,6 +6,7 @@ import com.microservice.service.dto.SpecialtyGetDTO;
 import com.microservice.service.services.command.ServiceCommand;
 import com.microservice.service.services.query.ServiceQuery;
 import com.microservice.service.services.query.SpecialtyQueryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api")
+@Slf4j
 public class ServiceCommandController {
 
     @Autowired
@@ -26,7 +28,9 @@ public class ServiceCommandController {
     private SpecialtyQueryService specialtyQueryService;
 
     @PostMapping("/specialty/{id}/service")
-    public ResponseEntity<?> createService(@PathVariable("id") Integer id, @RequestBody ServicePostDTO srvDto){
+    public ResponseEntity<?> createService(@PathVariable("id") Integer id,
+                                           @RequestBody ServicePostDTO srvDto){
+        log.info("Inside method to create a service");
         SpecialtyGetDTO specialtyFound = specialtyQueryService.findById(id);
         if(specialtyFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not exists");
@@ -35,7 +39,9 @@ public class ServiceCommandController {
     }
 
     @PutMapping("/specialty/{id}/service")
-    public ResponseEntity<?> editService(@PathVariable("id") Integer id, @RequestBody ServicePostDTO srvDto){
+    public ResponseEntity<?> editService(@PathVariable("id") Integer id,
+                                         @RequestBody ServicePostDTO srvDto){
+        log.info("Inside method to edit a service");
         SpecialtyGetDTO specialtyFound = specialtyQueryService.findById(id);
         if(specialtyFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Specialty not exists");
@@ -45,6 +51,7 @@ public class ServiceCommandController {
 
     @DeleteMapping("service/{id}")
     public ResponseEntity<?> deleteService(@PathVariable("id") Integer id){
+        log.info("Inside method to delete a service");
         ServiceGetDto serviceFound = serviceQuery.findById(id);
         if(serviceFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");

@@ -7,6 +7,7 @@ import com.microservice.service.services.command.ServiceCommand;
 import com.microservice.service.services.command.SpecialtyCommandService;
 import com.microservice.service.services.query.ServiceQuery;
 import com.microservice.service.services.query.SpecialtyQueryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @CrossOrigin(value = "*")
 @RequestMapping("/api")
+@Slf4j
 public class ServiceQueryController {
 
     @Autowired
@@ -24,6 +26,7 @@ public class ServiceQueryController {
 
     @GetMapping("/service")
     public ResponseEntity<?> findAllServices(){
+        log.info("Inside method to get all services");
         List<ServiceGetDto> services = service.findAll();
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services yet");
@@ -33,6 +36,7 @@ public class ServiceQueryController {
 
     @GetMapping("/service/main")
     public ResponseEntity<?> findMainServices(){
+        log.info("Inside method to get four main services");
         List<ServiceGetDto> services = service.findMainService();
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services yet");
@@ -42,6 +46,7 @@ public class ServiceQueryController {
 
     @GetMapping("/service/search/{name}")
     public ResponseEntity<?> findServicesByName(@PathVariable("name") String name){
+        log.info("Inside method to get services by name");
         List<ServiceGetDto> services = service.findByName(name);
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services with name: "+name);
@@ -51,6 +56,7 @@ public class ServiceQueryController {
 
     @GetMapping("/service/{id}")
     public ResponseEntity<?> findServiceById(@PathVariable("id") Integer id){
+        log.info("Inside method to get one service by id");
         ServiceGetDto serviceFound = service.findById(id);
         if(serviceFound == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Service not found");
@@ -60,6 +66,7 @@ public class ServiceQueryController {
 
     @GetMapping("/specialty/{id}/service")
     public ResponseEntity<?> findServiceBySpecialty(@PathVariable("id") Integer id){
+        log.info("Inside method to get all services by specialty");
         List<ServiceGetDto> services = service.findBySpecialtyId(id);
         if(services.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not services with this specialty");
