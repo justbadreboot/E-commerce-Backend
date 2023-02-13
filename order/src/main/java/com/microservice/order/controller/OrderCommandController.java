@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/order")
+@RequestMapping("/api")
 @CrossOrigin(value = "*")
 public class OrderCommandController {
     @Autowired
@@ -22,7 +22,7 @@ public class OrderCommandController {
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
-    @DeleteMapping("/{id}")
+   /* @DeleteMapping("/private/order/{id}")
     public ResponseEntity<?> deleteOrders(@PathVariable(value = "id") Integer id){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){
@@ -32,7 +32,9 @@ public class OrderCommandController {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/{id}")
+    */
+
+    @PutMapping("/private/order/{id}")
     public ResponseEntity<?>editStatesForOrders(@PathVariable(value = "id") Integer id, @RequestBody Order order){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){

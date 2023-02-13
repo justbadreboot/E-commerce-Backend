@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/landing")
+@RequestMapping("/api/admin/landing")
 @CrossOrigin(value = "*")
 public class LandingCommandController {
 
