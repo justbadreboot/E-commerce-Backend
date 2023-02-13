@@ -19,6 +19,7 @@ import java.util.Optional;
 @Slf4j
 public class LandingQueryServceImpl implements LandingQueryService{
 
+    @Autowired
     private LandingMapper landingMapper;
 
     @Autowired
@@ -26,11 +27,11 @@ public class LandingQueryServceImpl implements LandingQueryService{
 
     @Override
     //@Transactional(readOnly = true)
-    public List<Landing> readInformation() {
+    public List<LandingGetDTO> readInformation() {
         //List<Landing> landing = landingRepository.findAll();
         //log.info("datos {}", landing);
         log.info("Obtencion de info");
-        return landingRepository.findAll();
+        return landingMapper.toLandigDTOUni(landingRepository.findAll());
     }
 
     @Override

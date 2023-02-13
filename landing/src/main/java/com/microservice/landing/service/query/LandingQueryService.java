@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface LandingQueryService {
 
-    List<Landing> readInformation();
+    List<LandingGetDTO> readInformation();
 
     Optional<Landing> readLandingById(Integer id);
 

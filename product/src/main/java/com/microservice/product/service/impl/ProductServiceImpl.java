@@ -43,6 +43,7 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public void updateStock(List<OrderDetailDTO> orderDetailDTO) {
         for (OrderDetailDTO detailDTO : orderDetailDTO) {
@@ -50,6 +51,7 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Transactional
     @Override
     public void updateStockPlus(List<OrderDetailDTO> orderDetailDTOS) {
         for (OrderDetailDTO detailDTO : orderDetailDTOS) {

@@ -28,12 +28,9 @@ public class LandingQueryController {
     private LandingMapper landingMapper;
 
     @GetMapping
-    public ResponseEntity<List<Landing>> informationGet(){
+    public ResponseEntity<?> informationGet(){
         log.info("entrando al endpoint");
-        //List<Landing> landingList = landingQueryService.readInformation();
-        //log.info("okaaaaaa {}", landingList);
-        //List<LandingGetDTO> landingGetDTOList = landingMapper.toLandigDTO(landingList);
-        //log.info("aveeeeeeeeeeeeee {}", landingGetDTOList);
+
         return ResponseEntity.ok(landingQueryService.readInformation());
     }
 

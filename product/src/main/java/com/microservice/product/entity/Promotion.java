@@ -27,4 +27,9 @@ public class Promotion {
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private PromotionTypes promotionTypes;
 
+    //@OneToOne(fetch = FetchType.EAGER, optional = false)
+    //@JoinColumn(name = "product_id", nullable = false)
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //private Product product;
+
 }

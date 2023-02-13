@@ -3,6 +3,7 @@ package com.microservice.product.repository;
 import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -26,9 +27,10 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     //@Query(value = )
     //OrderDetailDTO findByName
 
+    @Modifying
     @Query(value = "UPDATE product SET stock =( stock - :stock) WHERE name = :name", nativeQuery = true)
     void updateStock(String name, Integer stock);
-
+    @Modifying
     @Query(value = "UPDATE product SET stock =( stock + :stock) WHERE name = :name", nativeQuery = true)
     void updateStockPlus(String name, Integer stock);
 
