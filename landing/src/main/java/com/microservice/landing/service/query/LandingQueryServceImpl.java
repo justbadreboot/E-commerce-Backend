@@ -29,7 +29,7 @@ public class LandingQueryServceImpl implements LandingQueryService{
     public List<Landing> readInformation() {
         //List<Landing> landing = landingRepository.findAll();
         //log.info("datos {}", landing);
-        log.info("entrando al mapeo eaaaaaaaaaaa");
+        log.info("Obtencion de info");
         return landingRepository.findAll();
     }
 

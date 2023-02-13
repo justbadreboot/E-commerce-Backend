@@ -18,7 +18,7 @@ public class OrderCommandController {
     private OrderService orderService;
 
 
-    @PostMapping
+    @PostMapping("/cliente/order")
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
