@@ -7,6 +7,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
+import java.util.HashMap;
 
 @Slf4j
 @Component
@@ -57,6 +60,19 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
         ServerHttpResponse response = exchange.getResponse();
         response.setStatusCode(status);
         return response.setComplete();
+    }
+
+    public Mono<?> onErrorPersonalizado(){
+        HashMap<String, Object> respuesta = new HashMap<>();
+        respuesta.put("Errr Request:", HttpStatus.BAD_REQUEST);
+        respuesta.put("message: ", "No con tiene la palabra Bearer en el token o un espacio");
+        return Mono.just(respuesta);
+    }
+    public Mono<?> onErrorPersonalizadoHeader(){
+        HashMap<String, Object> respuesta = new HashMap<>();
+        respuesta.put("Errr Request:", HttpStatus.BAD_REQUEST);
+        respuesta.put("message: ", "No tiene la cabecera de Authentication en la solicitud");
+        return Mono.just(respuesta);
     }
 
     public static class Config{}

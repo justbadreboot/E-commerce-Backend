@@ -1,5 +1,5 @@
 package com.microservice.api.gateway.config;
-
+/*
 import com.microservice.api.gateway.dto.RequestDTO;
 import com.microservice.api.gateway.dto.TokenDTO;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -59,3 +59,5 @@ public class AuthFilterClient extends AbstractGatewayFilterFactory<AuthFilterCli
     
 
 }
+
+ */
