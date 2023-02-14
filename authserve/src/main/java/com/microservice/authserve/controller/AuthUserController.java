@@ -20,7 +20,7 @@ public class AuthUserController {
     private AuthUserServiceImpl authUserService;
 
 
-    @CrossOrigin(value = "*")
+    //@CrossOrigin(value = "*")
     @PostMapping("/login")
     private ResponseEntity<TokenDTO> login (@RequestBody LoginUserDTO authUserDTO){
         TokenDTO tokenDTO = authUserService.userLogin(authUserDTO);
@@ -30,7 +30,7 @@ public class AuthUserController {
         return ResponseEntity.ok(tokenDTO);
     }
 
-    @CrossOrigin(value = "*")
+    //@CrossOrigin(value = "*")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody NewUserDto dto) throws Exception {
         AuthUser authUser = authUserService.crear(dto);
@@ -41,7 +41,7 @@ public class AuthUserController {
     }
 
 
-    @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
+   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("/validate")
     public ResponseEntity<TokenDTO> validate (@RequestParam String token, @RequestBody RequestDTO dto){
         log.info("entra al endpoint de validate");
@@ -54,7 +54,7 @@ public class AuthUserController {
         log.info("validacion exitosa");
         return ResponseEntity.ok(tokenDTO);
     }
-    @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
+   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("validate/client")
     public ResponseEntity<?> validateClient(@RequestParam String token, @RequestBody RequestDTO dto){
         TokenDTO tokenDTO = authUserService.validateRolClient(token, dto);
@@ -64,7 +64,7 @@ public class AuthUserController {
         return ResponseEntity.status(HttpStatus.OK).body(tokenDTO);
     }
 
-    @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
+   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("validate/repartidor")
     public ResponseEntity<?> validateRepartidor(@RequestParam String token, @RequestBody RequestDTO dto){
         TokenDTO tokenDTO = authUserService.validateRolRepartidor(token, dto);

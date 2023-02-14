@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin/category")
-@CrossOrigin(value = "https://api-gateway-production-d841.up.railway.app")
+//@CrossOrigin(value = "**")
 public class CategoryCommandController {
 
     @Autowired

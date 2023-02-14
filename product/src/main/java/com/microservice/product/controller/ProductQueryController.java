@@ -20,7 +20,7 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/api/public/product")
-@CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
+//@CrossOrigin(origins = "**")
 @RequiredArgsConstructor
 public class ProductQueryController {
 

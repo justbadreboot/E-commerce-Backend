@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin/promotion")
-@CrossOrigin(value = "https://api-gateway-production-d841.up.railway.app")
+//@CrossOrigin(value = "**")
 public class PromotionCommandController {
 
     @Autowired

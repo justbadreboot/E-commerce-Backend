@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/public/category")
-@CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
+//@CrossOrigin(origins = "**")
 public class CategoryQueryController {
     @Autowired
     private CategoryQueryService categoryQueryService;
