@@ -14,12 +14,12 @@ public class CorsConfiguration extends org.springframework.web.cors.CorsConfigur
     public CorsWebFilter corsFilter() {
         org.springframework.web.cors.CorsConfiguration corsConfiguration = new org.springframework.web.cors.CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.addAllowedOrigin("*");
+        corsConfiguration.addAllowedOriginPattern("*");
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         corsConfiguration.addAllowedHeader("origin");
         corsConfiguration.addAllowedHeader("content-type");
         corsConfiguration.addAllowedHeader("accept");
-        corsConfiguration.addAllowedHeader("Authorization");
+        corsConfiguration.addAllowedHeader("authorization");
         corsConfiguration.addAllowedHeader("cookie");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", corsConfiguration);
