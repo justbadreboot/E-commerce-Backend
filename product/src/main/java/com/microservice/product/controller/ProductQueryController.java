@@ -20,8 +20,8 @@ import java.util.Optional;
 @Slf4j
 @RestController
 @RequestMapping("/api/public/product")
-@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
-//@CrossOrigin(origins = "**")
+//@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class ProductQueryController {
 

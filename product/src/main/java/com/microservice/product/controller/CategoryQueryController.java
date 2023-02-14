@@ -11,8 +11,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/public/category")
-@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
-//@CrossOrigin(origins = "**")
+//@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins = "*")
 public class CategoryQueryController {
     @Autowired
     private CategoryQueryService categoryQueryService;

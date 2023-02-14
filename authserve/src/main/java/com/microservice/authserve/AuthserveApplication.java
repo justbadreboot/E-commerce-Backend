@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@CrossOrigin(origins = "**", methods= {RequestMethod.GET, RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
+//@CrossOrigin(origins = "**", methods= {RequestMethod.GET, RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class AuthserveApplication {
 
 	public static void main(String[] args) {

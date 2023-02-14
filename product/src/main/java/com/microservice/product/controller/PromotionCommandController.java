@@ -15,8 +15,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin/promotion")
-@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
-//@CrossOrigin(value = "**")
+//@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
+@CrossOrigin(origins = "*")
 public class PromotionCommandController {
 
     @Autowired

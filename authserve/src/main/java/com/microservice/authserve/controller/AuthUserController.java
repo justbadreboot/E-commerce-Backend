@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @Slf4j
-//@CrossOrigin()
+@CrossOrigin(value = "*")
 public class AuthUserController {
 
     @Autowired
