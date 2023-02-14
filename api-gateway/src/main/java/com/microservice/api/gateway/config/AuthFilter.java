@@ -2,6 +2,7 @@ package com.microservice.api.gateway.config;
 
 import com.microservice.api.gateway.dto.RequestDTO;
 import com.microservice.api.gateway.dto.TokenDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.HttpHeaders;
@@ -12,6 +13,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Component
 public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> {
 
@@ -24,15 +26,19 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 
     @Override
     public GatewayFilter apply(Config config) {
+        log.info("entra al filtro de gateway");
         return (((exchange, chain) -> {
             if(!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){
+                log.info("error al contener la autorizacion");
                 return onError(exchange, HttpStatus.BAD_REQUEST);
             }
             String tokenHeader = exchange.getRequest().getHeaders().get(HttpHeaders.AUTHORIZATION).get(0);
             String [] chunks = tokenHeader.split(" ");
             if (chunks.length !=2 || !chunks[0].equals("Bearer")){
+                log.info("el token no coincide");
                 return onError(exchange, HttpStatus.BAD_REQUEST);
             }
+            log.info("realiza el retorno con la peticion hacia el auth service de validacion de token");
             return webClient.build()
                     .post()
                     .uri("https://authserve-production.up.railway.app/auth/validate?token="+ chunks[1])
