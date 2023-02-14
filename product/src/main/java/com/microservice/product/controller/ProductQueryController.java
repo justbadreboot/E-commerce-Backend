@@ -7,6 +7,7 @@ import com.microservice.product.repository.CategoryRepository;
 import com.microservice.product.repository.ProductRepository;
 import com.microservice.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/public/product")
-@CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app/api/public/product", allowedHeaders = "*")
+@CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
 @RequiredArgsConstructor
 public class ProductQueryController {
 
@@ -35,6 +37,7 @@ public class ProductQueryController {
 
     @GetMapping("/all")
     public List<Product> allProducts(){
+        log.info("Retorna los productos");
         return productService.findAllProducts();
     }
 
