@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/public/product")
-@CrossOrigin(value = "http://localhost:3000")
+@CrossOrigin(value = "https://api-gateway-production-d841.up.railway.app")
 @RequiredArgsConstructor
 public class ProductQueryController {
 

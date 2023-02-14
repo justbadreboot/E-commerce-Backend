@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admin/product")
-@CrossOrigin(value = "*")
+@CrossOrigin(value = "https://api-gateway-production-d841.up.railway.app")
 public class ProductController {
 
     @Autowired
