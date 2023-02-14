@@ -63,7 +63,7 @@ public class AuthUserController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(tokenDTO);
     }
-    
+
     @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("validate/repartidor")
     public ResponseEntity<?> validateRepartidor(@RequestParam String token, @RequestBody RequestDTO dto){
