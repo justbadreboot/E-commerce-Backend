@@ -29,8 +29,17 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientsDto);
     }
 
-    @GetMapping("/private/client/{clientId}")
+    @GetMapping("/cliente/client/{clientId}")
     public ResponseEntity<?> findClientById(@PathVariable("clientId") @Min(1) int clientId){
+        log.info("Inside method to get one client by id");
+        ClientGetDTO clientFound = service.findById(clientId);
+        if(clientFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(clientFound);
+    }
+    @GetMapping("/repartidor/client/{clientId}")
+    public ResponseEntity<?> findClientByIdRep(@PathVariable("clientId") @Min(1) int clientId){
         log.info("Inside method to get one client by id");
         ClientGetDTO clientFound = service.findById(clientId);
         if(clientFound == null) {

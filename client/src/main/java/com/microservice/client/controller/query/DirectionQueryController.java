@@ -53,8 +53,17 @@ public class DirectionQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(directionService.findByClientIdCustom(id));
     }
 
-    @GetMapping("/private/direction/{id}")
+    @GetMapping("/cliente/direction/{id}")
     public ResponseEntity<?> findDirectionById(@PathVariable("id") Integer id){
+        log.info("Inside method to remove a direction");
+        DirectionGetDTO directionFound =  directionService.findById(id);
+        if(directionFound == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Direction not found");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(directionFound);
+    }
+    @GetMapping("/repartidor/direction/{id}")
+    public ResponseEntity<?> findDirectionByIdRep(@PathVariable("id") Integer id){
         log.info("Inside method to remove a direction");
         DirectionGetDTO directionFound =  directionService.findById(id);
         if(directionFound == null) {
