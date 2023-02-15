@@ -17,7 +17,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/landing")
+@RequestMapping("/api/public/landing")
 @CrossOrigin(value = "*")
 @Slf4j
 public class LandingQueryController {
