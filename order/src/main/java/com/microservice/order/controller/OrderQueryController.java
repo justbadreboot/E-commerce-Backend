@@ -61,8 +61,11 @@ public class OrderQueryController {
     @GetMapping("/cliente/order/client/{id}")
     public ResponseEntity<?> getOrderByClient(@PathVariable(value = "id") Integer id){
         List<Order> orderOptional = orderRepository.findByIdClient(id);
+        if (orderOptional.isEmpty()){
+            return ResponseEntity.ok().body("null");
+        }
       //  if (orderOptional.isPresent()){
-            return ResponseEntity.ok(orderOptional);
+        return ResponseEntity.ok(orderOptional);
        // }
         //return ResponseEntity.notFound().build();
     }
