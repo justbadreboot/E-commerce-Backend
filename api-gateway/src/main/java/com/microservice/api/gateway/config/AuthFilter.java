@@ -31,7 +31,7 @@ public class AuthFilter extends AbstractGatewayFilterFactory<AuthFilter.Config> 
 
     @Override
     public GatewayFilter apply(Config config) {
-        log.info("entra al filtro de gateway");
+        //log.info("entra al filtro de gateway");
         return (((exchange, chain) -> {
             if(!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)){
                 log.info("error al contener la autorizacion");
