@@ -34,8 +34,30 @@ public class OrderCommandController {
 
     */
 
-    @PutMapping("/private/order/{id}")
+    @PutMapping("/cliente/order/{id}")
     public ResponseEntity<?>editStatesForOrders(@PathVariable(value = "id") Integer id, @RequestBody Order order){
+        Optional<Order> orderOptional = orderService.byId(id);
+        if (orderOptional.isPresent()){
+            Order orderBD = orderOptional.get();
+            orderBD.setDate(order.getDate());
+            orderBD.setSubtotal(order.getSubtotal());
+            orderBD.setTotal(order.getTotal());
+            orderBD.setIdClient(order.getIdClient());
+            orderBD.setIdAddress(order.getIdAddress());
+            orderBD.setClientDocument(order.getClientDocument());
+            orderBD.setClientName(order.getClientName());
+            orderBD.setClientLastName(order.getClientLastName());
+            orderBD.setClientPhone(order.getClientPhone());
+            orderBD.setDeliveryState(order.getDeliveryState());
+            orderBD.setPaymentState(order.getPaymentState());
+            orderBD.setOrderState(order.getOrderState());
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(orderService.saveOrders(orderBD));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/repartidor/order/{id}")
+    public ResponseEntity<?>editStatesForOrdersRep(@PathVariable(value = "id") Integer id, @RequestBody Order order){
         Optional<Order> orderOptional = orderService.byId(id);
         if (orderOptional.isPresent()){
             Order orderBD = orderOptional.get();
