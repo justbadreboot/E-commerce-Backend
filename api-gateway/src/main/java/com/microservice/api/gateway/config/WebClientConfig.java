@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
-    @LoadBalanced
+    //@LoadBalanced
     @Bean
     public WebClient.Builder builder(){
         return WebClient.builder();
