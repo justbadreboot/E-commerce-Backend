@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/admin/product")
+@RequestMapping("/api")
 //@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 @CrossOrigin(value = "*")
 public class ProductController {
@@ -24,12 +24,12 @@ public class ProductController {
     private ProductService productService;
 
 
-    @PostMapping
+    @PostMapping("/admin/product")
     public ResponseEntity<?> addProducts(@Valid @RequestBody Product product){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.saveProduct(product));
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/admin/product/{id}")
     public ResponseEntity<?> editProducts(@RequestBody Product product, @PathVariable(value = "id") Integer id){
         Optional<Product> productOptional =productService.byId(id);
         if (productOptional.isPresent()){
@@ -52,7 +52,7 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/admin/product/id")
     public ResponseEntity<?> deleteProduct(@RequestParam(value = "id") Integer id){
         Optional<Product> optionalProduct = productService.byId(id);
         if (optionalProduct.isPresent()){
@@ -63,17 +63,19 @@ public class ProductController {
 
     }
 
-    @PostMapping("/reduce/stock")
+    @PostMapping("/repartidor/product/reduce/stock")
     public ResponseEntity<?> reduceStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
         productService.updateStock(orderDetailDTO);
         return ResponseEntity.ok().body("Update Stock");
     }
-
+/*
     @PostMapping("/plus/stock")
     public ResponseEntity<?> plusStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
         productService.updateStockPlus(orderDetailDTO);
         return ResponseEntity.ok().body("Update Stock");
     }
+
+ */
 
 /* en caso que optemos por usar excepciones personalizadas
 
