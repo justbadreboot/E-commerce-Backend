@@ -48,7 +48,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientFound);
     }
 
-    @GetMapping("/cliente/client/filter/{document}")
+    @GetMapping("/public/client/filter/{document}")
     public ResponseEntity<?> findClientByDocument(@PathVariable("document") String document){
         log.info("Inside method to get one client by document number");
         ClientGetDTO clientFound = service.findByDocument(document);
