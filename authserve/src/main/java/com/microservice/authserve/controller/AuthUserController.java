@@ -40,7 +40,7 @@ public class AuthUserController {
         return ResponseEntity.ok(authUser);
     }
 
-    @PostMapping("/email/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<?> validarMail(@PathVariable(value = "email") String dto){
         ResponseDtoValidate responseDtoValidate = authUserService.validarEmail(dto);
         if (responseDtoValidate == null){
