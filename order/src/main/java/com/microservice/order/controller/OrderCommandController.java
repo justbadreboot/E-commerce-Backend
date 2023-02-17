@@ -20,6 +20,9 @@ public class OrderCommandController {
 
     @PostMapping("/cliente/order")
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
+        if (order.getIdAddress()==0){
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
+        }
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
    /* @DeleteMapping("/private/order/{id}")
