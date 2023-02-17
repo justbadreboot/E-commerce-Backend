@@ -25,7 +25,7 @@ public class OrderCommandController {
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
         if (order.getIdAddress().equals(val)){
             log.info("Validacion order cero");
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
         }
         log.warn("Datos de orden guardados {}", order);
         log.info("oaaaaaaaaaaaaaaaaaaaaa");
