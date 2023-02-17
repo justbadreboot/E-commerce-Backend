@@ -2,6 +2,7 @@ package com.microservice.order.controller;
 
 import com.microservice.order.entity.Order;
 import com.microservice.order.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(value = "*")
@@ -23,6 +25,12 @@ public class OrderCommandController {
         if (order.getIdAddress()==0){
             ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
         }
+        log.warn("Datos de orden guardados {}", order);
+        log.info("oaaaaaaaaaaaaaaaaaaaaa");
+        log.error("eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        log.info("address",order.getIdAddress());
+        log.warn("Datos id de Address ",order.getIdAddress());
+
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
    /* @DeleteMapping("/private/order/{id}")
