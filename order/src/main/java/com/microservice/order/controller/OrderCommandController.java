@@ -19,10 +19,11 @@ public class OrderCommandController {
     @Autowired
     private OrderService orderService;
 
+    private Integer val = 0;
 
     @PostMapping("/cliente/order")
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
-        if (order.getIdAddress().equals(0)){
+        if (order.getIdAddress().equals(val)){
             log.info("Validacion order cero");
             ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
         }
