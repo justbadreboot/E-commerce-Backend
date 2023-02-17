@@ -22,14 +22,15 @@ public class OrderCommandController {
 
     @PostMapping("/cliente/order")
     public ResponseEntity<?>addOrders(@Valid @RequestBody Order order){
-        if (order.getIdAddress()==0){
+        if (order.getIdAddress().equals(0)){
+            log.info("Validacion order cero");
             ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
         }
         log.warn("Datos de orden guardados {}", order);
         log.info("oaaaaaaaaaaaaaaaaaaaaa");
         log.error("eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        log.info("address",order.getIdAddress());
-        log.warn("Datos id de Address ",order.getIdAddress());
+        log.info("address {}",order.getIdAddress());
+        log.warn("Datos id de Address {}",order.getIdAddress());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
