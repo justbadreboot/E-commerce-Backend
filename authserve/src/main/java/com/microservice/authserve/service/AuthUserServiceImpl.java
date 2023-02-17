@@ -41,6 +41,20 @@ public class AuthUserServiceImpl{
         return authUserRepository.save(authUser);
     }
 
+    public ResponseDtoValidate validarEmail(String validateEmailDTO){
+        Optional<AuthUser> user = authUserRepository.findByEmail(validateEmailDTO);
+        if (user.isPresent()){
+            AuthUser authUserbd= user.get();
+            ResponseDtoValidate responseDtoValidate = new ResponseDtoValidate();
+            responseDtoValidate.setId(authUserbd.getId());
+            responseDtoValidate.setEmail(authUserbd.getEmail());
+            return responseDtoValidate;
+        }
+        return null;
+
+    }
+
+
   //  @Override
     public TokenDTO userLogin(LoginUserDTO dto) {
         Optional<AuthUser> user = authUserRepository.findByEmail(dto.getEmail());

@@ -40,6 +40,15 @@ public class AuthUserController {
         return ResponseEntity.ok(authUser);
     }
 
+    @PostMapping("/email/{email}")
+    public ResponseEntity<?> validarMail(@PathVariable(value = "email") String dto){
+        ResponseDtoValidate responseDtoValidate = authUserService.validarEmail(dto);
+        if (responseDtoValidate == null){
+            return ResponseEntity.ok("El correo NO se encuentra registrado");
+        }
+        return ResponseEntity.ok(responseDtoValidate);
+    }
+
 
    // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("/validate")
