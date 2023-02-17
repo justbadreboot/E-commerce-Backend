@@ -29,7 +29,7 @@ public class ClientQueryController {
         return ResponseEntity.status(HttpStatus.OK).body(clientsDto);
     }
 
-    @GetMapping("/public/client/{clientId}")
+    @GetMapping("/cliente/client/{clientId}")
     public ResponseEntity<?> findClientById(@PathVariable("clientId") @Min(1) int clientId){
         log.info("Inside method to get one client by id");
         ClientGetDTO clientFound = service.findById(clientId);
