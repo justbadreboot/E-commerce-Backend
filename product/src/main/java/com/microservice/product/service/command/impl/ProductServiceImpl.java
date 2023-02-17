@@ -1,9 +1,9 @@
-package com.microservice.product.service.impl;
+package com.microservice.product.service.command.impl;
 
 import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
 import com.microservice.product.repository.ProductRepository;
-import com.microservice.product.service.ProductService;
+import com.microservice.product.service.command.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

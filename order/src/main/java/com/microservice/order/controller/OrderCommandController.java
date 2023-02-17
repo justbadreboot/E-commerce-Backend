@@ -27,25 +27,10 @@ public class OrderCommandController {
             log.info("Validacion order cero");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Debe asignar un Id diferente de 0 a dirección");
         }
-        log.warn("Datos de orden guardados {}", order);
-        log.info("oaaaaaaaaaaaaaaaaaaaaa");
-        log.error("eaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        log.info("address {}",order.getIdAddress());
-        log.warn("Datos id de Address {}",order.getIdAddress());
-
+        log.info("Orden guardada");
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.saveOrders(order));
     }
-   /* @DeleteMapping("/private/order/{id}")
-    public ResponseEntity<?> deleteOrders(@PathVariable(value = "id") Integer id){
-        Optional<Order> orderOptional = orderService.byId(id);
-        if (orderOptional.isPresent()){
-            orderService.deleteOrder(id);
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
-    }
 
-    */
 
     @PutMapping("/cliente/order/{id}")
     public ResponseEntity<?>editStatesForOrders(@PathVariable(value = "id") Integer id, @RequestBody Order order){

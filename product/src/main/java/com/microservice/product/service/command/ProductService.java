@@ -1,4 +1,4 @@
-package com.microservice.product.service;
+package com.microservice.product.service.command;
 
 import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;

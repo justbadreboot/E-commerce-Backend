@@ -38,7 +38,7 @@ public class LandingCommandController {
             landingCommandService.updateLandingInformation(landingPostDTO, landingBd);
             return ResponseEntity.status(HttpStatus.CREATED).body(landingRepository.save(landingBd));
         }
-        log.error("no se encontró la opcion");
+        log.error("No se pudo realizar la petición");
         return ResponseEntity.notFound().build();
     }
 }

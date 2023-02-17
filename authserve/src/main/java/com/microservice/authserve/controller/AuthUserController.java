@@ -2,7 +2,6 @@ package com.microservice.authserve.controller;
 
 import com.microservice.authserve.dto.*;
 import com.microservice.authserve.entity.AuthUser;
-import com.microservice.authserve.service.AuthUserService;
 import com.microservice.authserve.service.AuthUserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ public class AuthUserController {
     private AuthUserServiceImpl authUserService;
 
 
-    //@CrossOrigin(value = "*")
     @PostMapping("/login")
     private ResponseEntity<TokenDTO> login (@RequestBody LoginUserDTO authUserDTO){
         TokenDTO tokenDTO = authUserService.userLogin(authUserDTO);
@@ -30,7 +28,6 @@ public class AuthUserController {
         return ResponseEntity.ok(tokenDTO);
     }
 
-    //@CrossOrigin(value = "*")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody NewUserDto dto) throws Exception {
         AuthUser authUser = authUserService.crear(dto);
@@ -50,20 +47,16 @@ public class AuthUserController {
     }
 
 
-   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("/validate")
     public ResponseEntity<TokenDTO> validate (@RequestParam String token, @RequestBody RequestDTO dto){
-        log.info("entra al endpoint de validate");
         TokenDTO tokenDTO = authUserService.validate(token, dto);
-        log.info("comprueba el token en auuthservice y validate");
         if (tokenDTO ==null){
-            log.info("la respuesta del token es null");
+            log.error("la respuesta del token es null, no validado");
             return ResponseEntity.badRequest().build();
         }
         log.info("validacion exitosa");
         return ResponseEntity.ok(tokenDTO);
     }
-   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("validate/client")
     public ResponseEntity<?> validateClient(@RequestParam String token, @RequestBody RequestDTO dto){
         TokenDTO tokenDTO = authUserService.validateRolClient(token, dto);
@@ -73,7 +66,6 @@ public class AuthUserController {
         return ResponseEntity.status(HttpStatus.OK).body(tokenDTO);
     }
 
-   // @CrossOrigin(origins = "https://api-gateway-production-d841.up.railway.app")
     @PostMapping("validate/repartidor")
     public ResponseEntity<?> validateRepartidor(@RequestParam String token, @RequestBody RequestDTO dto){
         TokenDTO tokenDTO = authUserService.validateRolRepartidor(token, dto);

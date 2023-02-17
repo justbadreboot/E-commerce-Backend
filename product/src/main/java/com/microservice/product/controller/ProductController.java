@@ -2,7 +2,9 @@ package com.microservice.product.controller;
 
 import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
-import com.microservice.product.service.ProductService;
+import com.microservice.product.service.command.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Tag(name = "Product Commands")
 @RequestMapping("/api")
 @CrossOrigin(value = "*")
 public class ProductController {
@@ -21,11 +24,13 @@ public class ProductController {
     private ProductService productService;
 
 
+    @Operation(summary = "Agregar productos")
     @PostMapping("/admin/product")
     public ResponseEntity<?> addProducts(@Valid @RequestBody Product product){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.saveProduct(product));
     }
 
+    @Operation(summary = "Editar producto por Id")
     @PutMapping("/admin/product/{id}")
     public ResponseEntity<?> editProducts(@RequestBody Product product, @PathVariable(value = "id") Integer id){
         Optional<Product> productOptional =productService.byId(id);
@@ -49,6 +54,7 @@ public class ProductController {
         return ResponseEntity.notFound().build();
     }
 
+    @Operation(summary = "Eliminar producto por id")
     @DeleteMapping("/admin/product/id")
     public ResponseEntity<?> deleteProduct(@RequestParam(value = "id") Integer id){
         Optional<Product> optionalProduct = productService.byId(id);
@@ -60,6 +66,7 @@ public class ProductController {
 
     }
 
+    @Operation(summary = "Reduccion de stock")
     @PostMapping("/repartidor/product/reduce/stock")
     public ResponseEntity<?> reduceStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
         productService.updateStock(orderDetailDTO);

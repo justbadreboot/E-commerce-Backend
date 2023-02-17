@@ -38,7 +38,6 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeHttpRequests(authConfig -> {
             authConfig.antMatchers ("/auth/**").permitAll();
-            //authConfig.antMatchers("/auth/create").permitAll();
             authConfig.requestMatchers().permitAll();
             authConfig.anyRequest().authenticated();
         }).exceptionHandling().authenticationEntryPoint(jwtAuthenticationError).accessDeniedHandler(jwtDeniedAccess).and().sessionManagement()

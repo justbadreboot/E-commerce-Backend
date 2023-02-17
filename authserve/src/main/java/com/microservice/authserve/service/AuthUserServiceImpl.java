@@ -22,12 +22,7 @@ public class AuthUserServiceImpl{
     private PasswordEncoder passwordEncoder;
 
 
-   // @Autowired
-   // private JwtProvider jwtProvider;
 
-
-
-  //  @Override
     public AuthUser crear(NewUserDto newUserDto) throws Exception {
         Optional<AuthUser> user = authUserRepository.findByEmail(newUserDto.getEmail());
         if (user.isPresent()){
@@ -55,7 +50,6 @@ public class AuthUserServiceImpl{
     }
 
 
-  //  @Override
     public TokenDTO userLogin(LoginUserDTO dto) {
         Optional<AuthUser> user = authUserRepository.findByEmail(dto.getEmail());
         if (!user.isPresent()){
@@ -67,12 +61,11 @@ public class AuthUserServiceImpl{
             String token = JwtProvider.createToken(user.get());
             log.info("creando token");
             log.info(token);
-            return new TokenDTO(token); //new TokenDTO(JwtProvider.createToken(user.get()));
+            return new TokenDTO(token);
         }
         return null;
     }
 
-  //  @Override
     public TokenDTO validate(String token, RequestDTO dto){
         if (!JwtProvider.validate(token, dto)){
             log.info("entra al if de validacion token");
@@ -110,11 +103,10 @@ public class AuthUserServiceImpl{
     }
 
 
-
     public void mapeoDTOtoEntity(NewUserDto authUserDTO, AuthUser authUser){
         authUser.setEmail(authUserDTO.getEmail());
         authUser.setUsername(authUserDTO.getUsername());
         authUser.setPassword(authUserDTO.getPassword());
-        authUser.setRole("CLIENTE");//aqui puedo setear el rol directamente de cliente al registrarse.
+        authUser.setRole("CLIENTE");
     }
 }

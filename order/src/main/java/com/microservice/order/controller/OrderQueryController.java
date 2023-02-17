@@ -43,19 +43,14 @@ public class OrderQueryController {
     @GetMapping("/repartidor/order/state/{id}")
     public ResponseEntity<?> getOrderByOrderState(@PathVariable(value = "id") Integer id){
         List<Order> orderOptional = orderRepository.findByOrderStateId(id);
-       // if (orderOptional.isPresent()){
             return ResponseEntity.ok(orderOptional);
-       // }
-       // return ResponseEntity.notFound().build();
+
     }
 
     @GetMapping("/repartidor/order/delivery/{id}")
     public ResponseEntity<?> getDeliveryByStateId(@PathVariable(value = "id") Integer id){
         List<Order> orderOptional= orderRepository.findByDeliveryStateId(id);
-        //if (orderOptional.isPresent()){
             return ResponseEntity.ok(orderOptional);
-       // }
-     //   return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/cliente/order/client/{id}")
@@ -64,10 +59,7 @@ public class OrderQueryController {
         if (orderOptional.isEmpty()){
             return ResponseEntity.ok().body("null");
         }
-      //  if (orderOptional.isPresent()){
         return ResponseEntity.ok(orderOptional);
-       // }
-        //return ResponseEntity.notFound().build();
     }
 
     @GetMapping("/admin/order/sales/allday")
