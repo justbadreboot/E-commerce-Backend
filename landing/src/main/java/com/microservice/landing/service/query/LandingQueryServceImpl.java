@@ -26,10 +26,7 @@ public class LandingQueryServceImpl implements LandingQueryService{
     private LandingRepository landingRepository;
 
     @Override
-    //@Transactional(readOnly = true)
     public List<LandingGetDTO> readInformation() {
-        //List<Landing> landing = landingRepository.findAll();
-        //log.info("datos {}", landing);
         log.info("Obtencion de info");
         return landingMapper.toLandigDTOUni(landingRepository.findAll());
     }

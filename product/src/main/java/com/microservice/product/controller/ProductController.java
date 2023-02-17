@@ -2,8 +2,6 @@ package com.microservice.product.controller;
 
 import com.microservice.product.dto.OrderDetailDTO;
 import com.microservice.product.entity.Product;
-import com.microservice.product.repository.CategoryRepository;
-import com.microservice.product.repository.ProductRepository;
 import com.microservice.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +14,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
-//@CrossOrigin(origins = "**", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 @CrossOrigin(value = "*")
 public class ProductController {
 
@@ -68,23 +65,5 @@ public class ProductController {
         productService.updateStock(orderDetailDTO);
         return ResponseEntity.ok().body("Update Stock");
     }
-/*
-    @PostMapping("/plus/stock")
-    public ResponseEntity<?> plusStockofProduct(@RequestBody List<OrderDetailDTO> orderDetailDTO){
-        productService.updateStockPlus(orderDetailDTO);
-        return ResponseEntity.ok().body("Update Stock");
-    }
 
- */
-
-/* en caso que optemos por usar excepciones personalizadas
-
-    @DeleteMapping("/private/sucursal/{sucursalId}")
-    public ResponseEntity<?> eliminarSucursal(@PathVariable Integer sucursalId){
-        return sucursalRepo.findById(sucursalId).map(sucursal -> {
-            sucursalRepo.delete(sucursal);
-            return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Sucursal con el ID : " + sucursalId + " no encontrada"));
-    }
-*/
 }
