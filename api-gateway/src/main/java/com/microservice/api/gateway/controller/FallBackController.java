@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FallBackController {
 
     public ResponseEntity<?> servicesFallBack(){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
                 .body("We are fighting some bugs to be better than this");
     }
 
