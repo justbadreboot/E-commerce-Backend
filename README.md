@@ -187,6 +187,28 @@ Kruger Med está distribuida bajo los terminos de Apache License Version 2.0. La
 
 <table>
   <tbody>
+  <tr>
+      <td>
+      <div>
+<img style="border-radius: 50% !important;" src="https://avatars.githubusercontent.com/u/66704761?v=4" width="100px;" alt="photo author"/>
+
+<sub><b>Bryan Quisaguano</b></sub>
+<br />
+
+[![linkedin][linkedin.js]][linkedin3-url] [![github][github.js]][github3-url]
+</div>
+      </td>
+      <td>
+      <div>
+<img style="border-radius: 50% !important;" src="https://avatars.githubusercontent.com/u/80604082?v=4" width="100px;" alt="photo author"/>
+
+<sub><b>Jonathan Sánchez</b></sub>
+<br />
+
+[![linkedin][linkedin.js]][linkedin4-url] [![github][github.js]][github4-url]
+      </div>
+      </td>
+  </tr>
     <tr>
       <td>
       <div>
@@ -209,28 +231,7 @@ Kruger Med está distribuida bajo los terminos de Apache License Version 2.0. La
 </div>
       </td>
     </tr>
-    <tr>
-      <td>
-      <div>
-<img style="border-radius: 50% !important;" src="https://avatars.githubusercontent.com/u/66704761?v=4" width="100px;" alt="photo author"/>
-
-<sub><b>Bryan Quisaguano</b></sub>
-<br />
-
-[![linkedin][linkedin.js]][linkedin3-url] [![github][github.js]][github3-url]
-</div>
-      </td>
-      <td>
-      <div>
-<img style="border-radius: 50% !important;" src="https://avatars.githubusercontent.com/u/80604082?v=4" width="100px;" alt="photo author"/>
-
-<sub><b>Jonathan Sánchez</b></sub>
-<br />
-
-[![linkedin][linkedin.js]][linkedin4-url] [![github][github.js]][github4-url]
-</div>
-      </td>
-    </tr>
+  <div>    
     <tr>
       <td>
       <div>
