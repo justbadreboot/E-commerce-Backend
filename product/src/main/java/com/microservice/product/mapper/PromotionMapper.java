@@ -11,11 +11,8 @@ import org.mapstruct.Mapping;
 
 @Mapper
 public interface PromotionMapper {
-   // @Mapping(target = "id", ignore = true)
     PromotionTypes dtoPromotionToPromotionType(PromotionTypeDTO promotionTypeDTO);
 
-    //@Mapping(source = "promotionTypeDTO", target = "promotionTypes")
-    //@Mapping(target = "id", ignore = true)
     Promotion dtoPostPromotiontoPromotion(PromotionPostDTO promotionPostDTO);
 
     @Mapping(source = "promotionTypeDTO", target = "promotionTypes")

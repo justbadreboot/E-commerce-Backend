@@ -1,6 +1,6 @@
 package com.microservice.product.controller;
 
-import com.microservice.product.dto.ProductMainDTO;
+
 import com.microservice.product.entity.Product;
 import com.microservice.product.mapper.ProductMapper;
 import com.microservice.product.repository.CategoryRepository;
@@ -15,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -110,27 +109,6 @@ public class ProductQueryController {
         return ResponseEntity.ok(mapper.listEntityToDtoSame(products));
     }
 
-    public ProductMainDTO mapeador(Product product){
 
-        ProductMainDTO productMainDTO = new ProductMainDTO();
-
-        productMainDTO.setId( product.getId() );
-        productMainDTO.setName( product.getName() );
-        productMainDTO.setPvp( product.getPvp() );
-        productMainDTO.setImage( product.getImage() );
-        productMainDTO.setRating( product.getRating() );
-        productMainDTO.setStock( product.getStock() );
-        return productMainDTO;
-    }
-
-    public List<ProductMainDTO> listEntityToDtoMain(List<Product> products) {
-
-        List<ProductMainDTO> list = new ArrayList<ProductMainDTO>( products.size() );
-        for ( Product product : products ) {
-            list.add( mapeador( product ) );
-        }
-
-        return list;
-    }
 
 }

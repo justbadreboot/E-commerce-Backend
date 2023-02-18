@@ -1,6 +1,7 @@
 package com.microservice.product.controller;
 
 import com.microservice.product.entity.Category;
+import com.microservice.product.mapper.CategoryMapper;
 import com.microservice.product.service.query.CategoryQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,11 +22,13 @@ public class CategoryQueryController {
     @Autowired
     private CategoryQueryService categoryQueryService;
 
+    @Autowired
+    private CategoryMapper categoryMapper;
     @Operation(summary = "Obtener todas las categorías")
     @GetMapping("/all")
-    public List<Category> allCategory(){
+    public List<?> allCategory(){
         log.info("Categoria obtenida");
-        return categoryQueryService.allCategory();
+        return categoryMapper.listCategoryEntityToDTO(categoryQueryService.allCategory());
     }
 
     @Operation(summary = "Obtener categoría por ID")
@@ -34,7 +37,7 @@ public class CategoryQueryController {
         Optional<Category> categoryOptional = categoryQueryService.byId(id);
         if (categoryOptional.isPresent()){
             log.info("Información obtenida");
-            return ResponseEntity.ok(categoryOptional.get());
+            return ResponseEntity.ok(categoryMapper.categgoryEntityToDTO(categoryOptional.get()));
         }
         log.error("No se pudo encontrar la categoría");
         return ResponseEntity.notFound().build();

@@ -1,30 +1,32 @@
 package com.microservice.order.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name = "krugorders")
 @Data
-public class Order {
+public class Order extends Auditable<String> implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @NotBlank
     private Date date;
 
+    @NotBlank
     private Double total;
-
+    @NotBlank
     private Double subtotal;
-
+    @NotBlank
     private Integer idClient;
-
+    @NotBlank
     private Integer idAddress;
 
     private String clientDocument;
@@ -41,7 +43,6 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "orderState_id", nullable = false)
-    //@JsonIgnore
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private OrderState orderState;
 
