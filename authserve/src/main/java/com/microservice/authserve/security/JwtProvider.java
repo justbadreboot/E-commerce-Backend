@@ -5,7 +5,6 @@ import com.microservice.authserve.entity.AuthUser;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 
 import javax.crypto.spec.SecretKeySpec;
@@ -40,7 +39,6 @@ public class JwtProvider {
         Date expired = new Date(now.getTime() + 86400000);
         return Jwts.builder()
                 .setClaims(claims)
-                //.setIssuedAt(now)
                 .setExpiration(expired)
                 .signWith(LlAVE_SECRETA)
                 .compact();
@@ -51,7 +49,6 @@ public class JwtProvider {
             JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
             parser.parseClaimsJws(token);
 
-            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
             log.info("Entrando a la validacion, creacion de parseclaim exitosa");
         }catch (Exception e) {
             return false;
@@ -67,7 +64,6 @@ public class JwtProvider {
         try{
             JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
             parser.parseClaimsJws(token);
-            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
         }catch (Exception e){
             return false;
         }
@@ -78,7 +74,6 @@ public class JwtProvider {
         try {
             JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
             parser.parseClaimsJws(token);
-            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
         }catch (Exception e){
             return false;
         }
