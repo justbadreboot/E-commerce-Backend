@@ -55,7 +55,7 @@
 
 Esta aplicación está enfocada en el desarrollo de la logica del negocio y de endpoints destinado al consumo.
 
-<img src="./src/assets/img/responsive.jpeg" alt="ScreenDevices" height="400" /> 
+![ProjectArchitecture2 0](https://user-images.githubusercontent.com/80604082/219834772-a94dfd72-6bf2-4328-9e4c-968c9ec7db07.jpg)
 
 
 ### What are the features of this project?
