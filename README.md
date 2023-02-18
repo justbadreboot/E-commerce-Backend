@@ -1,8 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://github.com/justbadreboot/E-commerce-Administrator">
-    <img src="./src/assets/img/logo2.png" alt="Logo" width="280" height="100">
-  </a>
+  <img src="https://github.com/justbadreboot/E-commerce-Administrator/blob/Master/public/images/logo-template.png?raw=true" alt="Logo" >
   <br/>
   <h1 align="center">Kruger Med BackEnd</h1>
 
@@ -54,6 +52,10 @@
 
 
 Esta aplicación está enfocada en el desarrollo de la logica del negocio y de endpoints destinado al consumo.
+
+Existen 3 roles definidos: ADMINISTRADOR, CLIENTE Y REPARTIDOR
+
+Para la implementación de este proyecto se ha empleado la siguiente arquitectura.
 
 ![ProjectArchitecture2 0](https://user-images.githubusercontent.com/80604082/219834772-a94dfd72-6bf2-4328-9e4c-968c9ec7db07.jpg)
 
@@ -141,15 +143,15 @@ Para ejecutar las pruebas de la aplicación, utilizar el siguiente comando
 Cualquier persona puede consumir estos endpoints mediante el gateway, se los reconoce por el path "public".
 
 
-## 👨‍⚕️ Cliente Registrado
+## 👨‍⚕️ Cliente
 
 Estos endpoint son de consumo mediante token de usuario con rol CLIENTE a través del gateway y contienen el path "cliente".
 
-## 👨‍⚕️ Administrador Registrado
+## 👨‍⚕️ Administrador
 
 Estos endpoint son de consumo mediante token de usuario con rol ADMINISTRADOR a través del gateway y contienen el path "admin".
 
-## 👨‍⚕️ Repartidor Registrado
+## 🚚 Repartidor
 
 Estos endpoint son de consumo mediante token de usuario con rol REPARTIDOR a través del gateway y contienen el path "repartidor".
 
@@ -158,7 +160,19 @@ Estos endpoint son de consumo mediante token de usuario con rol REPARTIDOR a tra
 
 # 💻 Live Demo
 
-  Puedes revisar el live demo de la aplicación [aquí](https://krugermed.vercel.app/)
+  Puedes revisar el deploy de cada uno de los microservicos mediante los siguentes enlaces que se dirigen a su documentación mediante swagger:
+  - [Landing microservice](https://landing-production-11fd.up.railway.app/swagger-ui/index.html)
+  - [Product microservice](https://product-production-cf12.up.railway.app/swagger-ui/index.html)
+  - [Order microservice](https://order-production-bfbc.up.railway.app/swagger-ui/index.html)
+  - [Client microservice](https://client-production-d410.up.railway.app/swagger-ui/index.html)
+  - [Service microservice](https://service-production-bb52.up.railway.app/swagger-ui/index.html)
+  - [Invoice microservice](https://invoice-production-ea9a.up.railway.app/swagger-ui/index.html)
+
+  Los servidores se encuentran desplegados en los siguentes enlaces
+  - [Discovery Server](https://discovery-server-production.up.railway.app) 
+  - [Config Server](https://config-server-production-3c6d.up.railway.app)
+  - [Auth Service](https://authserve-production.up.railway.app)
+  - [Gateway](https://api-gateway-production-d841.up.railway.app)
 
 
 <!-- LICENSE -->
