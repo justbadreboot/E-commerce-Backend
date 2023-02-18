@@ -192,10 +192,9 @@ Kruger Med está distribuida bajo los terminos de Apache License Version 2.0. La
 <br />
 
 [![linkedin][linkedin.js]][linkedin4-url] [![github][github.js]][github4-url]
-</div>
+      </div>
       </td>
-    </tr>
-  
+  </tr>
     <tr>
       <td>
       <div>
