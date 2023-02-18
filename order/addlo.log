@@ -1,0 +1,329 @@
+2023-02-17 18:55:58.401  INFO 16644 --- [main] c.m.order.OrderApplicationTests          : Starting OrderApplicationTests using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 16644 (started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order)
+2023-02-17 18:55:58.413  INFO 16644 --- [main] c.m.order.OrderApplicationTests          : The following 1 profile is active: "dev"
+2023-02-17 18:55:58.559  INFO 16644 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-17 18:55:58.559  INFO 16644 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-orders, profiles=[dev], label=null, version=3f2c508d5c4cdfa25cb05645edd0f604814d34de, state=null
+2023-02-17 18:56:02.742  INFO 16644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-17 18:56:03.413  INFO 16644 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 635 ms. Found 5 JPA repository interfaces.
+2023-02-17 18:56:04.074  INFO 16644 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7a6023f7-1d40-3800-a546-1cb375a9e03e
+2023-02-17 18:56:05.266  INFO 16644 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-17 18:56:05.449  INFO 16644 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-17 18:56:05.969  INFO 16644 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-17 18:56:06.334  INFO 16644 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 18:56:10.242  INFO 16644 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 18:56:10.305  INFO 16644 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-17 18:56:18.591  INFO 16644 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-17 18:56:18.628  INFO 16644 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 18:56:21.144  WARN 16644 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-17 18:56:27.963  INFO 16644 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-17 18:56:28.238  WARN 16644 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-17 18:56:28.265  INFO 16644 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-02-17 18:56:28.396  INFO 16644 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-17 18:56:28.628  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-17 18:56:28.642  INFO 16644 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-17 18:56:28.732  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-17 18:56:28.733  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-17 18:56:28.734  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-17 18:56:28.734  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-17 18:56:28.734  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-17 18:56:28.735  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-17 18:56:28.735  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-17 18:56:30.047  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-17 18:56:30.057  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-17 18:56:30.065  INFO 16644 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-17 18:56:30.086  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676678190082 with initial instances count: 10
+2023-02-17 18:56:30.105  INFO 16644 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-ORDERS with eureka with status UP
+2023-02-17 18:56:30.107  INFO 16644 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676678190107, current=UP, previous=STARTING]
+2023-02-17 18:56:30.115  INFO 16644 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:d99a1019c65164bd289766ba427a7167: registering service...
+2023-02-17 18:56:30.311  INFO 16644 --- [main] c.m.order.OrderApplicationTests          : Started OrderApplicationTests in 38.348 seconds (JVM running for 42.156)
+2023-02-17 18:56:31.085  INFO 16644 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:d99a1019c65164bd289766ba427a7167 - registration status: 204
+2023-02-17 18:56:31.741  INFO 16644 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-ORDERS with eureka with status DOWN
+2023-02-17 18:56:31.742  INFO 16644 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676678191742, current=DOWN, previous=UP]
+2023-02-17 18:56:31.742  INFO 16644 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:d99a1019c65164bd289766ba427a7167: registering service...
+2023-02-17 18:56:31.806  INFO 16644 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 18:56:31.821  INFO 16644 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 18:56:32.115  INFO 16644 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:d99a1019c65164bd289766ba427a7167 - registration status: 204
+2023-02-17 18:56:34.566  INFO 16644 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 18:56:34.579  INFO 16644 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-17 18:56:37.612  INFO 16644 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-17 18:56:37.941  INFO 16644 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:d99a1019c65164bd289766ba427a7167 - deregister  status: 200
+2023-02-17 18:56:37.985  INFO 16644 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-02-17 19:02:05.517  INFO 22460 --- [main] com.microservice.order.OrderApplication  : Starting OrderApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 22460 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order)
+2023-02-17 19:02:05.523  INFO 22460 --- [main] com.microservice.order.OrderApplication  : The following 1 profile is active: "dev"
+2023-02-17 19:02:05.600  INFO 22460 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-17 19:02:05.600  INFO 22460 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-orders, profiles=[dev], label=null, version=3f2c508d5c4cdfa25cb05645edd0f604814d34de, state=null
+2023-02-17 19:02:07.726  INFO 22460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-17 19:02:07.897  INFO 22460 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 154 ms. Found 5 JPA repository interfaces.
+2023-02-17 19:02:08.367  INFO 22460 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cd43f2cf-ed71-3b58-892e-58a3e2b9dc1f
+2023-02-17 19:02:09.153  INFO 22460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2023-02-17 19:02:09.176  INFO 22460 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 19:02:09.177  INFO 22460 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-17 19:02:09.581  INFO 22460 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 19:02:09.583  INFO 22460 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3977 ms
+2023-02-17 19:02:10.156  INFO 22460 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-17 19:02:10.256  INFO 22460 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-17 19:02:10.530  INFO 22460 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-17 19:02:10.707  INFO 22460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 19:02:13.531  INFO 22460 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 19:02:13.558  INFO 22460 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-17 19:02:18.743  INFO 22460 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-17 19:02:18.762  INFO 22460 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:02:19.773  WARN 22460 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-17 19:02:22.835  INFO 22460 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-17 19:02:22.955  WARN 22460 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-17 19:02:22.965  INFO 22460 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2023-02-17 19:02:23.136  INFO 22460 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-17 19:02:23.212  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-17 19:02:23.221  INFO 22460 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-17 19:02:23.274  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-17 19:02:23.275  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-17 19:02:23.275  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-17 19:02:23.275  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-17 19:02:23.275  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-17 19:02:23.276  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-17 19:02:23.276  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-17 19:02:24.516  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-17 19:02:24.522  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-17 19:02:24.528  INFO 22460 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-17 19:02:24.538  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676678544536 with initial instances count: 10
+2023-02-17 19:02:24.542  INFO 22460 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-ORDERS with eureka with status UP
+2023-02-17 19:02:24.543  INFO 22460 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676678544543, current=UP, previous=STARTING]
+2023-02-17 19:02:24.547  INFO 22460 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:4047eaf7d93d54076b813ddeeb0f88a1: registering service...
+2023-02-17 19:02:24.616  INFO 22460 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2023-02-17 19:02:24.618  INFO 22460 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2023-02-17 19:02:25.151  INFO 22460 --- [main] com.microservice.order.OrderApplication  : Started OrderApplication in 25.902 seconds (JVM running for 29.084)
+2023-02-17 19:02:25.394  INFO 22460 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:4047eaf7d93d54076b813ddeeb0f88a1 - registration status: 204
+2023-02-17 19:02:26.472  INFO 22460 --- [RMI TCP Connection(3)-172.27.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 19:02:26.473  INFO 22460 --- [RMI TCP Connection(3)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 19:02:26.475  INFO 22460 --- [RMI TCP Connection(3)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-02-17 19:02:51.687  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:02:54.713  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:03:07.759  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:03:32.953  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:03:34.140  INFO 22460 --- [http-nio-8083-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1207 ms
+2023-02-17 19:04:44.002  WARN 22460 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:06:07.295  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:07:05.238  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:07:10.807  INFO 22460 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-ORDERS with eureka with status DOWN
+2023-02-17 19:07:10.865  INFO 22460 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676678830865, current=DOWN, previous=UP]
+2023-02-17 19:07:10.903  INFO 22460 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:4047eaf7d93d54076b813ddeeb0f88a1: registering service...
+2023-02-17 19:07:11.526  INFO 22460 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:4047eaf7d93d54076b813ddeeb0f88a1 - registration status: 204
+2023-02-17 19:07:12.232  WARN 22460 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:07:12.735  INFO 22460 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:07:12.951  INFO 22460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 19:07:23.014  INFO 22460 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 19:07:23.028  INFO 22460 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-17 19:07:23.304  INFO 22460 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-17 19:07:26.061  INFO 22460 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-17 19:07:26.255  INFO 22460 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:4047eaf7d93d54076b813ddeeb0f88a1 - deregister  status: 200
+2023-02-17 19:07:26.282  INFO 22460 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-02-17 19:09:41.436  INFO 14392 --- [main] com.microservice.order.OrderApplication  : Starting OrderApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 14392 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order)
+2023-02-17 19:09:41.445  INFO 14392 --- [main] com.microservice.order.OrderApplication  : The following 1 profile is active: "dev"
+2023-02-17 19:09:41.557  INFO 14392 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-17 19:09:41.558  INFO 14392 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-orders, profiles=[dev], label=null, version=3f2c508d5c4cdfa25cb05645edd0f604814d34de, state=null
+2023-02-17 19:09:43.861  INFO 14392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-17 19:09:44.041  INFO 14392 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 161 ms. Found 5 JPA repository interfaces.
+2023-02-17 19:09:44.478  INFO 14392 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=cd43f2cf-ed71-3b58-892e-58a3e2b9dc1f
+2023-02-17 19:09:45.372  INFO 14392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+2023-02-17 19:09:45.395  INFO 14392 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-17 19:09:45.395  INFO 14392 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-17 19:09:45.749  INFO 14392 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-17 19:09:45.750  INFO 14392 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4187 ms
+2023-02-17 19:09:46.321  INFO 14392 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-17 19:09:46.413  INFO 14392 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-17 19:09:46.684  INFO 14392 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-17 19:09:46.872  INFO 14392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 19:09:50.635  INFO 14392 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 19:09:50.665  INFO 14392 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-17 19:09:56.303  INFO 14392 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-17 19:09:56.317  INFO 14392 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:09:57.306  WARN 14392 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-17 19:10:00.263  INFO 14392 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-17 19:10:00.381  WARN 14392 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-17 19:10:00.390  INFO 14392 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2023-02-17 19:10:00.575  INFO 14392 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-17 19:10:00.638  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-17 19:10:00.648  INFO 14392 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-17 19:10:00.689  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-17 19:10:00.690  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-17 19:10:00.690  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-17 19:10:00.690  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-17 19:10:00.690  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-17 19:10:00.691  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-17 19:10:00.691  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-17 19:10:02.057  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-17 19:10:02.062  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-17 19:10:02.069  INFO 14392 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-17 19:10:02.080  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676679002078 with initial instances count: 10
+2023-02-17 19:10:02.084  INFO 14392 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-ORDERS with eureka with status UP
+2023-02-17 19:10:02.085  INFO 14392 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676679002085, current=UP, previous=STARTING]
+2023-02-17 19:10:02.089  INFO 14392 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:5e9fe501ee12da6a8e55ed5fefb30043: registering service...
+2023-02-17 19:10:02.146  INFO 14392 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+2023-02-17 19:10:02.148  INFO 14392 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2023-02-17 19:10:02.659  INFO 14392 --- [main] com.microservice.order.OrderApplication  : Started OrderApplication in 25.513 seconds (JVM running for 28.482)
+2023-02-17 19:10:02.835  INFO 14392 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:5e9fe501ee12da6a8e55ed5fefb30043 - registration status: 204
+2023-02-17 19:10:03.757  INFO 14392 --- [RMI TCP Connection(4)-172.27.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-17 19:10:03.759  INFO 14392 --- [RMI TCP Connection(4)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-17 19:10:03.762  INFO 14392 --- [RMI TCP Connection(4)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-02-17 19:10:09.905  INFO 14392 --- [http-nio-8083-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 932 ms
+2023-02-17 19:11:37.928  WARN 14392 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-17 19:13:06.024  INFO 14392 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-ORDERS with eureka with status DOWN
+2023-02-17 19:13:06.027  INFO 14392 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676679186027, current=DOWN, previous=UP]
+2023-02-17 19:13:06.030  INFO 14392 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:5e9fe501ee12da6a8e55ed5fefb30043: registering service...
+2023-02-17 19:13:06.856  INFO 14392 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:5e9fe501ee12da6a8e55ed5fefb30043 - registration status: 204
+2023-02-17 19:13:06.951  INFO 14392 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:13:07.040  INFO 14392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 19:13:09.516  INFO 14392 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 19:13:09.522  INFO 14392 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-17 19:13:12.532  WARN 14392 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2023-02-17 19:13:12.540  INFO 14392 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-17 19:13:12.807  INFO 14392 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:5e9fe501ee12da6a8e55ed5fefb30043 - deregister  status: 200
+2023-02-17 19:13:12.831  INFO 14392 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-02-17 19:15:31.424  INFO 3120 --- [main] c.m.order.OrderApplicationTests          : Starting OrderApplicationTests using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 3120 (started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\order)
+2023-02-17 19:15:31.427  INFO 3120 --- [main] c.m.order.OrderApplicationTests          : The following 1 profile is active: "dev"
+2023-02-17 19:15:31.524  INFO 3120 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-17 19:15:31.524  INFO 3120 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-orders, profiles=[dev], label=null, version=3f2c508d5c4cdfa25cb05645edd0f604814d34de, state=null
+2023-02-17 19:15:35.657  INFO 3120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-17 19:15:36.306  INFO 3120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 623 ms. Found 5 JPA repository interfaces.
+2023-02-17 19:15:37.187  INFO 3120 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=54790813-47f3-30fe-a360-f008ac6579b1
+2023-02-17 19:15:38.392  INFO 3120 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-17 19:15:38.572  INFO 3120 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-17 19:15:39.080  INFO 3120 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-17 19:15:39.380  INFO 3120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-17 19:15:43.739  INFO 3120 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-17 19:15:43.790  INFO 3120 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-17 19:15:49.343  INFO 3120 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-17 19:15:49.364  INFO 3120 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:15:54.000  WARN 3120 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-17 19:16:00.955  INFO 3120 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-17 19:16:01.542  WARN 3120 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-17 19:16:01.571  INFO 3120 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-02-17 19:16:01.697  INFO 3120 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-17 19:16:01.919  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-17 19:16:01.933  INFO 3120 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-17 19:16:02.002  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-17 19:16:02.002  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-17 19:16:02.003  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-17 19:16:02.004  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-17 19:16:02.005  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-17 19:16:02.005  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-17 19:16:02.006  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-17 19:16:02.961  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-17 19:16:02.967  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-17 19:16:02.973  INFO 3120 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-17 19:16:02.986  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676679362983 with initial instances count: 10
+2023-02-17 19:16:02.995  INFO 3120 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-ORDERS with eureka with status UP
+2023-02-17 19:16:02.997  INFO 3120 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676679362997, current=UP, previous=STARTING]
+2023-02-17 19:16:03.004  INFO 3120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:7d9a967acfcd0c644e61a4de4a5829e9: registering service...
+2023-02-17 19:16:03.071  INFO 3120 --- [main] c.m.order.OrderApplicationTests          : Started OrderApplicationTests in 36.267 seconds (JVM running for 38.935)
+2023-02-17 19:16:03.741  INFO 3120 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-ORDERS with eureka with status DOWN
+2023-02-17 19:16:03.742  INFO 3120 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676679363742, current=DOWN, previous=UP]
+2023-02-17 19:16:03.768  INFO 3120 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-17 19:16:03.821  INFO 3120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-17 19:16:04.427  INFO 3120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:7d9a967acfcd0c644e61a4de4a5829e9 - registration status: 204
+2023-02-17 19:16:04.428  INFO 3120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:7d9a967acfcd0c644e61a4de4a5829e9: registering service...
+2023-02-17 19:16:04.625  INFO 3120 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:7d9a967acfcd0c644e61a4de4a5829e9 - registration status: 204
+2023-02-17 19:16:06.773  INFO 3120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-17 19:16:06.776  INFO 3120 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-17 19:16:09.783  WARN 3120 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2023-02-17 19:16:09.787  INFO 3120 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-17 19:16:10.360  INFO 3120 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-ORDERS/mcsv-orders:7d9a967acfcd0c644e61a4de4a5829e9 - deregister  status: 200
+2023-02-17 19:16:10.375  INFO 3120 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

@@ -1,0 +1,72 @@
+2023-02-16 19:45:17.104  INFO 21592 --- [main] c.m.landing.LandingApplication           : Starting LandingApplication using Java 11.0.12 on LAPTOP-VCJUUTEJ with PID 21592 (C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing\target\classes started by Usuario in C:\Users\Usuario\Desktop\Desarrollo de Software\Kruger Star\KrugerEcommerce\E-commerce-Backend\landing)
+2023-02-16 19:45:17.112  INFO 21592 --- [main] c.m.landing.LandingApplication           : The following 1 profile is active: "dev"
+2023-02-16 19:45:17.170  INFO 21592 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : https://config-server-production-3c6d.up.railway.app
+2023-02-16 19:45:17.170  INFO 21592 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=mcsv-landing, profiles=[dev], label=null, version=61a171374e7adc3b757a03119920e26d2d62273e, state=null
+2023-02-16 19:45:18.468  INFO 21592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-16 19:45:18.549  INFO 21592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 1 JPA repository interfaces.
+2023-02-16 19:45:18.825  INFO 21592 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=386b861c-db83-343d-a1e0-dfc75b03a46f
+2023-02-16 19:45:19.283  INFO 21592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-02-16 19:45:19.310  INFO 21592 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 19:45:19.310  INFO 21592 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-02-16 19:45:19.512  INFO 21592 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 19:45:19.513  INFO 21592 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2341 ms
+2023-02-16 19:45:19.835  INFO 21592 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-16 19:45:19.902  INFO 21592 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+2023-02-16 19:45:20.076  INFO 21592 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-02-16 19:45:20.206  INFO 21592 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-02-16 19:45:23.745  INFO 21592 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-02-16 19:45:23.762  INFO 21592 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-02-16 19:45:25.263  INFO 21592 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-16 19:45:25.274  INFO 21592 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-16 19:45:25.738  WARN 21592 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-16 19:45:27.451  INFO 21592 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-02-16 19:45:27.531  WARN 21592 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-02-16 19:45:27.538  INFO 21592 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 18 endpoint(s) beneath base path '/actuator'
+2023-02-16 19:45:27.619  INFO 21592 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-02-16 19:45:27.664  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-02-16 19:45:27.671  INFO 21592 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-02-16 19:45:27.702  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-02-16 19:45:27.704  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-02-16 19:45:28.567  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-02-16 19:45:28.571  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 1
+2023-02-16 19:45:28.574  INFO 21592 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-02-16 19:45:28.579  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1676594728578 with initial instances count: 8
+2023-02-16 19:45:28.581  INFO 21592 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MCSV-LANDING with eureka with status UP
+2023-02-16 19:45:28.582  INFO 21592 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676594728582, current=UP, previous=STARTING]
+2023-02-16 19:45:28.585  INFO 21592 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:cff64f7e1ad845f2e4c9e210674c684c: registering service...
+2023-02-16 19:45:28.620  INFO 21592 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2023-02-16 19:45:28.622  INFO 21592 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2023-02-16 19:45:28.865  INFO 21592 --- [main] c.m.landing.LandingApplication           : Started LandingApplication in 14.697 seconds (JVM running for 16.517)
+2023-02-16 19:45:29.089  INFO 21592 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:cff64f7e1ad845f2e4c9e210674c684c - registration status: 204
+2023-02-16 19:45:29.493  INFO 21592 --- [RMI TCP Connection(2)-172.27.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 19:45:29.494  INFO 21592 --- [RMI TCP Connection(2)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 19:45:29.495  INFO 21592 --- [RMI TCP Connection(2)-172.27.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-02-16 19:45:47.218  WARN 21592 --- [DiscoveryClient-0] c.netflix.discovery.TimedSupervisorTask  : task supervisor timed out
+
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[na:na]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:68) ~[eureka-client-1.10.17.jar:1.10.17]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:829) ~[na:na]
+
+2023-02-16 19:47:36.873  INFO 21592 --- [http-nio-8082-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1305 ms
+2023-02-16 19:48:04.115  INFO 21592 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MCSV-LANDING with eureka with status DOWN
+2023-02-16 19:48:04.115  INFO 21592 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676594884115, current=DOWN, previous=UP]
+2023-02-16 19:48:04.115  INFO 21592 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:cff64f7e1ad845f2e4c9e210674c684c: registering service...
+2023-02-16 19:48:04.262  INFO 21592 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:cff64f7e1ad845f2e4c9e210674c684c - registration status: 204
+2023-02-16 19:48:04.348  INFO 21592 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-02-16 19:48:04.375  INFO 21592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-02-16 19:48:06.429  INFO 21592 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-02-16 19:48:06.432  INFO 21592 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-02-16 19:48:09.446  INFO 21592 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-02-16 19:48:09.596  INFO 21592 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MCSV-LANDING/mcsv-landing:cff64f7e1ad845f2e4c9e210674c684c - deregister  status: 200
+2023-02-16 19:48:09.602  INFO 21592 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
