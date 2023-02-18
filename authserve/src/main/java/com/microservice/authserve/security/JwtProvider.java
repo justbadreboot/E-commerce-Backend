@@ -18,11 +18,9 @@ import io.jsonwebtoken.JwtParser;
 
 @Slf4j
 public class JwtProvider {
-    @Value("${jwt-secret-word}")
-    private static String secret;
+
     private static final Key LlAVE_SECRETA = new SecretKeySpec("secretnameforsecurityKrug3rM3d$$@drds@h17".getBytes(), SignatureAlgorithm.HS512.getJcaName());
 
-    private static final long TIEMPO_EXPIRACION = 3600_000;
     @Autowired
     private static RouteValidator routeValidator;
 
@@ -50,8 +48,10 @@ public class JwtProvider {
 
     public static boolean validate(String token, RequestDTO dto) {
         try {
+            JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+            parser.parseClaimsJws(token);
 
-            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
             log.info("Entrando a la validacion, creacion de parseclaim exitosa");
         }catch (Exception e) {
             return false;
@@ -65,26 +65,24 @@ public class JwtProvider {
 
     public static boolean validateClient(String token, RequestDTO dto){
         try{
-            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+            JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+            parser.parseClaimsJws(token);
+            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
         }catch (Exception e){
             return false;
         }
-        if (!isClient(token) && routeValidatorClient.isClientPath(dto)){
-            return false;
-        }
-        return true;
+        return isClient(token) || !routeValidatorClient.isClientPath(dto);
     }
 
     public static boolean validateRepartidor(String token, RequestDTO dto){
         try {
-            Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
+            JwtParser parser = Jwts.parserBuilder().setSigningKey(LlAVE_SECRETA).build();
+            parser.parseClaimsJws(token);
+            //Jwts.parser().setSigningKey(LlAVE_SECRETA).parseClaimsJws(token);
         }catch (Exception e){
             return false;
         }
-        if (!isRepartidor(token) && routeValidatorRepartidor.inRepartidorPath(dto)){
-            return false;
-        }
-        return true;
+        return isRepartidor(token) || !routeValidatorRepartidor.inRepartidorPath(dto);
     }
 
 

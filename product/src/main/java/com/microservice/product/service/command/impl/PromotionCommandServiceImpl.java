@@ -41,7 +41,6 @@ public class PromotionCommandServiceImpl implements PromotionCommandService {
         promotion.setEndDate(promotionPostDTO.getEndDate());
         promotion.setImage(promotionPostDTO.getImage());
         promotion.setStartDate(promotionPostDTO.getStartDate());
-        //promotion.setPromotionTypes(promotionPostDTO.getPromotionTypeDTO());
     }
 
     @Override

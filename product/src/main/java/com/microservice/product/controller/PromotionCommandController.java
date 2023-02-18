@@ -48,7 +48,6 @@ public class PromotionCommandController {
             promotionBD.setStartDate(promotionPostDTO.getStartDate());
             promotionBD.setPromotionTypes(promotionPostDTO.getPromotionTypes());
             promotionBD.setProduct(promotionPostDTO.getProduct());
-            //promotionCommandService.mapperPromotion(promotionBD, promotionPostDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(promotionRepository.save(promotionBD));
         }
         log.warn("No se pudo actualizar");

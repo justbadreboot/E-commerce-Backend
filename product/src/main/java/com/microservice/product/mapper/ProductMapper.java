@@ -5,7 +5,6 @@ import com.microservice.product.dto.ProductPostDTO;
 import com.microservice.product.dto.ProductSameCategoryDTO;
 import com.microservice.product.entity.Product;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
