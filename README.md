@@ -55,7 +55,7 @@ Esta aplicación está enfocada en el desarrollo de la logica del negocio y de e
 
 Existen 3 roles definidos: ADMINISTRADOR, CLIENTE Y REPARTIDOR
 
-Para la implementación de este proyecto se ha empleado la siguiente arquitectura.
+Para la implementación de este proyecto se ha empleado la siguiente arquitectura:
 
 ![ProjectArchitecture2 0](https://user-images.githubusercontent.com/80604082/219834772-a94dfd72-6bf2-4328-9e4c-968c9ec7db07.jpg)
 
@@ -69,12 +69,12 @@ Para la implementación de este proyecto se ha empleado la siguiente arquitectur
 - Seguridad basada en tokens con Spring Security mediante un servidor de autenticación. 
 - Descubrimiento de servicios mediante Eureka
 - Configuración centralizada mediante Config Server
-- Api Gateway para redireccion de peticiones atraves de la misma
+- Api Gateway para redirección de peticiones a través de la misma
 - CircuitBreaker para manejo de errores.
-- CQRS para separación de logica entre query & commands.
+- CQRS para separación de lógica entre query & commands.
 - DatabasePerService, base de datos para cada microservicio (postgres & mysql)
-- Decomposition innerente a microservicios aplicando arquitectura distribuida.
-- Metricas mediante prometheus y grafana.
+- Decomposition inherente a microservicios aplicando arquitectura distribuida.
+- Métricas mediante prometheus y grafana.
 
 
 #  🔨 Built with
@@ -123,7 +123,7 @@ Instalar todas las dependencias
 
 Al ser microservicios se debe iniciar cada proyecto individualmente en un ID de desarrollo
 
-Por defecto la aplicación se ejecutará en tu navegador en https://localhost:8080
+Por defecto la aplicación se ejecutará en tu navegador en http://localhost:8080 o en el puerto establecido en el config server
 
 
 ## 🧪 Running Tests
@@ -160,7 +160,7 @@ Estos endpoint son de consumo mediante token de usuario con rol REPARTIDOR a tra
 
 # 💻 Live Demo
 
-  Puedes revisar el deploy de cada uno de los microservicos mediante los siguentes enlaces que se dirigen a su documentación mediante swagger:
+  Puedes revisar el deploy de cada uno de los microservicos mediante los siguentes enlaces que se dirigen a su documentación en swagger:
   - [Landing microservice](https://landing-production-11fd.up.railway.app/swagger-ui/index.html)
   - [Product microservice](https://product-production-cf12.up.railway.app/swagger-ui/index.html)
   - [Order microservice](https://order-production-bfbc.up.railway.app/swagger-ui/index.html)
@@ -267,8 +267,8 @@ Kruger Med está distribuida bajo los terminos de Apache License Version 2.0. La
 [github.js]: https://img.shields.io/badge/-GitHub-181717?logo=GitHub
 [github-url]: https://github.com/DaniCis
 [github2-url]: https://github.com/Adrian-Bastidas
-[github3-url]: https://github.com/orgs/justbadreboot/people/BryanArmando
-[github4-url]: https://github.com/orgs/justbadreboot/people/jonato96
+[github3-url]: https://github.com/BryanArmando
+[github4-url]: https://github.com/jonato96
 
 [usage-screenshot]: /src/assets/img/main.gif
 [client-screenshot]: /src/assets/img/carrito.gif
