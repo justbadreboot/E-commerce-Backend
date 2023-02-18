@@ -73,5 +73,4 @@ public class ClientQueryController {
         log.info("Inside method to delete a client by id");
         return ResponseEntity.status(HttpStatus.OK).body(service.countTotalClient());
     }
-
 }

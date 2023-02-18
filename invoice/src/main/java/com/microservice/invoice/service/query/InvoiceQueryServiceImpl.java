@@ -11,7 +11,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,11 +32,6 @@ public class InvoiceQueryServiceImpl implements InvoiceQueryService {
     }
 
     private static Integer convertToInteger(Object o) {
-        String stringToConvert = String.valueOf(o);
-        return (int)Double.parseDouble(stringToConvert);
-    }
-
-    private static Integer convertToDate(Object o) {
         String stringToConvert = String.valueOf(o);
         return (int)Double.parseDouble(stringToConvert);
     }

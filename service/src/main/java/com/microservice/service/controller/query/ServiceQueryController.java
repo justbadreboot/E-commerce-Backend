@@ -1,12 +1,7 @@
 package com.microservice.service.controller.query;
 
 import com.microservice.service.dto.ServiceGetDto;
-import com.microservice.service.entity.Service;
-import com.microservice.service.entity.Specialty;
-import com.microservice.service.services.command.ServiceCommand;
-import com.microservice.service.services.command.SpecialtyCommandService;
 import com.microservice.service.services.query.ServiceQuery;
-import com.microservice.service.services.query.SpecialtyQueryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

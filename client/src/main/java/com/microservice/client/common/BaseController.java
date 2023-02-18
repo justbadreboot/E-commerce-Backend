@@ -14,8 +14,8 @@ public class BaseController {
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidateExceptions(MethodArgumentNotValidException ex){
-        Map<String, String> errors = new HashMap<String, String>();
-        ex.getBindingResult().getAllErrors().forEach((error)->{
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach(error->{
             String fieldName = ((FieldError) error).getField();
             String message = error.getDefaultMessage();
             errors.put(fieldName, message);

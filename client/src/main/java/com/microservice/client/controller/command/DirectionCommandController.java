@@ -24,7 +24,8 @@ public class DirectionCommandController {
     private ClientQueryService clientService;
 
     @PostMapping("/cliente/client/{id}/direction")
-    public ResponseEntity<?> createDirection(@PathVariable("id") @Min(1) Integer id, @RequestBody @Valid DirectionPostDTO directionPostDTO) {
+    public ResponseEntity<?> createDirection(@PathVariable("id") @Min(1) Integer id,
+                                             @RequestBody @Valid DirectionPostDTO directionPostDTO) {
         ClientGetDTO clientFound = clientService.findById(id);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");
@@ -34,7 +35,8 @@ public class DirectionCommandController {
     }
 
     @PutMapping("cliente/client/{id}/direction")
-    public ResponseEntity<?> editDirection(@Valid @PathVariable("id") Integer id, @RequestBody @Valid DirectionPostDTO directionPostDTO) {
+    public ResponseEntity<?> editDirection(@Valid @PathVariable("id") Integer id,
+                                           @RequestBody @Valid DirectionPostDTO directionPostDTO) {
         ClientGetDTO clientFound = clientService.findById(id);
         if(clientFound == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Client not found");

@@ -3,7 +3,6 @@ package com.microservice.service.controller.command;
 import com.microservice.service.dto.AppointmentGetDTO;
 import com.microservice.service.dto.AppointmentPostDTO;
 import com.microservice.service.dto.ServiceGetDto;
-import com.microservice.service.entity.Appointment;
 import com.microservice.service.services.command.AppointmentCommandService;
 import com.microservice.service.services.query.AppointmentQueryService;
 import com.microservice.service.services.query.ServiceQuery;
@@ -59,5 +58,4 @@ public class AppointmentCommandController {
         appointmentService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }
