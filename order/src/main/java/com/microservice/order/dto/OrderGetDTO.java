@@ -17,15 +17,15 @@ import java.util.List;
 public class OrderGetDTO {
 
     private Integer id;
-    @NotBlank
+    //@NotBlank
     private Date date;
-    @NotBlank
+    //@NotBlank
     private Double total;
-    @NotBlank
+    //@NotBlank
     private Double subtotal;
-    @NotBlank
+    //@NotBlank
     private Integer idClient;
-    @NotBlank
+    //@NotBlank
     private Integer idAddress;
 
     private String clientDocument;

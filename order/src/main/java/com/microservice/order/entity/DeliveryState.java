@@ -12,7 +12,7 @@ public class DeliveryState {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+    //@NotBlank
     private String state;
 
 }

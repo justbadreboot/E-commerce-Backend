@@ -17,16 +17,16 @@ public class Order extends Auditable<String> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+
     private Date date;
 
-    @NotBlank
+    //@NotBlank
     private Double total;
-    @NotBlank
+    //@NotBlank
     private Double subtotal;
-    @NotBlank
+    //@NotBlank
     private Integer idClient;
-    @NotBlank
+    //@NotBlank
     private Integer idAddress;
 
     private String clientDocument;

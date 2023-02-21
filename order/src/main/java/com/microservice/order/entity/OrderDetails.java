@@ -14,13 +14,13 @@ public class OrderDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+    //@NotBlank
     private String name;
-    @NotBlank
+    //@NotBlank
     private Integer amount;
-    @NotBlank
+    //@NotBlank
     private Double price;
-    @NotBlank
+    //@NotBlank
     private Integer orderId;
 
 
